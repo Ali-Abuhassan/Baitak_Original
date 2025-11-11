@@ -1,0 +1,5302 @@
+{
+  "info": {
+    "name": "Baitak API Collection",
+    "description": "Complete API collection for Baitak service marketplace backend",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://swaggering-hypogastric-kasandra.ngrok-free.dev",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "user_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "provider_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "admin_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "language",
+      "value": "en",
+      "type": "string",
+      "description": "Language code: en for English, ar for Arabic"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/health",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "health"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/health",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "health"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Server is healthy\",\n  \"timestamp\": \"2024-01-01T00:00:00.000Z\",\n  \"environment\": \"development\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "API Welcome",
+      "item": [
+        {
+          "name": "API Welcome",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Welcome to Baitak API\",\n  \"version\": \"1.0.0\",\n  \"endpoints\": {\n    \"auth\": \"/api/auth\",\n    \"users\": \"/api/users\",\n    \"providers\": \"/api/providers\",\n    \"categories\": \"/api/categories\",\n    \"services\": \"/api/services\",\n    \"bookings\": \"/api/bookings\",\n    \"ratings\": \"/api/ratings\",\n    \"admin\": \"/api/admin\",\n    \"search\": \"/api/search\",\n    \"locations\": \"/api/locations\"\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Send OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone\": \"+1234567890\",\n  \"purpose\": \"login\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/send-otp",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "send-otp"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone\": \"+1234567890\",\n  \"purpose\": \"login\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/auth/send-otp",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "send-otp"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"OTP sent successfully\",\n  \"data\": {\n    \"purpose\": \"login\",\n    \"expires_in\": \"10 minutes\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Verify OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone\": \"+1234567890\",\n  \"otp\": \"123456\",\n  \"purpose\": \"login\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/verify-otp",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "verify-otp"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone\": \"+1234567890\",\n  \"otp\": \"123456\",\n  \"purpose\": \"login\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/auth/verify-otp",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "verify-otp"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"OTP verified successfully\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\",\n    \"user\": {\n      \"id\": 1,\n      \"first_name\": \"John\",\n      \"last_name\": \"Doe\",\n      \"phone\": \"+1234567890\",\n      \"email\": \"john@example.com\",\n      \"role\": \"customer\",\n      \"is_verified\": true\n    },\n    \"is_new_user\": false\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone\": \"+1234567890\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone\": \"+1234567890\",\n  \"password\": \"password123\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/auth/login",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Login successful\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\",\n    \"user\": {\n      \"id\": 1,\n      \"first_name\": \"John\",\n      \"last_name\": \"Doe\",\n      \"phone\": \"+1234567890\",\n      \"email\": \"john@example.com\",\n      \"role\": \"customer\"\n    },\n    \"provider_profile\": null\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Signup",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"phone\": \"+1234567890\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"customer\",\n  \"city_id\": 1,\n  \"area_id\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/signup",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "signup"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"phone\": \"+1234567890\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"customer\",\n  \"city_id\": 1,\n  \"area_id\": 1\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/auth/signup",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "signup"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Account created successfully\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\",\n    \"user\": {\n      \"id\": 1,\n      \"first_name\": \"John\",\n      \"last_name\": \"Doe\",\n      \"phone\": \"+1234567890\",\n      \"email\": \"john@example.com\",\n      \"role\": \"customer\"\n    },\n    \"verification_required\": true\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{user_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "profile"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{user_token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/auth/profile",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "profile"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Profile retrieved successfully\",\n  \"data\": {\n    \"user\": {\n      \"id\": 1,\n      \"first_name\": \"John\",\n      \"last_name\": \"Doe\",\n      \"phone\": \"+1234567890\",\n      \"email\": \"john@example.com\",\n      \"role\": \"customer\"\n    },\n    \"provider_profile\": null\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{user_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"John\",\n  \"last_name\": \"Smith\",\n  \"email\": \"johnsmith@example.com\",\n  \"address\": \"123 Main St\",\n  \"city_id\": {{city_id}},\n  \"area_id\": {{area_id}}\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "profile"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{user_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"John\",\n  \"last_name\": \"Smith\",\n  \"email\": \"johnsmith@example.com\",\n  \"address\": \"123 Main St\",\n  \"city_id\": {{city_id}},\n  \"area_id\": {{area_id}}\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/auth/profile",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "profile"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Profile updated successfully\",\n  \"data\": {\n    \"user\": {\n      \"id\": 1,\n      \"first_name\": \"John\",\n      \"last_name\": \"Smith\",\n      \"phone\": \"+1234567890\",\n      \"email\": \"johnsmith@example.com\",\n      \"role\": \"customer\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Change Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{user_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"current_password\": \"oldpassword123\",\n  \"new_password\": \"newpassword123\",\n  \"confirm_password\": \"newpassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/change-password",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "change-password"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{user_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"current_password\": \"oldpassword123\",\n  \"new_password\": \"newpassword123\",\n  \"confirm_password\": \"newpassword123\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/auth/change-password",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "change-password"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Password changed successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{user_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/refresh-token",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "refresh-token"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{user_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/auth/refresh-token",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "refresh-token"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Token refreshed successfully\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Test Multilingual - English",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Language",
+                "value": "en"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/categories",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "English Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Language",
+                    "value": "en"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/categories",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Categories retrieved successfully\",\n  \"data\": {\n    \"categories\": [\n      {\n        \"id\": 1,\n        \"name\": \"Cleaning\",\n        \"name_en\": \"Cleaning\",\n        \"name_ar\": \"تنظيف\",\n        \"slug\": \"cleaning\",\n        \"description\": \"Professional home and office cleaning services\",\n        \"description_en\": \"Professional home and office cleaning services\",\n        \"description_ar\": \"خدمات تنظيف منزلية ومكتبية احترافية\",\n        \"icon\": \"🧹\"\n      }\n    ]\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Test Multilingual - Arabic",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Language",
+                "value": "ar"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/categories",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Arabic Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Language",
+                    "value": "ar"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/categories",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"تم استرداد الفئات بنجاح\",\n  \"data\": {\n    \"categories\": [\n      {\n        \"id\": 1,\n        \"name\": \"Cleaning\",\n        \"name_en\": \"Cleaning\",\n        \"name_ar\": \"تنظيف\",\n        \"slug\": \"cleaning\",\n        \"description\": \"Professional home and office cleaning services\",\n        \"description_en\": \"Professional home and office cleaning services\",\n        \"description_ar\": \"خدمات تنظيف منزلية ومكتبية احترافية\",\n        \"icon\": \"🧹\"\n      }\n    ]\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get User Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{user_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/users/profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{user_token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/users/profile",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "users",
+                    "profile"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"user\": {\n      \"id\": 1,\n      \"first_name\": \"John\",\n      \"last_name\": \"Doe\",\n      \"phone\": \"+1234567890\",\n      \"email\": \"john@example.com\",\n      \"role\": \"customer\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Profile Image",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{user_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "profile_image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/users/profile/image",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile",
+                "image"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{user_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "profile_image",
+                      "type": "file",
+                      "src": []
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/users/profile/image",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "users",
+                    "profile",
+                    "image"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Profile image updated successfully\",\n  \"data\": {\n    \"profile_image\": \"http://localhost:3026/uploads/profiles/filename.jpg\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get User Bookings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{user_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/users/bookings?page=1&limit=10&status=pending",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "bookings"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "status",
+                  "value": "pending"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{user_token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/users/bookings?page=1&limit=10&status=pending",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "users",
+                    "bookings"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "status",
+                      "value": "pending"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"bookings\": [\n      {\n        \"id\": 1,\n        \"booking_number\": \"BK001\",\n        \"status\": \"pending\",\n        \"booking_date\": \"2024-01-15\",\n        \"booking_time\": \"10:00\",\n        \"total_price\": 150.00,\n        \"provider\": {\n          \"id\": 1,\n          \"business_name\": \"Clean Pro Services\",\n          \"user\": {\n            \"first_name\": \"Jane\",\n            \"last_name\": \"Smith\",\n            \"phone\": \"+1234567891\"\n          }\n        },\n        \"service\": {\n          \"name\": \"House Cleaning\",\n          \"description\": \"Complete house cleaning service\"\n        }\n      }\n    ],\n    \"pagination\": {\n      \"current_page\": 1,\n      \"total_pages\": 5,\n      \"total_bookings\": 50,\n      \"limit\": 10\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get User Statistics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{user_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/users/statistics",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "statistics"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{user_token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/users/statistics",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "users",
+                    "statistics"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"statistics\": {\n      \"total_bookings\": 25,\n      \"completed_bookings\": 20,\n      \"upcoming_bookings\": 3,\n      \"total_spent\": 2500.00,\n      \"ratings_given\": 15\n    }\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Providers",
+      "item": [
+        {
+          "name": "Get Providers by Category",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{provider_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/providers/category/{{category_id}}?page=1&limit=10&min_rating=4.0&max_price=100&city_id={{city_id}}&area_id={{area_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "providers",
+                "category",
+                "{{category_id}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (default: 1)"
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Results per page (default: 10)"
+                },
+                {
+                  "key": "min_rating",
+                  "value": "4.0",
+                  "description": "Minimum rating (optional)"
+                },
+                {
+                  "key": "max_price",
+                  "value": "100",
+                  "description": "Maximum hourly rate (optional)"
+                },
+                {
+                  "key": "city_id",
+                  "value": "{{city_id}}",
+                  "description": "City ID filter (optional)"
+                },
+                {
+                  "key": "area_id",
+                  "value": "{{area_id}}",
+                  "description": "Area ID filter (optional)"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Providers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{provider_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/providers?page=1&limit=10&min_rating=4.0&max_price=100&category_id={{category_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "providers"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "min_rating",
+                  "value": "4.0"
+                },
+                {
+                  "key": "max_price",
+                  "value": "100"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{provider_token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/providers?page=1&limit=10&min_rating=4.0&max_price=100",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "providers"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "min_rating",
+                      "value": "4.0"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Providers retrieved successfully\",\n  \"data\": {\n    \"providers\": [\n      {\n        \"id\": 1,\n        \"business_name\": \"Sparkle Clean Services\",\n        \"business_name_en\": \"Sparkle Clean Services\",\n        \"business_name_ar\": \"خدمات تنظيف سباركل\",\n        \"bio\": \"Professional cleaning service with 10+ years experience. We use eco-friendly products.\",\n        \"bio_en\": \"Professional cleaning service with 10+ years experience. We use eco-friendly products.\",\n        \"bio_ar\": \"خدمة تنظيف احترافية مع أكثر من 10 سنوات من الخبرة. نستخدم منتجات صديقة للبيئة.\",\n        \"hourly_rate\": 35.00,\n        \"rating_avg\": 4.8,\n        \"rating_count\": 127,\n        \"status\": \"approved\",\n        \"verification_badges\": [\n          {\n            \"type\": \"id_verified\",\n            \"label_en\": \"ID Verified\",\n            \"label_ar\": \"الهوية موثقة\",\n            \"icon\": \"🆔\"\n          },\n          {\n            \"type\": \"license_verified\",\n            \"label_en\": \"Vocational License\",\n            \"label_ar\": \"رخصة مهنية\",\n            \"icon\": \"📜\"\n          }\n        ],\n        \"user\": {\n          \"first_name\": \"Ahmed\",\n          \"last_name\": \"Hassan\",\n          \"phone\": \"+1234567894\",\n          \"email\": \"ahmed.h@example.com\",\n          \"profile_image\": \"profile.jpg\",\n          \"city\": {\n            \"name_en\": \"Amman\",\n            \"name_ar\": \"عمان\"\n          },\n          \"area\": {\n            \"name_en\": \"Abdoun\",\n            \"name_ar\": \"عبدون\"\n          }\n        }\n      }\n    ],\n    \"pagination\": {\n      \"current_page\": 1,\n      \"total_pages\": 5,\n      \"total_providers\": 50,\n      \"limit\": 10\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Provider by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{provider_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/providers/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "providers",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{provider_token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/providers/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "providers",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"provider\": {\n      \"id\": 1,\n      \"business_name\": \"Clean Pro Services\",\n      \"bio\": \"Professional cleaning services\",\n      \"hourly_rate\": 50.00,\n      \"rating_avg\": 4.8,\n      \"rating_count\": 25,\n      \"status\": \"approved\",\n      \"verification_badges\": [\n        {\n          \"type\": \"id_verified\",\n          \"label_en\": \"ID Verified\",\n          \"label_ar\": \"الهوية موثقة\",\n          \"icon\": \"🆔\",\n          \"description_en\": \"This provider has verified their identity\",\n          \"description_ar\": \"تم التحقق من هوية هذا المزود\"\n        },\n        {\n          \"type\": \"license_verified\",\n          \"label_en\": \"Vocational License\",\n          \"label_ar\": \"رخصة مهنية\",\n          \"icon\": \"📜\",\n          \"description_en\": \"This provider holds a valid vocational license\",\n          \"description_ar\": \"يحتوي هذا المزود على رخصة مهنية صالحة\"\n        },\n        {\n          \"type\": \"police_clearance_verified\",\n          \"label_en\": \"Police Clearance\",\n          \"label_ar\": \"عدم محكومية\",\n          \"icon\": \"✅\",\n          \"description_en\": \"This provider has a clean police record\",\n          \"description_ar\": \"لا يوجد سجل جنائي لهذا المزود\"\n        }\n      ],\n      \"user\": {\n        \"first_name\": \"Jane\",\n        \"last_name\": \"Smith\",\n        \"phone\": \"+1234567891\",\n        \"email\": \"jane@cleanpro.com\",\n        \"profile_image\": \"profile.jpg\",\n        \"city\": \"New York\",\n        \"area\": \"Manhattan\"\n      },\n      \"services\": [\n        {\n          \"id\": 1,\n          \"name\": \"House Cleaning\",\n          \"description\": \"Complete house cleaning service\",\n          \"base_price\": 50.00,\n          \"category\": {\n            \"name\": \"Cleaning\",\n            \"slug\": \"cleaning\"\n          }\n        }\n      ],\n      \"ratings_received\": [\n        {\n          \"id\": 1,\n          \"rating\": 5,\n          \"review\": \"Excellent service!\",\n          \"customer\": {\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\"\n          }\n        }\n      ]\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Register as Provider (with Verification Documents)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "first_name",
+                  "value": "Jane",
+                  "type": "text"
+                },
+                {
+                  "key": "last_name",
+                  "value": "Smith",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "+1234567891",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "jane@cleanpro.com",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "password123",
+                  "type": "text"
+                },
+                {
+                  "key": "city_id",
+                  "value": "{{city_id}}",
+                  "type": "text"
+                },
+                {
+                  "key": "area_id",
+                  "value": "{{area_id}}",
+                  "type": "text"
+                },
+                {
+                  "key": "business_name",
+                  "value": "Clean Pro Services",
+                  "type": "text"
+                },
+                {
+                  "key": "bio",
+                  "value": "Professional cleaning services",
+                  "type": "text"
+                },
+                {
+                  "key": "hourly_rate",
+                  "value": "50.00",
+                  "type": "text"
+                },
+                {
+                  "key": "experience_years",
+                  "value": "5",
+                  "type": "text"
+                },
+                {
+                  "key": "category_id",
+                  "value": "{{cleaning_category_id}}",
+                  "type": "text",
+                  "description": "Category ID"
+                },
+                {
+                  "key": "languages",
+                  "value": "[\"English\", \"Spanish\"]",
+                  "type": "text"
+                },
+                {
+                  "key": "service_areas",
+                  "value": "[\"Manhattan\", \"Brooklyn\"]",
+                  "type": "text"
+                },
+                {
+                  "key": "available_days",
+                  "value": "[\"monday\", \"tuesday\", \"wednesday\", \"thursday\", \"friday\"]",
+                  "type": "text"
+                },
+                {
+                  "key": "working_hours",
+                  "value": "{\"start\":\"09:00\",\"end\":\"18:00\"}",
+                  "type": "text"
+                },
+                {
+                  "key": "certifications",
+                  "value": "[\"Cleaning Certification\"]",
+                  "type": "text"
+                },
+                {
+                  "key": "id_verified_image",
+                  "type": "file",
+                  "src": [],
+                  "description": "ID Verification Image (REQUIRED)"
+                },
+                {
+                  "key": "vocational_license_image",
+                  "type": "file",
+                  "src": [],
+                  "description": "Vocational License Image (REQUIRED)"
+                },
+                {
+                  "key": "police_clearance_image",
+                  "type": "file",
+                  "src": [],
+                  "description": "Police Clearance Image (REQUIRED)"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/providers/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "providers",
+                "register"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response - With Verification Documents",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Language",
+                    "value": "{{language}}"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "first_name",
+                      "value": "Jane",
+                      "type": "text"
+                    },
+                    {
+                      "key": "business_name",
+                      "value": "Clean Pro Services",
+                      "type": "text"
+                    },
+                    {
+                      "key": "id_verified_image",
+                      "type": "file",
+                      "src": []
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/providers/register",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "providers",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Provider registration submitted successfully. Your application is under review.\",\n  \"data\": {\n    \"provider\": {\n      \"id\": 1,\n      \"business_name\": \"Clean Pro Services\",\n      \"status\": \"pending\",\n      \"id_verified_image\": \"id-image.jpg\",\n      \"vocational_license_image\": \"license-image.jpg\",\n      \"police_clearance_image\": \"clearance-image.jpg\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Register as Provider (JSON Only - No Documents)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"Jane\",\n  \"last_name\": \"Smith\",\n  \"phone\": \"+1234567891\",\n  \"email\": \"jane@cleanpro.com\",\n  \"password\": \"password123\",\n  \"city_id\": {{city_id}},\n  \"area_id\": {{area_id}},\n  \"business_name\": \"Clean Pro Services\",\n  \"bio\": \"Professional cleaning services\",\n  \"hourly_rate\": 50.00,\n  \"experience_years\": 5,\n  \"category_id\": {{cleaning_category_id}},\n  \"languages\": [\"English\", \"Spanish\"],\n  \"service_areas\": [\"Manhattan\", \"Brooklyn\"],\n  \"available_days\": [\"monday\", \"tuesday\", \"wednesday\", \"thursday\", \"friday\"],\n  \"working_hours\": {\n    \"start\": \"09:00\",\n    \"end\": \"18:00\"\n  },\n  \"certifications\": [\"Cleaning Certification\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/providers/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "providers",
+                "register"
+              ]
+            },
+            "description": "⚠️ DEPRECATED: This request will fail. Verification documents are now REQUIRED. Use 'Register as Provider (with Verification Documents)' instead."
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{provider_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"Jane\",\n  \"last_name\": \"Smith\",\n  \"phone\": \"+1234567891\",\n  \"email\": \"jane@cleanpro.com\",\n  \"password\": \"password123\",\n  \"city_id\": {{city_id}},\n  \"area_id\": {{area_id}},\n  \"business_name\": \"Clean Pro Services\",\n  \"bio\": \"Professional cleaning services\",\n  \"hourly_rate\": 50.00,\n  \"experience_years\": 5,\n  \"languages\": [\"English\", \"Spanish\"],\n  \"service_areas\": [\"Manhattan\", \"Brooklyn\"],\n  \"available_days\": [\"monday\", \"tuesday\", \"wednesday\", \"thursday\", \"friday\"],\n  \"working_hours\": {\n    \"start\": \"09:00\",\n    \"end\": \"18:00\"\n  },\n  \"categories\": [1, 2],\n  \"certifications\": [\"Cleaning Certification\"]\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/providers/register",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "providers",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Provider registration submitted successfully. Your application is under review.\",\n  \"data\": {\n    \"provider\": {\n      \"id\": 1,\n      \"business_name\": \"Clean Pro Services\",\n      \"status\": \"pending\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Provider Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{provider_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"business_name\": \"Clean Pro Services Updated\",\n  \"bio\": \"Updated professional cleaning services\",\n  \"hourly_rate\": 55.00,\n  \"experience_years\": 6,\n  \"languages\": [\"English\", \"Spanish\", \"French\"],\n  \"service_areas\": [\"Manhattan\", \"Brooklyn\", \"Queens\"],\n  \"available_days\": [\"monday\", \"tuesday\", \"wednesday\", \"thursday\", \"friday\", \"saturday\"],\n  \"working_hours\": {\n    \"start\": \"08:00\",\n    \"end\": \"19:00\"\n  },\n  \"instant_booking\": true,\n  \"cancellation_policy\": \"24 hours notice required\",\n  \"certifications\": [\"Cleaning Certification\", \"Safety Certification\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/providers/profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "providers",
+                "profile"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{provider_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"business_name\": \"Clean Pro Services Updated\",\n  \"bio\": \"Updated professional cleaning services\",\n  \"hourly_rate\": 55.00,\n  \"experience_years\": 6,\n  \"languages\": [\"English\", \"Spanish\", \"French\"],\n  \"service_areas\": [\"Manhattan\", \"Brooklyn\", \"Queens\"],\n  \"available_days\": [\"monday\", \"tuesday\", \"wednesday\", \"thursday\", \"friday\", \"saturday\"],\n  \"working_hours\": {\n    \"start\": \"08:00\",\n    \"end\": \"19:00\"\n  },\n  \"instant_booking\": true,\n  \"cancellation_policy\": \"24 hours notice required\",\n  \"certifications\": [\"Cleaning Certification\", \"Safety Certification\"]\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/providers/profile",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "providers",
+                    "profile"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Provider profile updated successfully\",\n  \"data\": {\n    \"provider\": {\n      \"id\": 1,\n      \"business_name\": \"Clean Pro Services Updated\",\n      \"bio\": \"Updated professional cleaning services\",\n      \"hourly_rate\": 55.00,\n      \"status\": \"approved\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Provider Dashboard Stats",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{provider_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/providers/dashboard/stats",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "providers",
+                "dashboard",
+                "stats"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{provider_token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/providers/dashboard/stats",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "providers",
+                    "dashboard",
+                    "stats"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"statistics\": {\n      \"total_bookings\": 50,\n      \"completed_bookings\": 45,\n      \"upcoming_bookings\": 3,\n      \"today_bookings\": 2,\n      \"total_earnings\": 5000.00,\n      \"this_month_earnings\": 1200.00,\n      \"rating\": 4.8,\n      \"rating_count\": 25\n    }\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Search Categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/categories/search?q=cleaning&page=1&limit=10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "cleaning",
+                  "description": "Search term (required)"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (default: 1)"
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of results per page (default: 10)"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/categories",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/categories",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Categories retrieved successfully\",\n  \"data\": {\n    \"categories\": [\n      {\n        \"id\": 1,\n        \"name\": \"Cleaning\",\n        \"name_en\": \"Cleaning\",\n        \"name_ar\": \"تنظيف\",\n        \"slug\": \"cleaning\",\n        \"description\": \"Professional home and office cleaning services\",\n        \"description_en\": \"Professional home and office cleaning services\",\n        \"description_ar\": \"خدمات تنظيف منزلية ومكتبية احترافية\",\n        \"icon\": \"🧹\",\n        \"subcategories\": [\n          {\n            \"id\": 2,\n            \"name\": \"House Cleaning\",\n            \"name_en\": \"House Cleaning\",\n            \"name_ar\": \"تنظيف منازل\",\n            \"slug\": \"house-cleaning\",\n            \"description\": \"Residential cleaning services\",\n            \"description_en\": \"Residential cleaning services\",\n            \"description_ar\": \"خدمات تنظيف سكنية\"\n          },\n          {\n            \"id\": 3,\n            \"name\": \"Office Cleaning\",\n            \"name_en\": \"Office Cleaning\",\n            \"name_ar\": \"تنظيف مكاتب\",\n            \"slug\": \"office-cleaning\",\n            \"description\": \"Commercial cleaning services\",\n            \"description_en\": \"Commercial cleaning services\",\n            \"description_ar\": \"خدمات تنظيف تجارية\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Category by Slug",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/categories/cleaning",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "cleaning"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/categories/cleaning",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "categories",
+                    "cleaning"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"category\": {\n      \"id\": 1,\n      \"name\": \"Cleaning\",\n      \"slug\": \"cleaning\",\n      \"description\": \"House and office cleaning services\",\n      \"icon\": \"cleaning-icon\",\n      \"subcategories\": [\n        {\n          \"id\": 2,\n          \"name\": \"House Cleaning\",\n          \"slug\": \"house-cleaning\",\n          \"description\": \"Residential cleaning services\"\n        }\n      ]\n    }\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Services",
+      "item": [
+        {
+          "name": "Get All Services",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/services?page=1&limit=10&category_id={{cleaning_category_id}}&search=cleaning&min_price=20&max_price=100&user_city_id={{city_id}}&sort_by=rating",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "services"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "category_id",
+                  "value": "{{cleaning_category_id}}"
+                },
+                {
+                  "key": "search",
+                  "value": "cleaning"
+                },
+                {
+                  "key": "min_price",
+                  "value": "20"
+                },
+                {
+                  "key": "max_price",
+                  "value": "100"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/services?page=1&limit=10&category_id={{cleaning_category_id}}&search=cleaning&min_price=20&max_price=100&user_city_id={{city_id}}&sort_by=rating",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "services"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "category_id",
+                      "value": "1"
+                    },
+                    {
+                      "key": "search",
+                      "value": "cleaning"
+                    },
+                    {
+                      "key": "min_price",
+                      "value": "20"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"services\": [\n      {\n        \"id\": 1,\n        \"name\": \"House Cleaning\",\n        \"description\": \"Complete house cleaning service\",\n        \"base_price\": 50.00,\n        \"is_active\": true,\n        \"view_count\": 150,\n        \"provider\": {\n          \"id\": 1,\n          \"business_name\": \"Clean Pro Services\",\n          \"rating_avg\": 4.8,\n          \"user\": {\n            \"first_name\": \"Jane\",\n            \"last_name\": \"Smith\"\n          }\n        },\n        \"category\": {\n          \"name\": \"Cleaning\",\n          \"slug\": \"cleaning\"\n        }\n      }\n    ],\n    \"pagination\": {\n      \"current_page\": 1,\n      \"total_pages\": 5,\n      \"total_services\": 50,\n      \"limit\": 10\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Service by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/services/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "services",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/services/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "services",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"service\": {\n      \"id\": 1,\n      \"name\": \"House Cleaning\",\n      \"description\": \"Complete house cleaning service\",\n      \"base_price\": 50.00,\n      \"packages\": [\n        {\n          \"name\": \"Basic\",\n          \"price\": 50.00,\n          \"description\": \"Basic cleaning package\"\n        },\n        {\n          \"name\": \"Premium\",\n          \"price\": 75.00,\n          \"description\": \"Premium cleaning package\"\n        }\n      ],\n      \"add_ons\": [\n        {\n          \"name\": \"Window Cleaning\",\n          \"price\": 15.00,\n          \"description\": \"Clean all windows\"\n        }\n      ],\n      \"provider\": {\n        \"id\": 1,\n        \"business_name\": \"Clean Pro Services\",\n        \"rating_avg\": 4.8,\n        \"user\": {\n          \"first_name\": \"Jane\",\n          \"last_name\": \"Smith\"\n        }\n      },\n      \"category\": {\n        \"id\": 1,\n        \"name\": \"Cleaning\",\n        \"slug\": \"cleaning\"\n      }\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Service (Provider)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{provider_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "category_id",
+                  "value": "{{cleaning_category_id}}",
+                  "type": "text"
+                },
+                {
+                  "key": "name",
+                  "value": "House Cleaning Service",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Professional house cleaning for all rooms",
+                  "type": "text"
+                },
+                {
+                  "key": "scope_notes",
+                  "value": "Quick Clean - 2h, Deep Clean - 4h, +15 JOD per extra hour",
+                  "type": "text"
+                },
+                {
+                  "key": "base_price",
+                  "value": "50.0",
+                  "type": "text"
+                },
+                {
+                  "key": "price_type",
+                  "value": "hourly",
+                  "type": "text"
+                },
+                {
+                  "key": "duration_hours",
+                  "value": "2",
+                  "type": "text"
+                },
+                {
+                  "key": "packages",
+                  "value": "[{\"name\": \"Standard\", \"price\": 100, \"description\": \"Basic cleaning service\", \"features\": [\"Living room\", \"Kitchen\", \"Bathroom\"]}, {\"name\": \"Premium\", \"price\": 150, \"description\": \"Deep cleaning service\", \"features\": [\"All rooms\", \"Windows\", \"Appliances\"]}]",
+                  "type": "text"
+                },
+                {
+                  "key": "add_ons",
+                  "value": "[{\"name\": \"Extra room\", \"price\": 20, \"description\": \"Clean additional room\"}, {\"name\": \"Window cleaning\", \"price\": 15, \"description\": \"Clean all windows\"}]",
+                  "type": "text"
+                },
+                {
+                  "key": "service_images",
+                  "type": "file",
+                  "src": [],
+                  "description": "Service images (multiple files supported, up to 10)"
+                },
+                {
+                  "key": "requirements",
+                  "value": "Customer should provide cleaning supplies",
+                  "type": "text"
+                },
+                {
+                  "key": "included_services",
+                  "value": "[\"Vacuuming\", \"Mopping\", \"Dusting\"]",
+                  "type": "text"
+                },
+                {
+                  "key": "excluded_services",
+                  "value": "[\"Window cleaning\", \"Appliance cleaning\"]",
+                  "type": "text"
+                },
+                {
+                  "key": "min_advance_booking_hours",
+                  "value": "24",
+                  "type": "text"
+                },
+                {
+                  "key": "max_advance_booking_days",
+                  "value": "30",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/services",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "services"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{provider_token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "category_id",
+                      "value": "{{cleaning_category_id}}",
+                      "type": "text"
+                    },
+                    {
+                      "key": "name",
+                      "value": "House Cleaning Service",
+                      "type": "text"
+                    },
+                    {
+                      "key": "service_images",
+                      "type": "file",
+                      "src": []
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/services",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "services"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Service created successfully\",\n  \"data\": {\n    \"service\": {\n      \"id\": 1,\n      \"provider_id\": 1,\n      \"category_id\": 1,\n      \"name\": \"House Cleaning Service\",\n      \"slug\": \"house-cleaning-service\",\n      \"description\": \"Professional house cleaning for all rooms\",\n      \"base_price\": \"50.00\",\n      \"price_type\": \"hourly\",\n      \"duration_hours\": \"2.00\",\n      \"packages\": [...],\n      \"add_ons\": [...],\n      \"images\": [\"http://localhost:3026/uploads/services/image1-1234567890.jpg\", \"http://localhost:3026/uploads/services/image2-1234567891.jpg\"],\n      \"is_active\": true,\n      \"created_at\": \"2024-01-15T10:00:00.000Z\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get My Services (Provider)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{provider_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/services/my/services?page=1&limit=10&status=active",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "services",
+                "my",
+                "services"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "status",
+                  "value": "active"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{provider_token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/services/my/services?page=1&limit=10&status=active",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "services",
+                    "my",
+                    "services"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "status",
+                      "value": "active"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"services\": [\n      {\n        \"id\": 1,\n        \"provider_id\": 1,\n        \"category_id\": {{cleaning_category_id}},\n        \"name\": \"House Cleaning Service\",\n        \"slug\": \"house-cleaning-service\",\n        \"description\": \"Professional house cleaning for all rooms\",\n        \"base_price\": \"50.00\",\n        \"price_type\": \"hourly\",\n        \"duration_hours\": \"2.00\",\n        \"is_active\": true,\n        \"view_count\": 15,\n        \"booking_count\": 3,\n        \"created_at\": \"2024-01-15T10:00:00.000Z\",\n        \"category\": {\n          \"name\": \"Home Cleaning\",\n          \"slug\": \"home-cleaning\"\n        }\n      }\n    ],\n    \"pagination\": {\n      \"current_page\": 1,\n      \"total_pages\": 1,\n      \"total_services\": 1,\n      \"limit\": 10\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Service (Provider)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{provider_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Premium House Cleaning Service",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Updated description with premium features",
+                  "type": "text"
+                },
+                {
+                  "key": "base_price",
+                  "value": "60.0",
+                  "type": "text"
+                },
+                {
+                  "key": "is_active",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "key": "service_images",
+                  "type": "file",
+                  "src": [],
+                  "description": "Additional service images (optional - will be merged with existing images)"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/services/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "services",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{provider_token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Premium House Cleaning Service",
+                      "type": "text"
+                    },
+                    {
+                      "key": "service_images",
+                      "type": "file",
+                      "src": []
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/services/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "services",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Service updated successfully\",\n  \"data\": {\n    \"service\": {\n      \"id\": 1,\n      \"provider_id\": 1,\n      \"name\": \"Premium House Cleaning Service\",\n      \"slug\": \"premium-house-cleaning-service\",\n      \"description\": \"Updated description with premium features\",\n      \"base_price\": \"60.00\",\n      \"images\": [\"http://localhost:3026/uploads/services/image1-1234567890.jpg\", \"http://localhost:3026/uploads/services/image2-1234567891.jpg\"],\n      \"is_active\": true,\n      \"updated_at\": \"2024-01-15T11:00:00.000Z\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Service (Provider)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/services/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "services",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/services/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "services",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Service deleted successfully\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bookings",
+      "item": [
+        {
+          "name": "Create Booking",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"service_id\": 1,\n  \"provider_id\": 1,\n  \"booking_date\": \"2024-01-15\",\n  \"booking_time\": \"10:00\",\n  \"duration_hours\": 3,\n  \"package_selected\": \"Premium\",\n  \"add_ons_selected\": [\"Window Cleaning\"],\n  \"service_address\": \"123 Main St\",\n  \"service_city\": \"New York\",\n  \"service_area\": \"Manhattan\",\n  \"latitude\": 40.7128,\n  \"longitude\": -74.0060,\n  \"customer_name\": \"John Doe\",\n  \"customer_phone\": \"+1234567890\",\n  \"customer_email\": \"john@example.com\",\n  \"customer_notes\": \"Please clean the kitchen thoroughly\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/bookings",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "bookings"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_id\": 1,\n  \"provider_id\": 1,\n  \"booking_date\": \"2024-01-15\",\n  \"booking_time\": \"10:00\",\n  \"duration_hours\": 3,\n  \"package_selected\": \"Premium\",\n  \"add_ons_selected\": [\"Window Cleaning\"],\n  \"service_address\": \"123 Main St\",\n  \"service_city\": \"New York\",\n  \"service_area\": \"Manhattan\",\n  \"customer_name\": \"John Doe\",\n  \"customer_phone\": \"+1234567890\",\n  \"customer_email\": \"john@example.com\",\n  \"customer_notes\": \"Please clean the kitchen thoroughly\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/bookings",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "bookings"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Booking created successfully\",\n  \"data\": {\n    \"booking\": {\n      \"id\": 1,\n      \"booking_number\": \"BK001\",\n      \"service_id\": 1,\n      \"provider_id\": 1,\n      \"booking_date\": \"2024-01-15\",\n      \"booking_time\": \"10:00\",\n      \"duration_hours\": 3,\n      \"package_selected\": \"Premium\",\n      \"add_ons_selected\": [\"Window Cleaning\"],\n      \"base_price\": 75.00,\n      \"add_ons_price\": 15.00,\n      \"total_price\": 240.00,\n      \"status\": \"pending\",\n      \"payment_status\": \"pending\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Send Booking OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer_phone\": \"+1234567890\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/bookings/send-otp",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "bookings",
+                "send-otp"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Language",
+                    "value": "{{language}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer_phone\": \"+1234567890\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/bookings/send-otp",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "bookings",
+                    "send-otp"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"OTP sent successfully\",\n  \"data\": {\n    \"expires_at\": \"2024-01-15T10:10:00.000Z\",\n    \"phone\": \"+1234567890\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Guest Booking",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"service_id\": 1,\n  \"provider_id\": 1,\n  \"booking_date\": \"2024-01-15\",\n  \"booking_time\": \"10:00\",\n  \"duration_hours\": 3,\n  \"package_selected\": \"Premium\",\n  \"add_ons_selected\": [\"Window Cleaning\"],\n  \"service_address\": \"123 Main St\",\n  \"service_city\": \"New York\",\n  \"service_area\": \"Manhattan\",\n  \"latitude\": 40.7128,\n  \"longitude\": -74.0060,\n  \"customer_name\": \"John Doe\",\n  \"customer_phone\": \"+1234567890\",\n  \"customer_email\": \"john@example.com\",\n  \"customer_notes\": \"Please clean the kitchen thoroughly\",\n  \"otp\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/bookings",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "bookings"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service_id\": 1,\n  \"provider_id\": 1,\n  \"booking_date\": \"2024-01-15\",\n  \"booking_time\": \"10:00\",\n  \"duration_hours\": 3,\n  \"package_selected\": \"Premium\",\n  \"add_ons_selected\": [\"Window Cleaning\"],\n  \"service_address\": \"123 Main St\",\n  \"service_city\": \"New York\",\n  \"service_area\": \"Manhattan\",\n  \"customer_name\": \"John Doe\",\n  \"customer_phone\": \"+1234567890\",\n  \"customer_email\": \"john@example.com\",\n  \"customer_notes\": \"Please clean the kitchen thoroughly\",\n  \"otp\": \"123456\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/bookings",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "bookings"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Booking created successfully\",\n  \"data\": {\n    \"booking\": {\n      \"id\": 1,\n      \"booking_number\": \"BK001\",\n      \"service_id\": 1,\n      \"provider_id\": 1,\n      \"booking_date\": \"2024-01-15\",\n      \"booking_time\": \"10:00\",\n      \"duration_hours\": 3,\n      \"package_selected\": \"Premium\",\n      \"add_ons_selected\": [\"Window Cleaning\"],\n      \"base_price\": 75.00,\n      \"add_ons_price\": 15.00,\n      \"total_price\": 240.00,\n      \"status\": \"pending\",\n      \"payment_status\": \"pending\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Booking by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/bookings/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "bookings",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/bookings/1",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "bookings",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"booking\": {\n      \"id\": 1,\n      \"booking_number\": \"BK001\",\n      \"status\": \"pending\",\n      \"booking_date\": \"2024-01-15\",\n      \"booking_time\": \"10:00\",\n      \"total_price\": 240.00,\n      \"customer\": {\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"phone\": \"+1234567890\",\n        \"email\": \"john@example.com\"\n      },\n      \"provider\": {\n        \"id\": 1,\n        \"business_name\": \"Clean Pro Services\",\n        \"user\": {\n          \"first_name\": \"Jane\",\n          \"last_name\": \"Smith\",\n          \"phone\": \"+1234567891\"\n        }\n      },\n      \"service\": {\n        \"id\": 1,\n        \"name\": \"House Cleaning\",\n        \"description\": \"Complete house cleaning service\"\n      }\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get My Bookings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{user_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/bookings/my?page=1&limit=10&status=pending&sort_by=created_at&order=DESC",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "bookings",
+                "my"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (default: 1)"
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of bookings per page (default: 10)"
+                },
+                {
+                  "key": "status",
+                  "value": "pending",
+                  "description": "Filter by booking status (optional)"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "created_at",
+                  "description": "Sort field (default: created_at)"
+                },
+                {
+                  "key": "order",
+                  "value": "DESC",
+                  "description": "Sort order: ASC or DESC (default: DESC)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{user_token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/bookings/my?page=1&limit=10",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "bookings",
+                    "my"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"bookings\": [\n      {\n        \"id\": 1,\n        \"booking_number\": \"BK001\",\n        \"user_id\": 1,\n        \"provider_id\": 1,\n        \"service_id\": 1,\n        \"booking_date\": \"2024-01-15\",\n        \"booking_time\": \"10:00\",\n        \"duration_hours\": 3,\n        \"package_selected\": \"Premium\",\n        \"add_ons_selected\": [\"Window Cleaning\"],\n        \"base_price\": 75.00,\n        \"add_ons_price\": 15.00,\n        \"total_price\": 240.00,\n        \"status\": \"pending\",\n        \"payment_status\": \"pending\",\n        \"customer_notes\": \"Please clean thoroughly\",\n        \"created_at\": \"2024-01-01T10:00:00.000Z\",\n        \"updated_at\": \"2024-01-01T10:00:00.000Z\",\n        \"customer\": {\n          \"first_name\": \"John\",\n          \"last_name\": \"Doe\",\n          \"phone\": \"+1234567890\",\n          \"email\": \"john@example.com\"\n        },\n        \"provider\": {\n          \"id\": 1,\n          \"business_name\": \"Clean Pro Services\",\n          \"user\": {\n            \"first_name\": \"Jane\",\n            \"last_name\": \"Smith\",\n            \"phone\": \"+1234567891\"\n          }\n        },\n        \"service\": {\n          \"id\": 1,\n          \"name\": \"House Cleaning\",\n          \"description\": \"Complete house cleaning service\",\n          \"base_price\": 75.00\n        }\n      }\n    ],\n    \"pagination\": {\n      \"current_page\": 1,\n      \"total_pages\": 1,\n      \"total_bookings\": 1,\n      \"limit\": 10,\n      \"has_next\": false,\n      \"has_prev\": false\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Booking Status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{provider_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"completed\",\n  \"amount_paid\": 150.00,\n  \"provider_satisfaction\": 4.5\n}"
+            },
+            "description": "Update booking status. When status is 'completed', you can optionally include:\n- amount_paid: Actual amount paid by customer (defaults to total_price if not provided)\n- provider_satisfaction: Provider's satisfaction rating with customer (1.0 to 5.0)\n\nExample statuses: 'confirmed', 'provider_on_way', 'provider_arrived', 'in_progress', 'completed', 'cancelled'",
+            "url": {
+              "raw": "{{base_url}}/api/bookings/1/status",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "bookings",
+                "1",
+                "status"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response - Status Updated",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{provider_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"confirmed\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/bookings/1/status",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "bookings",
+                    "1",
+                    "status"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Booking status updated successfully\",\n  \"data\": {\n    \"booking\": {\n      \"id\": 1,\n      \"booking_number\": \"BK001\",\n      \"status\": \"confirmed\",\n      \"confirmed_at\": \"2024-01-01T10:00:00.000Z\"\n    }\n  }\n}"
+            },
+            {
+              "name": "Success Response - Completed with Payment & Satisfaction",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{provider_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"completed\",\n  \"amount_paid\": 150.00,\n  \"provider_satisfaction\": 4.5\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/bookings/1/status",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "bookings",
+                    "1",
+                    "status"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Booking status updated successfully\",\n  \"data\": {\n    \"booking\": {\n      \"id\": 1,\n      \"booking_number\": \"BK001\",\n      \"status\": \"completed\",\n      \"total_price\": 150.00,\n      \"amount_paid\": 150.00,\n      \"provider_satisfaction\": 4.5,\n      \"payment_status\": \"paid\",\n      \"completed_at\": \"2024-01-01T10:00:00.000Z\"\n    }\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ratings",
+      "item": [
+        {
+          "name": "Create Rating",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"booking_id\": 1,\n  \"rating\": 5,\n  \"review\": \"Excellent service! Very professional and thorough.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/ratings",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "ratings"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"booking_id\": 1,\n  \"rating\": 5,\n  \"review\": \"Excellent service! Very professional and thorough.\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/ratings",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "ratings"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Rating submitted successfully\",\n  \"data\": {\n    \"rating\": {\n      \"id\": 1,\n      \"booking_id\": 1,\n      \"user_id\": 1,\n      \"provider_id\": 1,\n      \"service_id\": 1,\n      \"rating\": 5,\n      \"review\": \"Excellent service! Very professional and thorough.\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get My Reviews (Provider)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{provider_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/ratings/my-reviews?page=1&limit=10&sort_by=created_at&order=DESC",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "ratings",
+                "my-reviews"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (default: 1)"
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Results per page (default: 10)"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "created_at",
+                  "description": "Sort by: 'rating' or 'created_at' (default: created_at)"
+                },
+                {
+                  "key": "order",
+                  "value": "DESC",
+                  "description": "Sort order: 'ASC' or 'DESC' (default: DESC)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{provider_token}}"
+                  },
+                  {
+                    "key": "Content-Language",
+                    "value": "{{language}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/ratings/my-reviews?page=1&limit=10",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "ratings",
+                    "my-reviews"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Language",
+                  "value": "{{language}}"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Reviews retrieved successfully\",\n  \"data\": [\n    {\n      \"id\": 1,\n      \"booking_id\": 1,\n      \"provider_id\": 1,\n      \"service_id\": 1,\n      \"rating\": 5,\n      \"review\": \"Excellent service! Very professional.\",\n      \"provider_response\": null,\n      \"created_at\": \"2024-01-15T10:00:00.000Z\",\n      \"customer\": {\n        \"id\": 2,\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"profile_image\": \"profile.jpg\"\n      },\n      \"service\": {\n        \"id\": 1,\n        \"name\": \"House Cleaning\",\n        \"name_en\": \"House Cleaning\",\n        \"name_ar\": \"تنظيف منزل\"\n      },\n      \"booking\": {\n        \"id\": 1,\n        \"booking_number\": \"BK001\",\n        \"booking_date\": \"2024-01-15\",\n        \"booking_time\": \"10:00\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"current_page\": 1,\n    \"total_pages\": 1,\n    \"total_reviews\": 1,\n    \"limit\": 10\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Reviews by Provider ID (Public)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/ratings/provider/1?page=1&limit=10&sort_by=created_at&order=DESC&min_rating=4",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "ratings",
+                "provider",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (default: 1)"
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Results per page (default: 10)"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "created_at",
+                  "description": "Sort by: 'rating' or 'created_at' (default: created_at)"
+                },
+                {
+                  "key": "order",
+                  "value": "DESC",
+                  "description": "Sort order: 'ASC' or 'DESC' (default: DESC)"
+                },
+                {
+                  "key": "min_rating",
+                  "value": "4",
+                  "description": "Filter by minimum rating (optional, e.g., 4 for 4+ stars)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Language",
+                    "value": "{{language}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/ratings/provider/1?page=1&limit=10",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "ratings",
+                    "provider",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Content-Language",
+                  "value": "{{language}}"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Reviews retrieved successfully\",\n  \"data\": [\n    {\n      \"id\": 1,\n      \"booking_id\": 1,\n      \"provider_id\": 1,\n      \"service_id\": 1,\n      \"rating\": 5,\n      \"review\": \"Excellent service! Very professional.\",\n      \"provider_response\": \"Thank you for your feedback!\",\n      \"created_at\": \"2024-01-15T10:00:00.000Z\",\n      \"customer\": {\n        \"id\": 2,\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"profile_image\": \"profile.jpg\"\n      },\n      \"service\": {\n        \"id\": 1,\n        \"name\": \"House Cleaning\",\n        \"name_en\": \"House Cleaning\",\n        \"name_ar\": \"تنظيف منزل\"\n      }\n    }\n  ],\n  \"pagination\": {\n    \"current_page\": 1,\n    \"total_pages\": 2,\n    \"total_reviews\": 15,\n    \"limit\": 10\n  },\n  \"meta\": {\n    \"provider\": {\n      \"id\": 1,\n      \"business_name\": \"Clean Pro Services\",\n      \"business_name_en\": \"Clean Pro Services\",\n      \"business_name_ar\": \"خدمات تنظيف برو\"\n    },\n    \"rating_summary\": {\n      \"average_rating\": 4.8,\n      \"total_reviews\": 15,\n      \"rating_distribution\": {\n        \"5\": 10,\n        \"4\": 3,\n        \"3\": 1,\n        \"2\": 1,\n        \"1\": 0\n      }\n    }\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Get Dashboard Stats",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/dashboard/stats",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "dashboard",
+                "stats"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{admin_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/admin/dashboard/stats",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "dashboard",
+                    "stats"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"statistics\": {\n      \"total_users\": 150,\n      \"total_providers\": 25,\n      \"approved_providers\": 20,\n      \"pending_providers\": 5,\n      \"total_bookings\": 500,\n      \"completed_bookings\": 450,\n      \"today_bookings\": 15,\n      \"total_revenue\": 50000.00,\n      \"this_month_revenue\": 12000.00\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Pending Providers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/providers/pending",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "providers",
+                "pending"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{admin_token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/admin/providers/pending",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "providers",
+                    "pending"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"providers\": [\n      {\n        \"id\": 1,\n        \"business_name\": \"New Cleaning Service\",\n        \"status\": \"pending\",\n        \"created_at\": \"2024-01-01T10:00:00.000Z\",\n        \"user\": {\n          \"first_name\": \"Jane\",\n          \"last_name\": \"Smith\",\n          \"email\": \"jane@newclean.com\",\n          \"phone\": \"+1234567891\"\n        }\n      }\n    ]\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Approve/Reject Provider",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"approved\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/admin/providers/1/status",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "providers",
+                "1",
+                "status"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{admin_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"approved\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/admin/providers/1/status",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "providers",
+                    "1",
+                    "status"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Provider approved successfully\",\n  \"data\": {\n    \"provider\": {\n      \"id\": 1,\n      \"business_name\": \"New Cleaning Service\",\n      \"status\": \"approved\",\n      \"approved_at\": \"2024-01-01T10:00:00.000Z\",\n      \"approved_by\": 1\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Plumbing\",\n  \"description\": \"Plumbing and pipe services\",\n  \"icon\": \"plumbing-icon\",\n  \"parent_id\": null,\n  \"suggested_price_range\": {\n    \"min\": 50,\n    \"max\": 200\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/admin/categories",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "categories"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{admin_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Plumbing\",\n  \"description\": \"Plumbing and pipe services\",\n  \"icon\": \"plumbing-icon\",\n  \"parent_id\": null,\n  \"suggested_price_range\": {\n    \"min\": 50,\n    \"max\": 200\n  }\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/admin/categories",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "categories"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Category created successfully\",\n  \"data\": {\n    \"category\": {\n      \"id\": 2,\n      \"name\": \"Plumbing\",\n      \"slug\": \"plumbing\",\n      \"description\": \"Plumbing and pipe services\",\n      \"icon\": \"plumbing-icon\",\n      \"parent_id\": null,\n      \"suggested_price_range\": {\n        \"min\": 50,\n        \"max\": 200\n      }\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All Providers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/providers?page=1&limit=10&status=approved&search=cleaning&sort_by=created_at&order=DESC",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "providers"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (default: 1)"
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of providers per page (default: 10)"
+                },
+                {
+                  "key": "status",
+                  "value": "approved",
+                  "description": "Filter by provider status (optional)"
+                },
+                {
+                  "key": "search",
+                  "value": "cleaning",
+                  "description": "Search in business name, bio, or service areas (optional)"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "created_at",
+                  "description": "Sort field (default: created_at)"
+                },
+                {
+                  "key": "order",
+                  "value": "DESC",
+                  "description": "Sort order: ASC or DESC (default: DESC)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{admin_token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/admin/providers?page=1&limit=10",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "providers"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"providers\": [\n      {\n        \"id\": 1,\n        \"business_name\": \"Clean Pro Services\",\n        \"bio\": \"Professional cleaning services for homes and offices\",\n        \"status\": \"approved\",\n        \"rating_avg\": 4.5,\n        \"rating_count\": 25,\n        \"service_areas\": [\"Manhattan\", \"Brooklyn\"],\n        \"created_at\": \"2024-01-01T10:00:00.000Z\",\n        \"updated_at\": \"2024-01-01T10:00:00.000Z\",\n        \"user\": {\n          \"id\": 2,\n          \"first_name\": \"Jane\",\n          \"last_name\": \"Smith\",\n          \"phone\": \"+1234567891\",\n          \"email\": \"jane@cleanpro.com\",\n          \"is_active\": true\n        }\n      }\n    ],\n    \"pagination\": {\n      \"current_page\": 1,\n      \"total_pages\": 1,\n      \"total_providers\": 1,\n      \"limit\": 10,\n      \"has_next\": false,\n      \"has_prev\": false\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All Customers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/customers?page=1&limit=10&search=john&sort_by=created_at&order=DESC",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "customers"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (default: 1)"
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of customers per page (default: 10)"
+                },
+                {
+                  "key": "search",
+                  "value": "john",
+                  "description": "Search in name, phone, or email (optional)"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "created_at",
+                  "description": "Sort field (default: created_at)"
+                },
+                {
+                  "key": "order",
+                  "value": "DESC",
+                  "description": "Sort order: ASC or DESC (default: DESC)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{admin_token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/admin/customers?page=1&limit=10",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "customers"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"customers\": [\n      {\n        \"id\": 3,\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"phone\": \"+1234567892\",\n        \"email\": \"john.doe@example.com\",\n        \"is_active\": true,\n        \"is_verified\": true,\n        \"created_at\": \"2024-01-01T10:00:00.000Z\",\n        \"updated_at\": \"2024-01-01T10:00:00.000Z\"\n      }\n    ],\n    \"pagination\": {\n      \"current_page\": 1,\n      \"total_pages\": 1,\n      \"total_customers\": 1,\n      \"limit\": 10,\n      \"has_next\": false,\n      \"has_prev\": false\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Provider Documents",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/admin/providers/:id/documents",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "providers",
+                ":id",
+                "documents"
+              ]
+            },
+            "description": "Get provider details including verification document URLs"
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{admin_token}}"
+                  },
+                  {
+                    "key": "Content-Language",
+                    "value": "{{language}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/admin/providers/1/documents",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "providers",
+                    "1",
+                    "documents"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"provider\": {\n      \"id\": 1,\n      \"business_name\": \"Clean Pro Services\",\n      \"status\": \"pending\",\n      \"id_verified_image\": \"id-image.jpg\",\n      \"vocational_license_image\": \"license-image.jpg\",\n      \"police_clearance_image\": \"clearance-image.jpg\",\n      \"is_id_verified\": false,\n      \"is_license_verified\": false,\n      \"is_police_clearance_verified\": false,\n      \"user\": {\n        \"first_name\": \"Jane\",\n        \"last_name\": \"Smith\",\n        \"phone\": \"+1234567891\",\n        \"email\": \"jane@cleanpro.com\"\n      }\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Provider Verification - Approve ID",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"is_id_verified\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/admin/providers/:id/verification",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "providers",
+                ":id",
+                "verification"
+              ]
+            },
+            "description": "Approve ID verification document. Admin sets is_id_verified to true."
+          },
+          "response": [
+            {
+              "name": "Success Response - ID Approved",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{admin_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Language",
+                    "value": "{{language}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"is_id_verified\": true\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/admin/providers/1/verification",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "providers",
+                    "1",
+                    "verification"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Provider verification updated successfully\",\n  \"data\": {\n    \"provider\": {\n      \"id\": 1,\n      \"business_name\": \"Clean Pro Services\",\n      \"status\": \"approved\",\n      \"is_id_verified\": true,\n      \"is_license_verified\": false,\n      \"is_police_clearance_verified\": false\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Provider Verification - Approve All",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{admin_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"is_id_verified\": true,\n  \"is_license_verified\": true,\n  \"is_police_clearance_verified\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/admin/providers/:id/verification",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "providers",
+                ":id",
+                "verification"
+              ]
+            },
+            "description": "Approve all verification documents at once. Can also approve documents individually."
+          },
+          "response": [
+            {
+              "name": "Success Response - All Documents Approved",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{admin_token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Language",
+                    "value": "{{language}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"is_id_verified\": true,\n  \"is_license_verified\": true,\n  \"is_police_clearance_verified\": true\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/admin/providers/1/verification",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "providers",
+                    "1",
+                    "verification"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Provider verification updated successfully\",\n  \"data\": {\n    \"provider\": {\n      \"id\": 1,\n      \"business_name\": \"Clean Pro Services\",\n      \"status\": \"approved\",\n      \"is_id_verified\": true,\n      \"is_license_verified\": true,\n      \"is_police_clearance_verified\": true\n    }\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Search",
+      "item": [
+        {
+          "name": "Smart Search - Natural Language (e.g. clean sofa)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/search?query=clean sofa&page=1&limit=10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "clean sofa",
+                  "description": "Natural language search (AI-powered)"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Results per page"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Smart Search Result",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Language",
+                    "value": "{{language}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/search?query=clean sofa",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "clean sofa"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Search completed successfully\",\n  \"data\": {\n    \"results\": [...],\n    \"smart_search\": {\n      \"detected_category\": \"Cleaning\",\n      \"detected_category_id\": 17,\n      \"confidence\": \"high\",\n      \"reasoning\": \"Matched keywords: sofa, clean\"\n    },\n    \"pagination\": {...}\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Smart Search - Mount TV (Auto-detects Mounting)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/search?query=mount TV&page=1&limit=10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "mount TV",
+                  "description": "AI will detect: Mounting category"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Mounting Category Detected",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Language",
+                    "value": "{{language}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/search?query=mount TV",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "mount TV"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Search completed successfully\",\n  \"data\": {\n    \"results\": [...],\n    \"smart_search\": {\n      \"detected_category\": \"Mounting\",\n      \"detected_category_id\": 23,\n      \"confidence\": \"high\",\n      \"reasoning\": \"Matched keywords: TV, mount\"\n    },\n    \"pagination\": {...}\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Search Services (With All Filters)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/search?query=cleaning&city=amman&area=abdoun&category=cleaning&min_price=20&max_price=100&min_rating=4.0&sort_by=rating&page=1&limit=10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "cleaning",
+                  "description": "Search term"
+                },
+                {
+                  "key": "city",
+                  "value": "amman",
+                  "description": "City slug (optional)"
+                },
+                {
+                  "key": "area",
+                  "value": "abdoun",
+                  "description": "Area slug (optional)"
+                },
+                {
+                  "key": "category",
+                  "value": "cleaning",
+                  "description": "Category slug (optional, auto-detected if not provided)"
+                },
+                {
+                  "key": "min_price",
+                  "value": "20",
+                  "description": "Minimum price (optional)"
+                },
+                {
+                  "key": "max_price",
+                  "value": "100",
+                  "description": "Maximum price (optional)"
+                },
+                {
+                  "key": "min_rating",
+                  "value": "4.0",
+                  "description": "Minimum rating (optional)"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "rating",
+                  "description": "Sort by: relevance, rating, price_low, price_high, popularity"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (default: 1)"
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Results per page (default: 10)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/search?query=cleaning&city=amman&area=abdoun&category=cleaning&min_price=20&max_price=100&min_rating=4.0&sort_by=rating&page=1&limit=10",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "cleaning"
+                    },
+                    {
+                      "key": "city",
+                      "value": "amman"
+                    },
+                    {
+                      "key": "area",
+                      "value": "abdoun"
+                    },
+                    {
+                      "key": "category",
+                      "value": "cleaning"
+                    },
+                    {
+                      "key": "min_price",
+                      "value": "20"
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "100"
+                    },
+                    {
+                      "key": "min_rating",
+                      "value": "4.0"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "rating"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"results\": [\n      {\n        \"id\": 1,\n        \"name\": \"House Cleaning\",\n        \"description\": \"Complete house cleaning service\",\n        \"base_price\": 50.00,\n        \"provider\": {\n          \"id\": 1,\n          \"business_name\": \"Clean Pro Services\",\n          \"rating_avg\": 4.8,\n          \"user\": {\n            \"first_name\": \"Jane\",\n            \"last_name\": \"Smith\",\n            \"city\": {\n              \"name_en\": \"Amman\",\n              \"name_ar\": \"عمان\",\n              \"slug\": \"amman\"\n            },\n            \"area\": {\n              \"name_en\": \"Abdoun\",\n              \"name_ar\": \"عبدون\",\n              \"slug\": \"abdoun\"\n            }\n          }\n        },\n        \"category\": {\n          \"name\": \"Cleaning\",\n          \"slug\": \"cleaning\"\n        }\n      }\n    ],\n    \"pagination\": {\n      \"current_page\": 1,\n      \"total_pages\": 5,\n      \"total_results\": 50,\n      \"limit\": 10\n    },\n    \"filters_applied\": {\n      \"query\": \"cleaning\",\n      \"city\": \"amman\",\n      \"area\": \"abdoun\",\n      \"category\": \"cleaning\",\n      \"min_price\": \"20\",\n      \"max_price\": \"100\",\n      \"min_rating\": \"4.0\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Smart Search Suggestions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/search/suggest?q=clean",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "search",
+                "suggest"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "clean",
+                  "description": "Search query (min 2 chars)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response - Smart Suggestions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/search/suggest?q=clean",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "search",
+                    "suggest"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "clean"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Search suggestions retrieved successfully\",\n  \"data\": {\n    \"suggestions\": [\n      {\n        \"type\": \"category\",\n        \"text\": \"Cleaning\",\n        \"slug\": 17,\n        \"smart\": true\n      },\n      {\n        \"type\": \"service\",\n        \"text\": \"House Cleaning\"\n      },\n      {\n        \"type\": \"service\",\n        \"text\": \"Office Cleaning\"\n      },\n      {\n        \"type\": \"category\",\n        \"text\": \"Cleaning\",\n        \"slug\": \"cleaning\"\n      }\n    ]\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Search with No Results Message",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/search?query=xyzabc123&page=1&limit=10",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "xyzabc123",
+                  "description": "Query with no results"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "No Results - English",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Language",
+                    "value": "en"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/search?query=xyzabc123",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "xyzabc123"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"No matching services found. Please choose from the categories below.\",\n  \"data\": {\n    \"results\": [],\n    \"pagination\": {\n      \"current_page\": 1,\n      \"total_pages\": 0,\n      \"total_results\": 0,\n      \"limit\": 10\n    },\n    \"filters_applied\": {\n      \"query\": \"xyzabc123\"\n    }\n  }\n}"
+            },
+            {
+              "name": "No Results - Arabic",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Language",
+                    "value": "ar"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/search?query=xyzabc123",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "xyzabc123"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"لا يوجد تطابق. الرجاء اختيار فئة من الأسفل.\",\n  \"data\": {\n    \"results\": [],\n    \"pagination\": {\n      \"current_page\": 1,\n      \"total_pages\": 0,\n      \"total_results\": 0,\n      \"limit\": 10\n    },\n    \"filters_applied\": {\n      \"query\": \"xyzabc123\"\n    }\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Locations",
+      "item": [
+        {
+          "name": "Get All Cities",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/locations/cities",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                "cities"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+                "url": {
+                  "raw": "{{base_url}}/api/locations/cities",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "locations",
+                    "cities"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Cities retrieved successfully\",\n  \"data\": {\n    \"cities\": [\n      {\n        \"id\": 1,\n        \"name\": \"Amman\",\n        \"name_en\": \"Amman\",\n        \"name_ar\": \"عمان\",\n        \"slug\": \"amman\",\n        \"display_order\": 1\n      },\n      {\n        \"id\": 2,\n        \"name\": \"Irbid\",\n        \"name_en\": \"Irbid\",\n        \"name_ar\": \"إربد\",\n        \"slug\": \"irbid\",\n        \"display_order\": 2\n      }\n    ]\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Areas by City",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/locations/areas/amman",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                "areas",
+                "amman"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+                "url": {
+                  "raw": "{{base_url}}/api/locations/areas/amman",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "locations",
+                    "areas",
+                    "amman"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Areas retrieved successfully\",\n  \"data\": {\n    \"city\": {\n      \"id\": 1,\n      \"name\": \"Amman\",\n      \"name_en\": \"Amman\",\n      \"name_ar\": \"عمان\",\n      \"slug\": \"amman\"\n    },\n    \"areas\": [\n      {\n        \"id\": 1,\n        \"name\": \"Abdoun\",\n        \"name_en\": \"Abdoun\",\n        \"name_ar\": \"عبدون\",\n        \"slug\": \"abdoun\",\n        \"display_order\": 1\n      },\n      {\n        \"id\": 2,\n        \"name\": \"Sweifieh\",\n        \"name_en\": \"Sweifieh\",\n        \"name_ar\": \"الشفا\",\n        \"slug\": \"sweifieh\",\n        \"display_order\": 2\n      }\n    ]\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get All Areas",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/locations/areas",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                "areas"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+                "url": {
+                  "raw": "{{base_url}}/api/locations/areas",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "locations",
+                    "areas"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"areas\": [\n      {\n        \"id\": 1,\n        \"name_en\": \"Abdoun\",\n        \"name_ar\": \"عبدون\",\n        \"slug\": \"abdoun\",\n        \"display_order\": 0,\n        \"city\": {\n          \"id\": 1,\n          \"name_en\": \"Amman\",\n          \"name_ar\": \"عمان\",\n          \"slug\": \"amman\"\n        }\n      }\n    ]\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Search Locations",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/locations/search?q=abdoun",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "abdoun"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+            ],
+                "url": {
+                  "raw": "{{base_url}}/api/locations/search?q=abdoun",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "locations",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "abdoun"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+              {
+                "key": "Content-Language",
+                "value": "{{language}}"
+              }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"cities\": [],\n    \"areas\": [\n      {\n        \"id\": 1,\n        \"name_en\": \"Abdoun\",\n        \"name_ar\": \"عبدون\",\n        \"slug\": \"abdoun\",\n        \"display_order\": 0,\n        \"city\": {\n          \"id\": 1,\n          \"name_en\": \"Amman\",\n          \"name_ar\": \"عمان\",\n          \"slug\": \"amman\"\n        }\n      }\n    ]\n  }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1361 @@
+{
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجح",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "confirm": "تأكيد",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "search": "بحث",
+    "filter": "تصفية",
+    "clear": "مسح",
+    "submit": "إرسال",
+    "submitting": "جاري الإرسال...",
+    "close": "إغلاق",
+    "view": "عرض",
+    "book": "حجز",
+    "continue": "متابعة",
+    "bookNow": "احجز الآن",
+    "viewAll": "عرض الكل",
+    "showMore": "عرض المزيد",
+    "showLess": "عرض أقل",
+    "noResults": "لا توجد نتائج",
+    "tryAgain": "حاول مرة أخرى",
+    "refresh": "تحديث",
+    "city": "المدينة",
+    "area": "المنطقة",
+    "currency": "دينار",
+    "apply": "تطبيق",
+    "optional": "اختياري",
+    "back_to_dashboard": "العودة إلى لوحة التحكم"
+  },
+  "commonExtras": {
+    "notAvailable": "غير متوفر"
+  },
+  "navigation": {
+    "home": "الرئيسية",
+    "services": "الخدمات",
+    "about": "من نحن",
+    "contact": "اتصل بنا",
+    "login": "تسجيل الدخول",
+    "signup": "إنشاء حساب",
+    "logout": "تسجيل الخروج",
+    "dashboard": "لوحة التحكم",
+    "profile": "الملف الشخصي",
+    "settings": "الإعدادات",
+    "becomeProvider": "كن مقدم خدمة",
+    "browseServices": "تصفح الخدمات"
+  },
+  "home": {
+    "title": "سوق خدمات منزلك",
+    "subtitle": "تواصل مع المحترفين الموثوقين لجميع احتياجات منزلك - من التنظيف إلى الإصلاحات، ومن الدروس الخصوصية إلى دروس الموسيقى.",
+    "search_placeholder": "ما هي الخدمة التي تحتاجها؟",
+    "location_placeholder": "المدينة أو المنطقة",
+    "browse_categories": "تصفح الخدمات حسب الفئة",
+    "categories_subtitle": "ابحث عن مقدم الخدمة المثالي لاحتياجاتك",
+    "view_all_services": "عرض جميع الخدمات",
+    "hero": {
+      "title": "سوق خدمات منزلك",
+      "subtitle": "تواصل مع المحترفين الموثوقين لجميع احتياجات منزلك - من التنظيف إلى الإصلاحات، ومن الدروس الخصوصية إلى دروس الموسيقى.",
+      "searchPlaceholder": "ما هي الخدمة التي تحتاجها؟",
+      "locationPlaceholder": "المدينة أو المنطقة",
+      "popularTags": "شائع:",
+      "popularServices": ["تنظيف المنزل", "السباكة", "الدهان", "الدروس الخصوصية", "الكهرباء"]
+    },
+    "categories": {
+      "title": "تصفح الخدمات حسب الفئة",
+      "subtitle": "ابحث عن مقدم الخدمة المثالي لاحتياجاتك",
+      "viewAllServices": "عرض جميع الخدمات"
+    },
+    "cta": {
+      "become_provider": "كن مقدم خدمة"
+    },
+    "featured_providers": "مقدمو الخدمات المميزون",
+    "featured_subtitle": "تعرف على مقدمي الخدمات الأعلى تقييماً",
+    "how_it_works": {
+      "title": "كيف يعمل بيتك",
+      "subtitle": "احصل على خدمات منزلك في 4 خطوات بسيطة",
+      "steps": {
+        "search": {
+          "title": "ابحث عن خدمة",
+          "description": "تصفح فئاتنا أو ابحث عن خدمات محددة تحتاجها."
+        },
+        "choose": {
+          "title": "اختر مقدم خدمة",
+          "description": "قارن بين مقدمي الخدمات بناءً على التقييمات والمراجعات والأسعار."
+        },
+        "book": {
+          "title": "احجز فوراً",
+          "description": "اختر الوقت المناسب لك واحجز مع تأكيد فوري."
+        },
+        "enjoy": {
+          "title": "احصل على الخدمة",
+          "description": "استمتع بخدمة احترافية وادفع بأمان بعد الانتهاء."
+        }
+      }
+    },
+    "features": {
+      "verified": {
+        "title": "مقدمو خدمات معتمدون",
+        "description": "جميع مقدمي الخدمات يتم فحصهم والتحقق منهم بدقة لضمان سلامتك."
+      },
+      "quality": {
+        "title": "جودة مضمونة",
+        "description": "اقرأ المراجعات والتقييمات من العملاء الحقيقيين لاتخاذ قرارات مدروسة."
+      },
+      "local": {
+        "title": "خدمات محلية",
+        "description": "ابحث عن محترفين موثوقين في منطقتك لجميع احتياجاتك المنزلية."
+      }
+    },
+    "cta_section": {
+      "title": "مستعد لتحويل منزلك؟",
+      "subtitle": "انضم إلى آلاف العملاء السعداء الذين يثقون في بيتك لاحتياجاتهم المنزلية.",
+      "find_service": "ابحث عن خدمة",
+      "become_provider": "كن مقدم خدمة"
+    },
+    "search": {
+      "loading_suggestions": "جاري تحميل الاقتراحات...",
+      "no_suggestions": "لم يتم العثور على اقتراحات لـ \"{{query}}\"",
+      "category_label": "فئة",
+      "browse_label": "تصفح"
+    },
+    "providers": {
+      "experience": "الخبرة: {{years}} سنوات",
+      "min_booking": "الحد الأدنى: {{hours}} ساعة",
+      "bookings": "الحجوزات: {{count}}",
+      "status": "الحالة: {{status}}",
+      "hourly_rate": "{{rate}} دينار/ساعة",
+      "available_days": "متاح: {{days}} أيام/أسبوع",
+      "view_profile": "عرض الملف الشخصي",
+      "reviews": "{{rating}} ({{count}} مراجعة)"
+    },
+    "errors": {
+      "search_required": "يرجى إدخال استعلام البحث",
+      "load_data_failed": "فشل في تحميل البيانات. يرجى التحقق من تشغيل خادم الخلفية.",
+      "no_categories": "لا توجد فئات متاحة."
+    },
+    "guest_booking": {
+      "title": "احجز كضيف",
+      "subtitle": "لا حاجة لحساب - فقط تحقق من رقم هاتفك",
+      "customer_info": "معلومات العميل",
+      "phone_required": "رقم الهاتف مطلوب للحجز",
+      "otp_sent": "تم إرسال رمز التحقق إلى رقم هاتفك",
+      "otp_required": "يرجى إدخال رمز التحقق المرسل إلى هاتفك",
+      "otp_invalid": "رمز التحقق غير صحيح. يرجى المحاولة مرة أخرى.",
+      "otp_expired": "انتهت صلاحية رمز التحقق. يرجى طلب رمز جديد.",
+      "resend_otp": "إعادة إرسال رمز التحقق",
+      "resend_in": "إعادة إرسال رمز التحقق خلال {{seconds}} ثانية",
+      "otp_countdown": "ينتهي رمز التحقق خلال {{minutes}}:{{seconds}}",
+      "booking_success": "تم إنشاء الحجز بنجاح!",
+      "account_created": "تم إنشاء حسابك تلقائياً",
+      "sms_sent": "تم إرسال إشعارات SMS لك ولمقدم الخدمة"
+    }
+  },
+  "services": {
+    "title": "الخدمات",
+    "all_services": "جميع الخدمات",
+    "filters": "المرشحات",
+    "search_placeholder": "ابحث عن الخدمات...",
+    "search_results": "نتائج البحث",
+    "filter_by_category": "تصفية حسب الفئة",
+    "all_categories": "جميع الفئات",
+    "price_range": "نطاق السعر",
+    "any_price": "أي سعر",
+    "minimum_rating": "الحد الأدنى للتقييم",
+    "stars": "نجوم",
+    "any_rating": "أي تقييم",
+    "clear_filters": "مسح المرشحات",
+    "showing_results": "عرض {{showing}} من {{total}} خدمة",
+    "no_services_found": "لم يتم العثور على خدمات",
+    "sort_by": "رتّب حسب",
+    "sort": {
+      "relevance": "ترتيب حسب: الصلة",
+      "price_low_high": "السعر: من الأقل للأعلى",
+      "price_high_low": "السعر: من الأعلى للأقل",
+      "rating_high_low": "التقييم: من الأعلى للأقل",
+      "most_booked": "الأكثر حجزاً"
+    },
+    "errors": {
+      "load_categories_failed": "فشل في تحميل الفئات",
+      "invalid_search_response": "استجابة غير صحيحة من خادم البحث",
+      "invalid_server_response": "استجابة غير صحيحة من الخادم",
+      "api_not_found": "نقطة النهاية غير موجودة. يرجى التحقق من تشغيل خادم الخلفية.",
+      "server_error": "خطأ في الخادم. يرجى المحاولة مرة أخرى لاحقاً.",
+      "network_error": "خطأ في الشبكة. يرجى التحقق من اتصالك والمحاولة مرة أخرى.",
+      "load_services_failed": "فشل في تحميل الخدمات. يرجى المحاولة مرة أخرى."
+    }
+  },
+  "providers": {
+    "title": "مقدمو الخدمات",
+    "subtitle": "ابحث عن محترفين موثوقين في",
+    "filters": "المرشحات",
+    "minRating": "الحد الأدنى للتقييم",
+    "maxPrice": "الحد الأقصى للسعر",
+    "anyRating": "أي تقييم",
+    "anyPrice": "أي سعر",
+    "stars": "نجوم",
+    "reviews": "مراجعة",
+    "experience": "الخبرة",
+    "years": "سنوات",
+    "hourlyRate": "السعر بالساعة",
+    "available": "متاح",
+    "daysWeek": "أيام/أسبوع",
+    "bookings": "الحجوزات",
+    "viewProfile": "عرض الملف الشخصي",
+    "noProviders": "لا توجد مقدمي خدمات",
+    "noProvidersDesc": "لم نتمكن من العثور على مقدمي خدمات لهذه الفئة. جرب تعديل المرشحات أو تصفح جميع الفئات.",
+    "browseAll": "تصفح جميع الفئات",
+    "location": "الموقع",
+    "anyLocation": "أي موقع",
+    "filterByLocation": "تصفية حسب الموقع"
+  },
+  "dashboard": {
+    "user": {
+      "welcome": "مرحباً بعودتك، {{name}}!",
+      "subtitle": "إدارة حجوزاتك وتتبع تاريخ خدماتك",
+      "browse_services": "تصفح الخدمات",
+      "total_bookings": "إجمالي الحجوزات",
+      "upcoming": "القادمة",
+      "total_spent": "إجمالي المبلغ المنفق",
+      "reviews_given": "التقييمات المعطاة",
+      "recent_bookings": "الحجوزات الأخيرة",
+      "no_bookings": "لا توجد حجوزات بعد",
+      "stats": {
+        "total_bookings": "إجمالي الحجوزات",
+        "upcoming": "القادمة",
+        "total_spent": "إجمالي المبلغ المنفق",
+        "reviews_given": "التقييمات المعطاة"
+      },
+      "booking": {
+        "provider": "مقدم الخدمة",
+        "date": "التاريخ",
+        "location": "الموقع",
+        "provider_phone": "هاتف مقدم الخدمة",
+        "waiting_provider_accept": "في انتظار موافقة مقدم الخدمة على حجزك",
+        "provider_accepted": "وافق مقدم الخدمة على حجزك. يمكنك الآن التواصل معه مباشرة."
+      },
+      "rate_service": "قيم الخدمة",
+      "already_rated": "تم التقييم بالفعل",
+      "load_error": "فشل في تحميل بيانات لوحة التحكم"
+    },
+    "rating": {
+      "rate_service": "قيم الخدمة",
+      "your_rating": "تقييمك",
+      "your_review": "مراجعتك",
+      "booking_number": "رقم الحجز",
+      "provider": "مقدم الخدمة",
+      "review_placeholder": "أخبرنا عن تجربتك مع هذه الخدمة...",
+      "review_help": "شارك ملاحظاتك الصادقة لمساعدة العملاء الآخرين",
+      "submit_rating": "إرسال التقييم",
+      "submitted_successfully": "تم إرسال التقييم بنجاح!",
+      "submission_failed": "فشل في إرسال التقييم. يرجى المحاولة مرة أخرى.",
+      "already_rated_error": "لقد قمت بتقييم هذا الحجز بالفعل.",
+      "please_select_rating": "يرجى اختيار تقييم",
+      "please_write_review": "يرجى كتابة مراجعة",
+      "very_poor": "ضعيف جداً",
+      "poor": "ضعيف",
+      "average": "متوسط",
+      "good": "جيد",
+      "excellent": "ممتاز"
+    },
+    "reviews": {
+      "title": "تقييمات العملاء",
+      "total_reviews": "تقييم",
+      "average_rating": "متوسط التقييم",
+      "overall_rating": "التقييم العام",
+      "rating_distribution": "توزيع التقييمات",
+      "reviews": "تقييمات",
+      "search_placeholder": "البحث في التقييمات...",
+      "all_ratings": "جميع التقييمات",
+      "five_stars": "5 نجوم",
+      "four_stars": "4 نجوم",
+      "three_stars": "3 نجوم",
+      "two_stars": "نجمتان",
+      "one_star": "نجمة واحدة",
+      "newest_first": "الأحدث أولاً",
+      "oldest_first": "الأقدم أولاً",
+      "highest_rating": "أعلى تقييم",
+      "lowest_rating": "أقل تقييم",
+      "no_reviews_found": "لم يتم العثور على تقييمات",
+      "no_reviews_yet": "لا توجد تقييمات بعد",
+      "try_different_filters": "جرب تعديل المرشحات",
+      "reviews_will_appear_here": "ستظهر تقييمات العملاء هنا",
+      "helpful": "مفيد",
+      "verified_purchase": "شراء موثق",
+      "very_poor": "ضعيف جداً",
+      "poor": "ضعيف",
+      "average": "متوسط",
+      "good": "جيد",
+      "excellent": "ممتاز",
+      "access_denied": "رفض الوصول",
+      "access_denied_desc": "يمكن فقط لمقدمي الخدمات عرض التقييمات.",
+      "go_to_dashboard": "الذهاب إلى لوحة التحكم",
+      "load_error": "فشل في تحميل التقييمات"
+    },
+    "provider": {
+      "title": "لوحة تحكم المقدم",
+      "welcome": "مرحباً بعودتك، {{name}}!",
+      "subtitle": "تتبع أداءك وإدارة خدماتك",
+      "total_bookings": "إجمالي الحجوزات",
+      "upcoming": "القادمة",
+      "completed": "المكتملة",
+      "revenue": "الإيرادات",
+      "recent_bookings": "الحجوزات الأخيرة",
+      "no_bookings": "لا توجد حجوزات بعد",
+      "stats": {
+        "total_bookings": "إجمالي الحجوزات",
+        "today_bookings": "حجوزات اليوم",
+        "upcoming": "القادمة",
+        "completed": "المكتملة",
+        "total_earnings": "إجمالي الأرباح",
+        "this_month": "أرباح هذا الشهر",
+        "rating": "التقييم",
+        "success_rate": "معدل النجاح"
+      },
+      "accept_booking": "قبول",
+      "reject_booking": "رفض",
+      "start_service": "بدء الخدمة",
+      "complete": "إكمال",
+      "booking_updated": "تم تحديث حالة الحجز إلى {{status}}",
+      "update_error": "فشل في تحديث حالة الحجز",
+      "load_error": "فشل في تحميل بيانات لوحة التحكم",
+      "reviews": "تقييمات",
+      "upcoming_bookings": "الحجوزات القادمة",
+      "view_all_bookings": "عرض جميع الحجوزات",
+      "no_upcoming_bookings": "لا توجد حجوزات قادمة",
+      "no_upcoming_bookings_desc": "ليس لديك أي حجوزات مؤكدة مجدولة.",
+      "quick_actions": "إجراءات سريعة",
+      "view_todays_bookings": "عرض حجوزات اليوم",
+      "update_availability": "تحديث التوفر",
+      "manage_services": "إدارة الخدمات",
+      "view_reviews": "عرض التقييمات",
+      "profile_status": "حالة الملف الشخصي",
+      "profile_completion": "اكتمال الملف الشخصي",
+      "profile_completion_desc": "أكمل ملفك الشخصي لجذب المزيد من العملاء",
+      "performance_tips": "نصائح الأداء",
+      "tip_respond_quickly": "الرد على الحجوزات خلال ساعة واحدة",
+      "tip_update_availability": "حافظ على تحديث توفرك",
+      "tip_ask_reviews": "اطلب تقييمات من العملاء",
+      "tip_add_photos": "أضف المزيد من صور الخدمات",
+      "customer_details": "تفاصيل العميل",
+      "service_address": "عنوان الخدمة",
+      "customer_notes": "ملاحظات العميل",
+      "approvalWarning": {
+        "title": "حساب في انتظار الموافقة",
+        "message": "حساب مقدم الخدمة الخاص بك في انتظار موافقة المدير حاليًا. ستتمكن من الوصول إلى جميع الميزات بمجرد موافقة المدير على حسابك."
+      }
+    },
+    "service_management": {
+      "title": "إدارة الخدمات",
+      "subtitle": "إدارة خدماتك وعروضك",
+      "add_new_service": "إضافة خدمة جديدة",
+      "total_services": "إجمالي الخدمات",
+      "active_services": "الخدمات النشطة",
+      "total_bookings": "إجمالي الحجوزات",
+      "your_services": "خدماتك",
+      "no_services_yet": "لا توجد خدمات بعد",
+      "no_services_desc": "أنشئ خدمتك الأولى لبدء جذب العملاء",
+      "create_first_service": "أنشئ خدمتك الأولى",
+      "active": "نشط",
+      "inactive": "غير نشط",
+      "hours": "ساعات",
+      "bookings": "حجوزات",
+      "category": "الفئة",
+      "created": "تم الإنشاء",
+      "edit": "تعديل",
+      "delete": "حذف",
+      "previous": "السابق",
+      "page_of": "الصفحة {{current}} من {{total}}",
+      "next": "التالي",
+      "delete_service": "حذف الخدمة",
+      "delete_confirm": "هل أنت متأكد من أنك تريد حذف \"{{name}}\"؟ لا يمكن التراجع عن هذا الإجراء.",
+      "cancel": "إلغاء",
+      "edit_service": "تعديل الخدمة",
+      "create_new_service": "إنشاء خدمة جديدة",
+      "category_label": "الفئة",
+      "select_category": "اختر الفئة",
+      "other": "أخرى",
+      "custom_category": "فئة مخصصة",
+      "custom_category_placeholder": "أدخل اسم الفئة المخصصة",
+      "service_name": "اسم الخدمة",
+      "description": "الوصف",
+      "base_price": "السعر الأساسي",
+      "price_type": "نوع السعر",
+      "hourly": "بالساعة",
+      "fixed": "ثابت",
+      "duration_hours": "المدة (بالساعات)",
+      "requirements": "المتطلبات",
+      "requirements_placeholder": "أي متطلبات خاصة أو ملاحظات للعملاء",
+      "service_active": "الخدمة نشطة ومرئية للعملاء",
+      "saving": "جاري الحفظ...",
+      "update_service": "تحديث الخدمة",
+      "create_service": "إنشاء الخدمة",
+      "loading": "جاري التحميل...",
+      "access_denied": "رفض الوصول",
+      "access_denied_desc": "يمكن فقط لمقدمي الخدمات إدارة الخدمات.",
+      "registration_required": "تسجيل مقدم الخدمة مطلوب",
+      "registration_desc": "تحتاج إلى إكمال تسجيل مقدم الخدمة لإدارة الخدمات.",
+      "complete_registration": "إكمال تسجيل مقدم الخدمة",
+      "unknown_category": "فئة غير معروفة",
+      "packages": {
+        "title": "باقات الخدمة",
+        "description": "أنشئ باقات مختلفة بأسعار وميزات مختلفة",
+        "add_package": "إضافة باقة",
+        "edit_package": "تعديل الباقة",
+        "no_packages": "لم تتم إضافة باقات بعد. انقر على 'إضافة باقة' لإنشاء واحدة.",
+        "name": "اسم الباقة",
+        "name_placeholder": "مثل: قياسي، ممتاز",
+        "price": "السعر",
+        "price_placeholder": "أدخل سعر الباقة",
+        "description": "الوصف",
+        "description_placeholder": "صف ما هو مدرج في هذه الباقة",
+        "features": "الميزات",
+        "feature_placeholder": "أدخل ميزة",
+        "add_feature": "إضافة",
+        "name_and_price_required": "اسم الباقة والسعر مطلوبان"
+      },
+      "errors": {
+        "login_required": "يرجى تسجيل الدخول للوصول إلى هذه الصفحة.",
+        "access_denied": "رفض الوصول. يمكن فقط لمقدمي الخدمات إدارة الخدمات.",
+        "pending_approval": "حساب مقدم الخدمة الخاص بك في انتظار الموافقة. يرجى الانتظار حتى يوافق المدير على حسابك.",
+        "access_denied_generic": "رفض الوصول. يرجى التأكد من تسجيل الدخول كمقدم خدمة.",
+        "load_services_failed": "فشل في تحميل الخدمات",
+        "delete_success": "تم حذف الخدمة بنجاح",
+        "delete_failed": "فشل في حذف الخدمة",
+        "custom_category_required": "يرجى إدخال اسم الفئة المخصصة",
+        "user_not_found": "المستخدم غير موجود. يرجى تسجيل الدخول مرة أخرى.",
+        "update_success": "تم تحديث الخدمة بنجاح",
+        "create_success": "تم إنشاء الخدمة بنجاح",
+        "pending_approval_services": "حساب مقدم الخدمة الخاص بك في انتظار الموافقة. يرجى الانتظار حتى يوافق المدير على حسابك قبل إضافة الخدمات.",
+        "access_denied_services": "رفض الوصول. يرجى التأكد من تسجيل الدخول كمقدم خدمة.",
+        "auth_required": "المصادقة مطلوبة. يرجى تسجيل الدخول مرة أخرى.",
+        "save_failed": "فشل في حفظ الخدمة",
+        "jordanianPhone": "يرجى إدخال رقم هاتف أردني صحيح (مثل: 0771234567)"
+      }
+    },
+    "todays_bookings": {
+      "access_denied": "رفض الوصول",
+      "access_denied_desc": "يمكن فقط لمقدمي الخدمات عرض الحجوزات.",
+      "go_to_dashboard": "الذهاب إلى لوحة التحكم",
+      "back_to_dashboard": "العودة إلى لوحة التحكم",
+      "title": "حجوزات اليوم",
+      "booking_count": "{{count}} حجز",
+      "booking_count_plural": "{{count}} حجز",
+      "all_status": "جميع الحالات",
+      "status_pending_provider_accept": "في انتظار موافقة المقدم",
+      "status_pending": "قيد الانتظار",
+      "status_confirmed": "مؤكد",
+      "status_provider_on_way": "المقدم في الطريق",
+      "status_provider_arrived": "وصل المقدم",
+      "status_in_progress": "قيد التنفيذ",
+      "status_completed": "مكتمل",
+      "status_cancelled": "ملغي",
+      "status_refunded": "مسترد",
+      "no_bookings_today": "لا توجد حجوزات اليوم",
+      "no_bookings_today_desc": "ليس لديك أي حجوزات مجدولة لليوم.",
+      "no_bookings_with_status": "لا توجد حجوزات {{status}} لليوم.",
+      "confirm": "تأكيد",
+      "cancel": "إلغاء",
+      "start_journey": "بدء الرحلة",
+      "mark_arrived": "تحديد الوصول",
+      "start_service": "بدء الخدمة",
+      "complete": "إكمال",
+      "customer_details": "تفاصيل العميل",
+      "service_address": "عنوان الخدمة",
+      "customer_notes": "ملاحظات العميل",
+      "previous": "السابق",
+      "page_of": "الصفحة {{current}} من {{total}}",
+      "next": "التالي",
+      "load_error": "فشل في تحميل حجوزات اليوم",
+      "update_success": "تم {{status}} الحجز بنجاح",
+      "update_error": "فشل في تحديث حالة الحجز"
+    }
+  },
+  "footer": {
+    "description": "سوق خدمات منزلك الموثوق الذي يربطك بالمحترفين المهرة.",
+    "company": "الشركة",
+    "services": "الخدمات",
+    "support": "الدعم",
+    "forProviders": "لمقدمي الخدمات",
+    "links": {
+      "aboutUs": "من نحن",
+      "contact": "اتصل بنا",
+      "careers": "الوظائف",
+      "press": "الصحافة",
+      "browseServices": "تصفح الخدمات",
+      "popularCategories": "الفئات الشائعة",
+      "serviceAreas": "مناطق الخدمة",
+      "pricing": "الأسعار",
+      "helpCenter": "مركز المساعدة",
+      "safety": "الأمان",
+      "termsOfService": "شروط الخدمة",
+      "privacyPolicy": "سياسة الخصوصية",
+      "becomeProvider": "كن مقدم خدمة",
+      "providerDashboard": "لوحة تحكم المقدم",
+      "providerResources": "موارد المقدم",
+      "successStories": "قصص النجاح"
+    },
+    "newsletter": {
+      "title": "اشترك في نشرتنا الإخبارية",
+      "description": "احصل على آخر التحديثات والعروض الحصرية في صندوق الوارد الخاص بك.",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "subscribe": "اشترك"
+    },
+    "copyright": "© {{year}} بيتك. جميع الحقوق محفوظة.",
+    "availableOn": "متوفر على:",
+    "appStore": "متجر التطبيقات",
+    "googlePlay": "جوجل بلاي"
+  },
+  "booking": {
+    "serviceNotFound": "الخدمة غير موجودة",
+    "browseServices": "تصفح الخدمات",
+    "steps": {
+      "details": "تفاصيل الحجز",
+      "confirmation": "التأكيد",
+      "verification": "التحقق"
+    },
+    "serviceDetails": "تفاصيل الخدمة",
+    "provider": "مقدم الخدمة",
+    "duration": "المدة",
+    "hours": "ساعات",
+    "selectPackage": "اختر الباقة",
+    "additionalServices": "خدمات إضافية (اختيارية)",
+    "schedule": "الجدولة",
+    "date": "التاريخ",
+    "time": "الوقت",
+    "durationHours": "المدة (بالساعات)",
+    "contactInformation": "معلومات الاتصال",
+    "fullName": "الاسم الكامل",
+    "phoneNumber": "رقم الهاتف",
+    "phoneFormat": "استخدم التنسيق الدولي مع رمز البلد (مثل: +1234567890)",
+    "emailOptional": "البريد الإلكتروني (اختياري)",
+    "serviceAddress": "عنوان الخدمة",
+    "address": "العنوان",
+    "city": "المدينة",
+    "area": "المنطقة",
+    "additionalNotes": "ملاحظات إضافية (اختيارية)",
+    "notesPlaceholder": "أي تعليمات أو متطلبات خاصة...",
+    "confirmation": "تأكيد الحجز",
+    "package": "الباقة",
+    "back": "رجوع",
+    "processing": "جاري المعالجة...",
+    "waitSeconds": "انتظر {{seconds}} ثانية",
+    "proceedToVerification": "المتابعة للتحقق",
+    "verifyPhone": "تحقق من رقم هاتفك",
+    "otpSent": "لقد أرسلنا رمز التحقق المكون من 6 أرقام إلى {{phone}}",
+    "enterOtp": "أدخل رمز التحقق",
+    "creatingBooking": "جاري إنشاء الحجز...",
+    "confirmBooking": "تأكيد الحجز",
+    "resendOtpIn": "إعادة إرسال رمز التحقق خلال {{seconds}} ثانية",
+    "resendOtp": "إعادة إرسال رمز التحقق",
+    "priceSummary": "ملخص السعر",
+    "basePrice": "السعر الأساسي",
+    "addOns": "الإضافات",
+    "tax": "الضريبة (10%)",
+    "total": "المجموع",
+    "cancellationPolicy": "سياسة الإلغاء",
+    "cancellationPolicyText": "إلغاء مجاني حتى 24 ساعة قبل الخدمة المجدولة.",
+    "errors": {
+      "selectDateTime": "يرجى اختيار التاريخ والوقت",
+      "contactDetails": "يرجى تقديم تفاصيل الاتصال الخاصة بك",
+      "serviceAddress": "يرجى تقديم عنوان الخدمة",
+      "otpCooldown": "يرجى الانتظار {{seconds}} ثانية قبل طلب رمز تحقق آخر.",
+      "validPhone": "يرجى إدخال رقم هاتف صحيح",
+      "internationalPhone": "يرجى إدخال رقم هاتف دولي صحيح (مثل: +1234567890)",
+      "jordanianPhone": "يرجى إدخال رقم هاتف أردني صحيح (مثل: 0771234567)",
+      "tooManyRequests": "طلبات كثيرة جداً. يرجى الانتظار دقيقتين قبل المحاولة مرة أخرى.",
+      "invalidPhoneFormat": "تنسيق رقم الهاتف غير صحيح. يرجى استخدام التنسيق الدولي (مثل: +1234567890)",
+      "otpFailed": "فشل في إرسال رمز التحقق. يرجى المحاولة مرة أخرى.",
+      "missingFields": "حقول مطلوبة مفقودة: {{fields}}",
+      "invalidOtp": "رمز التحقق غير صحيح",
+      "bookingFailed": "فشل في إنشاء الحجز"
+    },
+    "success": {
+      "otpSent": "تم إرسال رمز التحقق بنجاح!",
+      "bookingCreated": "تم إنشاء الحجز بنجاح!"
+    },
+    "cancel": "إلغاء الحجز",
+    "cancellation": {
+      "title": "إلغاء الحجز",
+      "description": "يرجى إخبارنا عن سبب إلغاء هذا الحجز. هذا يساعدنا في تحسين خدمتنا.",
+      "confirm": "تأكيد الإلغاء",
+      "success": "تم إلغاء الحجز بنجاح",
+      "error": "فشل في إلغاء الحجز. يرجى المحاولة مرة أخرى.",
+      "reasons": {
+        "rescheduled": "أحتاج إلى إعادة جدولة",
+        "price_issue": "السعر مرتفع جداً",
+        "found_someone_else": "وجدت مقدم خدمة آخر",
+        "no_longer_needed": "لم تعد هناك حاجة",
+        "provider_unavailable": "مقدم الخدمة غير متاح",
+        "location_issue": "مشكلة في الموقع",
+        "other": "سبب آخر"
+      },
+      "custom_reason_label": "يرجى التحديد:",
+      "custom_reason_placeholder": "أخبرنا المزيد عن سبب الإلغاء..."
+    },
+    "complete": {
+      "title": "إكمال الحجز",
+      "description": "يرجى تقديم تفاصيل إكمال هذا الحجز.",
+      "status": "الحالة",
+      "status_completed": "مكتمل",
+      "amount_paid": "المبلغ المدفوع",
+      "amount_required": "المبلغ المدفوع مطلوب",
+      "amount_invalid": "يرجى إدخال مبلغ صحيح",
+      "amount_placeholder": "أدخل المبلغ المدفوع",
+      "provider_satisfaction": "رضا مقدم الخدمة",
+      "optional": "اختياري",
+      "satisfaction_placeholder": "قيم رضاك (0-5)",
+      "satisfaction_invalid": "يجب أن يكون الرضا بين 0 و 5",
+      "satisfaction_help": "اختياري: قيم رضاك عن هذا الحجز (مقياس 0-5)",
+      "booking_total": "إجمالي الحجز",
+      "confirm": "إكمال الحجز",
+      "success": "تم إكمال الحجز بنجاح",
+      "error": "فشل في إكمال الحجز"
+    },
+    "serviceLocation": "الموقع"
+  },
+  "bookingSuccess": {
+    "title": "تم تأكيد الحجز!",
+    "subtitle": "تم إنشاء حجزك بنجاح.",
+    "accountCreated": "تم إنشاء الحساب تلقائياً",
+    "accountCreatedDesc": "لقد قمنا بإنشاء حساب لك باستخدام رقم هاتفك. يمكنك الآن تسجيل الدخول لعرض حجوزاتك.",
+    "bookingNumber": "رقم الحجز",
+    "whatHappensNext": "ماذا يحدث بعد ذلك؟",
+    "providerConfirmation": "تأكيد مقدم الخدمة",
+    "providerConfirmationText": "سيؤكد مقدم الخدمة حجزك قريباً",
+    "serviceDay": "يوم الخدمة",
+    "serviceDayText": "سيصل مقدم الخدمة إلى موقعك في التاريخ والوقت المجدولين",
+    "payment": "الدفع",
+    "paymentText": "ادفع بعد اكتمال الخدمة إلى رضاك",
+    "loginToViewBookings": "تسجيل الدخول لعرض الحجوزات",
+    "viewMyBookings": "عرض حجوزاتي",
+    "backToHome": "العودة للرئيسية",
+    "needHelp": "تحتاج مساعدة؟",
+    "contactSupport": "اتصل بالدعم"
+  },
+  "providerProfile": {
+    "providerNotFound": "مقدم الخدمة غير موجود",
+    "browseServices": "تصفح الخدمات",
+    "yearsExperience": "سنوات خبرة",
+    "reviews": "تقييمات",
+    "bookNow": "احجز الآن",
+    "about": "حول",
+    "languages": "اللغات",
+    "defaultLanguage": "الإنجليزية",
+    "serviceAreas": "مناطق الخدمة",
+    "allAreas": "جميع المناطق",
+    "workingHours": "ساعات العمل",
+    "availableDays": "الأيام المتاحة",
+    "badges": "الشارات",
+    "instantBooking": "حجز فوري متاح",
+    "verifiedProvider": "مقدم خدمة موثق",
+    "topRated": "الأعلى تقييماً",
+    "completedJobs": "100+ وظيفة مكتملة",
+    "tabs": {
+      "services": "الخدمات",
+      "portfolio": "المحفظة",
+      "reviews": "التقييمات"
+    },
+    "category": "الفئة",
+    "hours": "ساعات",
+    "availablePackages": "الباقات المتاحة",
+    "availableAddons": "الإضافات المتاحة",
+    "bookThisService": "احجز هذه الخدمة",
+    "noServices": "لا توجد خدمات مدرجة بعد",
+    "noPortfolio": "لا توجد صور محفظة متاحة",
+    "customerReviews": "تقييمات العملاء",
+    "totalBookings": "إجمالي الحجوزات",
+    "verifiedPurchase": "شراء موثق",
+    "providerResponse": "رد مقدم الخدمة",
+    "noReviews": "لا توجد تقييمات بعد",
+    "firstReview": "كن أول من يقيم هذا المقدم!",
+    "errors": {
+      "loadFailed": "فشل في تحميل تفاصيل مقدم الخدمة"
+    }
+  },
+  "serviceCard": {
+    "defaultCategory": "خدمة",
+    "bookings": "حجوزات",
+    "hours": "ساعة",
+    "perHour": "/ساعة",
+    "availablePackages": "الباقات المتاحة:",
+    "viewDetails": "عرض التفاصيل",
+    "bookNow": "احجز الآن"
+  },
+  "auth": {
+    "login": {
+      "title": "مرحباً بعودتك",
+      "subtitle": "ليس لديك حساب؟",
+      "sign_up_link": "سجل هنا",
+      "login_with_phone": "تسجيل الدخول بالهاتف",
+      "password_login": "تسجيل الدخول بكلمة المرور",
+      "phone": "رقم الهاتف",
+      "phone_placeholder": "أدخل رقم هاتفك",
+      "send_otp": "إرسال رمز التحقق",
+      "verify_otp": "تحقق من رمز التحقق",
+      "otp_sent": "تم إرسال رمز التحقق إلى",
+      "resend_otp": "إعادة إرسال رمز التحقق",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "password_placeholder": "أدخل كلمة المرور",
+      "remember_me": "تذكرني",
+      "forgot_password": "نسيت كلمة المرور؟",
+      "login_button": "تسجيل الدخول",
+      "or": "أو",
+      "enter_phone": "يرجى إدخال رقم هاتفك",
+      "invalid_otp": "رمز التحقق غير صحيح",
+      "guestPhonePrefilled": "تم ملء رقم الهاتف من حجزك الأخير تلقائياً",
+   "email_or_phone_placeholder": "أدخل بريدك الإلكتروني أو رقم هاتفك"
+    },
+    "signup": {
+      "title": "إنشاء حساب",
+      "have_account": "هل لديك حساب بالفعل؟",
+      "login_link": "سجل الدخول هنا",
+      "first_name": "الاسم الأول",
+      "last_name": "الاسم الأخير",
+      "phone": "رقم الهاتف",
+      "phone_placeholder": "077 123 4567",
+      "phone_help": "أدخل رقم هاتف أردني صحيح (077، 078، أو 179)",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "confirm_password": "تأكيد كلمة المرور",
+      "role": "نوع الحساب",
+      "customer": "عميل",
+      "provider": "مقدم خدمة",
+      "create_account": "إنشاء حساب",
+      "validation": {
+        "passwordsDoNotMatch": "كلمات المرور غير متطابقة"
+      }
+    },
+    "messages": {
+      "loginSuccess": "تم تسجيل الدخول بنجاح!",
+      "loginFailed": "فشل في تسجيل الدخول",
+      "signupSuccess": "تم إنشاء الحساب بنجاح!",
+      "signupFailed": "فشل في التسجيل",
+      "validationError": "خطأ في التحقق",
+      "otpSent": "تم إرسال رمز التحقق بنجاح!",
+      "otpSendFailed": "فشل في إرسال رمز التحقق",
+      "otpVerified": "تم التحقق من رمز التحقق بنجاح!",
+      "invalidOTP": "رمز التحقق غير صحيح",
+      "logoutSuccess": "تم تسجيل الخروج بنجاح",
+      "profileUpdated": "تم تحديث الملف الشخصي بنجاح!",
+      "profileUpdateFailed": "فشل في تحديث الملف الشخصي",
+      "invalidPhoneFormat": "يرجى إدخال رقم هاتف أردني صحيح (077، 078، أو 179)",
+      "passwordsDoNotMatch": "كلمات المرور غير متطابقة"
+    },
+    "errors": {
+      "jordanianPhone": "يرجى إدخال رقم هاتف أردني صحيح (مثل: 0771234567)"
+    },
+    "verificationModal": {
+      "title": "التحقق من الهاتف مطلوب",
+      "description": "يحتاج حسابك إلى التحقق قبل تسجيل الدخول. سنرسل رمز تحقق للتحقق من رقم هاتفك.",
+      "phoneNumber": "رقم الهاتف",
+      "sendOtp": "إرسال رمز التحقق",
+      "otpSentDescription": "لقد أرسلنا رمز التحقق المكون من 6 أرقام إلى {{phone}}. يرجى إدخاله أدناه.",
+      "enterOtp": "أدخل رمز التحقق",
+      "verifyButton": "تحقق",
+      "resendOtp": "إعادة إرسال رمز التحقق",
+      "resendIn": "إعادة الإرسال خلال {{seconds}} ثانية",
+      "verificationSuccess": "تم التحقق من رقم الهاتف بنجاح!",
+      "invalidOtp": "رمز التحقق غير صحيح. يرجى المحاولة مرة أخرى.",
+      "phoneRequired": "رقم الهاتف مطلوب",
+      "cooldown": "يرجى الانتظار {{seconds}} ثانية قبل إعادة الإرسال"
+    }
+  },
+  "providerRegister": {
+    "title": "كن مقدم خدمة",
+    "subtitle": "انضم إلى بيتك ونمي عملك",
+    "steps": {
+      "personalInfo": "المعلومات الشخصية",
+      "businessInfo": "معلومات العمل",
+      "availability": "التوفر"
+    },
+    "sections": {
+      "personalInfo": "المعلومات الشخصية",
+      "businessInfo": "معلومات العمل",
+      "availability": "التوفر والسياسات",
+      "verificationDocuments": "وثائق التحقق"
+    },
+    "fields": {
+      "firstName": "الاسم الأول",
+      "lastName": "الاسم الأخير",
+      "phone": "رقم الهاتف",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "city": "المدينة",
+      "area": "المنطقة",
+      "businessName": "اسم العمل",
+      "bio": "السيرة الذاتية / الوصف",
+      "hourlyRate": "السعر بالساعة (دينار)",
+      "experienceYears": "سنوات الخبرة",
+      "languages": "اللغات (مفصولة بفواصل)",
+      "serviceAreas": "مناطق الخدمة (مفصولة بفواصل)",
+      "certifications": "الشهادات (مفصولة بفواصل)",
+      "availableDays": "الأيام المتاحة",
+      "verification": "التحقق",
+      "workingHoursStart": "ساعات العمل - البداية",
+      "workingHoursEnd": "ساعات العمل - النهاية",
+      "instantBooking": "تفعيل الحجز الفوري (يمكن للعملاء الحجز دون موافقة)",
+      "cancellationPolicy": "سياسة الإلغاء",
+      "category": "فئات الخدمة",
+      "idVerifiedImage": "صورة التحقق من الهوية",
+      "vocationalLicenseImage": "صورة الترخيص المهني",
+      "policeClearanceImage": "صورة شهادة عدم المحكومية"
+    },
+    "placeholders": {
+      "email": "your.email@example.com (اختياري)",
+      "phone": "077 123 4567",
+      "businessName": "اسم عملك أو اسمك المهني",
+      "bio": "اوصف خدماتك وخبرتك...",
+      "languages": "الإنجليزية، الإسبانية، العربية",
+      "serviceAreas": "وسط المدينة، الجانب الغربي، الجانب الشرقي",
+      "certifications": "سباك مرخص، معتمد من وكالة حماية البيئة",
+      "cancellationPolicy": "اوصف سياسة الإلغاء الخاصة بك...",
+      "idVerifiedImage": "ارفع صورة واضحة لهويتك الحكومية",
+      "vocationalLicenseImage": "ارفع ترخيصك المهني أو شهادتك",
+      "policeClearanceImage": "ارفع شهادة عدم المحكومية"
+    },
+    "help": {
+      "commaSeparated": "افصل بين العناصر المتعددة بفواصل ومسافات (مثال: العنصر 1، العنصر 2، العنصر 3)",
+      "phoneFormat": "أدخل رقم هاتف أردني صحيح (077، 078، أو 079)"
+    },
+    "validation": {
+      "firstNameRequired": "الاسم الأول مطلوب",
+      "lastNameRequired": "الاسم الأخير مطلوب",
+      "phoneRequired": "رقم الهاتف مطلوب",
+      "phoneInvalid": "يرجى إدخال رقم هاتف أردني صحيح (077، 078، أو 079)",
+      "emailRequired": "البريد الإلكتروني مطلوب",
+      "passwordRequired": "كلمة المرور مطلوبة",
+      "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
+      "cityRequired": "المدينة مطلوبة",
+      "businessNameRequired": "اسم العمل مطلوب",
+      "bioRequired": "السيرة الذاتية مطلوبة",
+      "hourlyRateRequired": "السعر بالساعة مطلوب",
+      "experienceRequired": "الخبرة مطلوبة",
+      "categoryRequired": "فئة الخدمة مطلوبة"
+    },
+    "buttons": {
+      "submitting": "جاري الإرسال...",
+      "submitApplication": "إرسال الطلب"
+    },
+    "messages": {
+      "registrationSuccess": "تم إرسال طلب التسجيل كمقدم خدمة بنجاح!",
+      "registrationFailed": "فشل في التسجيل",
+      "validationError": "خطأ في التحقق"
+    },
+    "info": {
+      "title": "ماذا يحدث بعد ذلك؟",
+      "reviewTime": "سيتم مراجعة طلبك خلال 24-48 ساعة",
+      "emailNotification": "ستتلقى إشعاراً بالبريد الإلكتروني عند الموافقة",
+      "afterApproval": "بعد الموافقة، يمكنك البدء في إضافة الخدمات وقبول الحجوزات",
+      "competitivePrices": "ضع أسعاراً تنافسية لجذب المزيد من العملاء",
+      "verificationDocumentsNote": "ارفع وثائق التحقق لتسريع عملية الموافقة. جميع الوثائق اختيارية ولكنها موصى بها."
+    }
+  },
+  "notFound": {
+    "message": "الصفحة غير موجودة",
+    "goHome": "العودة للرئيسية"
+  },
+  "dropdowns": {
+    "selectCityFirst": "اختر مدينة أولاً",
+    "loadingAreas": "جاري تحميل المناطق...",
+    "enterArea": "أدخل منطقتك",
+    "manualInputAreas": "استخدام الإدخال اليدوي (واجهة برمجة المناطق غير متاحة)",
+    "selectArea": "اختر منطقة",
+    "loadingCities": "جاري تحميل المدن...",
+    "enterCity": "أدخل مدينتك",
+    "manualInputCities": "استخدام الإدخال اليدوي (واجهة برمجة المدن غير متاحة)",
+    "selectCity": "اختر مدينة",
+    "loadingCategories": "جاري تحميل الفئات...",
+    "enterCategory": "أدخل فئتك",
+    "manualInputCategories": "استخدام الإدخال اليدوي (واجهة برمجة الفئات غير متاحة)",
+    "selectCategory": "اختر فئة"
+  },
+  "providerRegistrationSuccess": {
+    "title": "تم إرسال الطلب بنجاح!",
+    "message": "شكراً لك على التقدم لتصبح مقدم خدمة في بيتك. تم استلام طلبك وهو قيد المراجعة.",
+    "whatHappensNext": "ماذا يحدث بعد ذلك؟",
+    "reviewProcess": {
+      "title": "عملية المراجعة",
+      "description": "سيقوم فريقنا بمراجعة طلبك خلال 24-48 ساعة"
+    },
+    "emailNotification": {
+      "title": "إشعار بالبريد الإلكتروني",
+      "description": "ستتلقى بريداً إلكترونياً بمجرد الموافقة على طلبك"
+    },
+    "startEarning": {
+      "title": "ابدأ في الكسب",
+      "description": "بعد الموافقة، يمكنك البدء في إضافة الخدمات وقبول الحجوزات"
+    },
+    "backToHome": "العودة للرئيسية",
+    "browseServices": "تصفح الخدمات",
+    "haveQuestions": "لديك أسئلة؟",
+    "contactSupport": "اتصل بالدعم"
+  },
+  "verifyPhone": {
+    "title": "تحقق من رقم هاتفك",
+    "subtitle": "لقد أرسلنا رمز التحقق المكون من 6 أرقام إلى {{phone}}",
+    "enterOtp": "أدخل رمز التحقق",
+    "verifying": "جاري التحقق...",
+    "verifyButton": "تحقق من رقم الهاتف",
+    "resendOtp": "إعادة إرسال رمز التحقق",
+    "resendIn": "إعادة إرسال رمز التحقق خلال {{seconds}} ثانية",
+    "backToSignup": "العودة للتسجيل",
+    "errors": {
+      "invalidOtp": "يرجى إدخال رمز تحقق صحيح مكون من 6 أرقام",
+      "phoneNotFound": "رقم الهاتف غير موجود",
+      "invalidOtpTryAgain": "رمز التحقق غير صحيح. يرجى المحاولة مرة أخرى.",
+      "cooldown": "يرجى الانتظار {{seconds}} ثانية قبل طلب رمز تحقق آخر.",
+      "tooManyRequests": "طلبات كثيرة جداً. يرجى الانتظار دقيقتين قبل المحاولة مرة أخرى.",
+      "sendFailed": "فشل في إرسال رمز التحقق. يرجى المحاولة مرة أخرى."
+    },
+    "messages": {
+      "verificationSuccess": "تم التحقق من رقم الهاتف بنجاح!",
+      "otpSent": "تم إرسال رمز التحقق بنجاح!"
+    }
+  },
+  "serviceDetail": {
+    "serviceNotFound": "الخدمة غير موجودة",
+    "serviceId": "معرف الخدمة",
+    "browseServices": "تصفح الخدمات",
+    "loading": "جاري تحميل تفاصيل الخدمة...",
+    "noImages": "لا توجد صور متاحة",
+    "views": "مشاهدات",
+    "bookings": "حجوزات",
+    "featured": "مميز",
+    "available": "متاح",
+    "pricing": {
+      "hourly": "تسعير بالساعة",
+      "fixed": "تسعير ثابت"
+    },
+    "hoursDuration": "ساعات المدة",
+    "bookUpTo": "احجز حتى {{days}} أيام مقدماً",
+    "minAdvanceNotice": "حد أدنى {{hours}} ساعة إشعار مسبق",
+    "whatsIncluded": "ما هو مشمول",
+    "whatsNotIncluded": "ما هو غير مشمول",
+    "requirements": "المتطلبات",
+    "availablePackages": "الباقات المتاحة",
+    "noPackage": "بدون باقة",
+    "useBasePrice": "استخدام سعر الخدمة الأساسي",
+    "additionalServices": "خدمات إضافية",
+    "duration": "المدة",
+    "hour": "ساعة",
+    "hours": "ساعات",
+    "serviceProvider": "مقدم الخدمة",
+    "call": "mobile",
+    "email": "email",
+    "bookThisService": "احجز هذه الخدمة",
+    "basePrice": "السعر الأساسي",
+    "addOns": "الإضافات",
+    "tax": "الضريبة (10%)",
+    "total": "المجموع",
+    "bookNow": "احجز الآن",
+    "cancellationPolicy": "إلغاء مجاني حتى 24 ساعة قبل الخدمة",
+    "verifiedProvider": "مقدم خدمة موثق",
+    "securePayment": "دفع آمن",
+    "support247": "دعم 24/7",
+    "linkCopied": "تم نسخ الرابط إلى الحافظة!",
+    "addedToFavorites": "تمت الإضافة للمفضلة",
+    "removedFromFavorites": "تم الحذف من المفضلة",
+    "errors": {
+      "loadFailed": "فشل في تحميل تفاصيل الخدمة"
+    }
+  },
+  "bookingDetails": {
+    "title": "تفاصيل الحجز",
+    "bookingNotFound": "الحجز غير موجود",
+    "bookingNotFoundDesc": "الحجز الذي تبحث عنه غير موجود أو ليس لديك صلاحية لعرضه.",
+    "backToDashboard": "العودة للوحة التحكم",
+    "bookingNumber": "الحجز رقم #{{number}}",
+    "bookingInformation": "معلومات الحجز",
+    "serviceDetails": "تفاصيل الخدمة",
+    "specialInstructions": "تعليمات خاصة",
+    "customerInformation": "معلومات العميل",
+    "providerInformation": "معلومات مقدم الخدمة",
+    "actions": "الإجراءات",
+    "status": "الحالة",
+    "date": "التاريخ",
+    "time": "الوقت",
+    "location": "الموقع",
+    "totalPrice": "السعر الإجمالي",
+    "duration": "المدة",
+    "created": "تم الإنشاء",
+    "category": "الفئة",
+    "package": "الباقة",
+    "phone": "الهاتف",
+    "email": "البريد الإلكتروني",
+    "serviceCompleted": "تم إكمال الخدمة بنجاح",
+    "bookingCancelled": "تم إلغاء هذا الحجز",
+    "bookingConfirmed": "تم تأكيد الحجز وهو جاهز للمتابعة",
+    "waitingAcceptance": "هذا الحجز في انتظار موافقتك",
+    "errors": {
+      "loadFailed": "فشل في تحميل تفاصيل الحجز"
+    }
+  },
+  "location": {
+    "selectMethod": "اختر طريقة تحديد الموقع",
+    "chooseDetectionMethod": "اختر كيف تريد تحديد موقعك",
+    "autoDetect": "تحديد تلقائي",
+    "manualSelect": "تحديد يدوي",
+    "autoDetectionDescription": "دعنا نحدد موقعك باستخدام نظام تحديد المواقع (GPS).",
+    "manualSelectionDescription": "حدد مدينتك ومنطقتك يدوياً.",
+    "detectedLocation": "الموقع المحدد",
+    "selectedLocation": "الموقع المختار",
+    "coordinates": "الإحداثيات",
+    "switchedToManual": "فشل في تحديد الموقع. تم التحويل للتحديد اليدوي.",
+    "incompleteSelection": "يرجى استكمال اختيار المدينة والمنطقة.",
+    "clearSelection": "مسح الاختيار"
+  }
+  ,
+  "rating": {
+    "rate_service": "قيم الخدمة",
+    "booking_number": "رقم الحجز",
+    "provider": "مقدم الخدمة",
+    "your_rating": "تقييمك",
+    "your_review": "مراجعتك",
+    "review_placeholder": "أخبرنا عن تجربتك مع هذه الخدمة...",
+    "review_help": "شارك ملاحظاتك الصادقة لمساعدة العملاء الآخرين",
+    "submit_rating": "إرسال التقييم",
+    "submitted_successfully": "تم إرسال التقييم بنجاح!",
+    "submission_failed": "فشل في إرسال التقييم. يرجى المحاولة مرة أخرى.",
+    "please_select_rating": "يرجى اختيار تقييم",
+    "please_write_review": "يرجى كتابة مراجعة",
+    "very_poor": "ضعيف جداً",
+    "poor": "ضعيف",
+    "average": "متوسط",
+    "good": "جيد",
+    "excellent": "ممتاز"
+  }
+  ,
+  "searchPage": {
+    "title": "نتائج البحث",
+    "subtitle": "البحث عن: {{query}} في {{location}}",
+    "anyQuery": "أي شيء",
+    "anyLocation": "أي موقع"
+  }
+  ,
+  "admin": {
+    "title": "لوحة تحكم المدير",
+    "subtitle": "راقب أداء المنصة وأدر العمليات",
+    "stats": {
+      "totalUsers": "إجمالي المستخدمين",
+      "totalProviders": "إجمالي مقدمي الخدمات",
+      "approved": "مقبول",
+      "pending": "قيد الانتظار",
+      "totalBookings": "إجمالي الحجوزات",
+      "today": "اليوم",
+      "totalRevenue": "إجمالي الإيرادات",
+      "thisMonth": "هذا الشهر"
+    },
+    "sections": {
+      "bookingStatus": {
+        "title": "حالة الحجوزات",
+        "completed": "المكتملة",
+        "inProgress": "قيد التنفيذ",
+        "successRate": "معدل النجاح"
+      },
+      "growthMetrics": {
+        "title": "مؤشرات النمو",
+        "newUsers": "مستخدمون جدد (30 يوم)",
+        "newProviders": "مقدمو خدمات جدد (30 يوم)",
+        "revenueGrowth": "نمو الإيرادات"
+      },
+      "platformHealth": {
+        "title": "صحة المنصة",
+        "avgResponseTime": "متوسط وقت الاستجابة",
+        "avgRating": "متوسط التقييم",
+        "activeProviders": "المقدّمون النشطون"
+      }
+    },
+    "pendingApprovals": {
+      "title": "طلبات مقدمي الخدمات قيد الموافقة",
+      "badge": "{{count}} قيد الانتظار",
+      "rate": "السعر: {{rate}} دينار/ساعة",
+      "experience": "الخبرة: {{years}} سنوات",
+      "applied": "تاريخ التقديم: {{date}}",
+      "approve": "موافقة",
+      "reject": "رفض",
+      "none": "لا توجد طلبات موافقة قيد الانتظار"
+    },
+    "messages": {
+      "loadFailed": "فشل في تحميل بيانات لوحة التحكم",
+      "statusUpdated": "تم {{status}} المقدم بنجاح",
+      "updateFailed": "فشل في تحديث حالة المقدم"
+    },
+    "manageProviders": "إدارة مقدمي الخدمات",
+    "manageCustomers": "إدارة العملاء",
+    "createCategory": "إنشاء فئة",
+    "categories": {
+      "title": "إنشاء فئة",
+      "name": "الاسم",
+      "description": "الوصف",
+      "icon": "الأيقونة",
+      "minPrice": "الحد الأدنى للسعر",
+      "maxPrice": "الحد الأقصى للسعر",
+      "create": "إنشاء",
+      "back": "رجوع",
+      "success": "تم إنشاء الفئة",
+      "error": "فشل في إنشاء الفئة"
+    },
+    "customers": {
+      "title": "العملاء",
+      "search": "البحث عن العملاء",
+      "created": "تاريخ الإنشاء",
+      "id": "المعرف",
+      "name": "الاسم",
+      "phone": "الهاتف",
+      "email": "البريد الإلكتروني",
+      "verified": "موثق",
+      "yes": "نعم",
+      "no": "لا",
+      "loading": "جاري التحميل...",
+      "noCustomers": "لا يوجد عملاء",
+      "page": "الصفحة {{current}} من {{total}}",
+      "prev": "السابق",
+      "next": "التالي",
+      "error": "فشل في تحميل العملاء"
+    },
+    "providers": {
+      "title": "مقدمو الخدمات",
+      "search": "البحث عن مقدمي الخدمات",
+      "allStatus": "جميع الحالات",
+      "approved": "مقبول",
+      "pending": "قيد الانتظار",
+      "rejected": "مرفوض",
+      "created": "تاريخ الإنشاء",
+      "id": "المعرف",
+      "business": "العمل",
+      "status": "الحالة",
+      "rating": "التقييم",
+      "owner": "المالك",
+      "actions": "الإجراءات",
+      "viewDocuments": "عرض الوثائق",
+      "loading": "جاري التحميل...",
+      "noProviders": "لا يوجد مقدمي خدمات",
+      "page": "الصفحة {{current}} من {{total}}",
+      "prev": "السابق",
+      "next": "التالي",
+      "error": "فشل في تحميل مقدمي الخدمات"
+    },
+    "providerDocuments": {
+      "title": "وثائق مقدم الخدمة",
+      "owner": "المالك",
+      "documents": "الوثائق",
+      "idVerifiedImage": "صورة التحقق من الهوية",
+      "vocationalLicense": "الترخيص المهني",
+      "policeClearance": "شهادة عدم المحكومية",
+      "notUploaded": "لم يتم الرفع",
+      "open": "فتح",
+      "verificationStatus": "حالة التحقق",
+      "idVerified": "الهوية موثقة",
+      "licenseVerified": "الترخيص موثق",
+      "policeClearanceVerified": "شهادة عدم المحكومية موثقة",
+      "approveId": "الموافقة على الهوية",
+      "approveLicense": "الموافقة على الترخيص",
+      "approvePolice": "الموافقة على شهادة عدم المحكومية",
+      "approveAll": "الموافقة على الكل",
+      "profile": "الملف الشخصي",
+      "hourlyRate": "السعر بالساعة",
+      "experienceYears": "الخبرة (بالسنوات)",
+      "appliedAt": "تاريخ التقديم",
+      "backToProviders": "العودة إلى مقدمي الخدمات",
+      "loading": "جاري التحميل...",
+      "notFound": "غير موجود",
+      "success": "تم تحديث التحقق",
+      "error": "فشل في تحديث التحقق",
+      "loadError": "فشل في تحميل الوثائق"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "حول بيتك",
+      "tagline": "مساعدة موثوقة... على بُعد لمسة.",
+      "subtitle": "ربط أصحاب المنازل مع متخصصي الخدمات الموثوقين"
+    },
+    "intro": {
+      "title": "عن بيتك",
+      "paragraph1": "عندنا، أغلب الناس لما يدوروا على مساعدة بيبدأوا بنفس السؤال:",
+      "quote": "\"تعرف حدا شاطر؟\"",
+      "paragraph2": "بيتك سهّلها.",
+      "paragraph3": "منصّة موثوقة تجمع عمّال وفنيين مدرّبين ومؤهّلين للتنظيف، الصيانة، والإصلاح — بسهولة وراحة بال.",
+      "paragraph4": "كل مقدّم خدمة بيتحقق منه من خلال شركاء محلّيين، عشان تحجز بثقة وتكون مطمّن.",
+      "paragraph5": "لأن المساعدة ما لازم تكون مسألة حظ.",
+      "paragraph6": "بيتك منصّة محليّة لحياتنا اليومية... بتقرّب المساعدة الموثوقة لكل بيت."
+    },
+    "story": {
+      "title": "قصتنا",
+      "paragraph1": "ولد بيتك من فكرة بسيطة: جعل الخدمات المنزلية متاحة وموثوقة ومريحة للجميع. رأينا صعوبة العثور على مقدمي خدمات موثوقين لأصحاب المنازل، وصعوبة نمو الأعمال للمحترفين.",
+      "paragraph2": "تأسست في عام 2022، قمنا ببناء منصة تربط آلاف العملاء مع مقدمي خدمات معتمدين عبر الأردن. مهمتنا هي تحويل طريقة تفكير الناس في الخدمات المنزلية.",
+      "paragraph3": "اليوم، بيتك هو السوق الرائد للخدمات المنزلية في الأردن، يساعد العملاء في العثور على كل شيء من التنظيف إلى الإصلاحات، ويدعم المحترفين المحليين في نمو أعمالهم."
+    },
+    "stats": {
+      "active_users": "المستخدمون النشطون",
+      "service_providers": "مقدمو الخدمات",
+      "services_completed": "الخدمات المكتملة",
+      "average_rating": "متوسط التقييم"
+    },
+    "impact": {
+      "title": "تأثيرنا"
+    },
+    "mission": {
+      "title": "مهمتنا",
+      "description": "جعل الخدمات المنزلية عالية الجودة متاحة للجميع، مع دعم المحترفين المحليين في بناء أعمال مستدامة."
+    },
+    "vision": {
+      "title": "رؤيتنا",
+      "description": "أن نصبح المنصة الأكثر ثقة للخدمات المنزلية في الشرق الأوسط، معروفين بالجودة والموثوقية والتأثير المجتمعي."
+    },
+    "values": {
+      "title": "قيمنا",
+      "customer_first": {
+        "title": "العميل أولاً",
+        "description": "كل قرار نتخذه مدفوع بما هو أفضل لعملائنا ومقدمي الخدمات."
+      },
+      "trust_safety": {
+        "title": "الثقة والأمان",
+        "description": "نتحقق من كل مقدم خدمة ونتأكد من المراجعات والتقييمات الشفافة."
+      },
+      "innovation": {
+        "title": "الابتكار",
+        "description": "نحسن باستمرار منصتنا لتوفير أفضل تجربة للجميع."
+      },
+      "growth_together": {
+        "title": "النمو معاً",
+        "description": "نؤمن بالنمو معاً مع مجتمع عملائنا ومقدمي الخدمات."
+      }
+    },
+    "team": {
+      "title": "تعرف على فريقنا",
+      "subtitle": "الأشخاص المتحمسون وراء بيتك",
+      "ceo": {
+        "role": "الرئيس التنفيذي والشريك المؤسس",
+        "bio": "قائد رؤيوي مع أكثر من 15 عاماً من الخبرة في التكنولوجيا وأعمال الأسواق."
+      },
+      "coo": {
+        "role": "رئيس العمليات والشريك المؤسس",
+        "bio": "خبير عمليات يركز على التوسع ونمو المجتمع."
+      },
+      "cto": {
+        "role": "رئيس التقنية",
+        "bio": "مبتكر تقني يبني مستقبل أسواق الخدمات."
+      },
+      "customer_success": {
+        "role": "رئيس نجاح العملاء",
+        "bio": "ملتزم بضمان تجارب استثنائية لجميع المستخدمين."
+      }
+    },
+    "cta": {
+      "title": "انضم إلى مجتمع بيتك",
+      "subtitle": "سواء كنت بحاجة إلى الخدمات أو تريد تقديمها، نحن هنا من أجلك.",
+      "find_services": "ابحث عن الخدمات",
+      "become_provider": "كن مقدم خدمة"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "تواصل معنا",
+      "subtitle": "نحن هنا للمساعدة! تواصل معنا للأسئلة أو الملاحظات أو احتياجات الدعم."
+    },
+    "info": {
+      "phone": {
+        "title": "الهاتف",
+        "subtext": "متاح من الاثنين إلى الجمعة، من 9 صباحاً إلى 6 مساءً"
+      },
+      "email": {
+        "title": "البريد الإلكتروني",
+        "subtext": "نرد خلال 24 ساعة"
+      },
+      "office": {
+        "title": "عنوان المكتب"
+      },
+      "hours": {
+        "title": "ساعات العمل",
+        "details": "الاثنين - الجمعة"
+      }
+    },
+    "form": {
+      "title": "أرسل لنا رسالة",
+      "name": "الاسم",
+      "name_placeholder": "اسمك الكامل",
+      "email": "البريد الإلكتروني",
+      "email_placeholder": "your.email@example.com",
+      "phone": "الهاتف",
+      "phone_placeholder": "+1 (555) 123-4567",
+      "inquiry_type": "نوع الاستفسار",
+      "inquiry_types": {
+        "general": "استفسار عام",
+        "support": "طلب دعم",
+        "provider": "سؤال عن مقدم الخدمة",
+        "partnership": "شراكة",
+        "feedback": "ملاحظات"
+      },
+      "subject": "الموضوع",
+      "subject_placeholder": "ما هو هذا؟",
+      "message": "الرسالة",
+      "message_placeholder": "أخبرنا كيف يمكننا المساعدة...",
+      "send": "إرسال الرسالة",
+      "sending": "جاري الإرسال...",
+      "success_message": "تم إرسال الرسالة بنجاح! سنتواصل معك قريباً.",
+      "error_message": "فشل في إرسال الرسالة. يرجى المحاولة مرة أخرى."
+    },
+    "office": {
+      "title": "زر مكتبنا",
+      "map_placeholder": "الخريطة قريباً",
+      "other_ways": "طرق أخرى للتواصل معنا",
+      "live_chat": "الدردشة المباشرة",
+      "help_center": "مركز المساعدة",
+      "email_support": "دعم البريد الإلكتروني"
+    },
+    "faqs": {
+      "title": "الأسئلة الشائعة",
+      "book_service": {
+        "question": "كيف أحجز خدمة؟",
+        "answer": "ببساطة ابحث عن الخدمة التي تحتاجها، تصفح مقدمي الخدمات، قارن الأسعار والتقييمات، ثم احجز مباشرة من خلال المنصة. يتم الدفع بعد اكتمال الخدمة."
+      },
+      "verified_providers": {
+        "question": "هل جميع مقدمي الخدمات موثقون؟",
+        "answer": "نعم! جميع مقدمي الخدمات في بيتك يمرون بعملية تحقق، بما في ذلك التحقق من الهوية وفحص الخلفية عند الاقتضاء."
+      },
+      "cancel_booking": {
+        "question": "هل يمكنني إلغاء الحجز؟",
+        "answer": "نعم، يمكنك إلغاء الحجوزات حتى 24 ساعة قبل وقت الخدمة المجدول دون رسوم. تحقق من سياسة الإلغاء للحصول على التفاصيل."
+      },
+      "become_provider": {
+        "question": "كيف أصبح مقدم خدمة؟",
+        "answer": "انقر على 'كن مقدم خدمة' في قائمة التنقل، املأ نموذج التسجيل، وسيراجع فريقنا طلبك خلال 24-48 ساعة."
+      },
+      "payment_security": {
+        "question": "هل الدفع آمن؟",
+        "answer": "بالتأكيد! نستخدم معالجة دفع آمنة وانت تدفع فقط بعد اكتمال الخدمة إلى رضاك."
+      },
+      "pricing": {
+        "question": "كيف يتم تحديد الأسعار؟",
+        "answer": "يحدد مقدمو الخدمات أسعارهم بناءً على أسعار السوق وخبرتهم. يمكنك مقارنة الأسعار من عدة مقدمي خدمات قبل الحجز."
+      }
+    },
+    "cta": {
+      "title": "لا تزال لديك أسئلة؟",
+      "subtitle": "نحن سعداء دائماً للمساعدة. تواصل معنا من خلال أي من الطرق المذكورة أعلاه.",
+      "call_us": "اتصل بنا",
+      "email_support": "دعم البريد الإلكتروني"
+    }
+  },
+  "serviceManagement": {
+    "imageUpload": {
+      "title": "صور الخدمة",
+      "clickToUpload": "انقر للرفع",
+      "dragAndDrop": "أو اسحب وأفلت",
+      "fileFormat": "PNG، JPG، WEBP (حد أقصى 5 ميجابايت لكل صورة)",
+      "current": "الحالي",
+      "invalidFileType": "يرجى اختيار ملفات صور صحيحة (JPEG، PNG، أو WebP)",
+      "fileTooLarge": "يجب أن تكون ملفات الصور أقل من 5 ميجابايت"
+    }
+  }
+}

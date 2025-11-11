@@ -1,0 +1,1352 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "clear": "Clear",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "close": "Close",
+    "view": "View",
+    "book": "Book",
+    "continue": "Continue",
+    "bookNow": "Book Now",
+    "viewAll": "View All",
+    "showMore": "Show More",
+    "showLess": "Show Less",
+    "noResults": "No results found",
+    "tryAgain": "Try Again",
+    "refresh": "Refresh",
+    "city": "City",
+    "area": "Area",
+    "currency": "JOD",
+    "apply": "Apply",
+    "optional": "Optional",
+    "back_to_dashboard": "Back to Dashboard"
+  },
+  "commonExtras": {
+    "notAvailable": "N/A"
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "signup": "Sign Up",
+    "logout": "Logout",
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "settings": "Settings",
+    "becomeProvider": "Become a Provider",
+    "browseServices": "Browse Services"
+  },
+  "home": {
+    "title": "Your Home Service Marketplace",
+    "subtitle": "Connect with trusted professionals for all your home needs - from cleaning to repairs, tutoring to music lessons.",
+    "search_placeholder": "What service do you need?",
+    "location_placeholder": "City or area",
+    "browse_categories": "Browse Services by Category",
+    "categories_subtitle": "Find the perfect service provider for your needs",
+    "view_all_services": "View All Services",
+    "hero": {
+      "title": "Your Home Service Marketplace",
+      "subtitle": "Connect with trusted professionals for all your home needs - from cleaning to repairs, tutoring to music lessons.",
+      "searchPlaceholder": "What service do you need?",
+      "locationPlaceholder": "City or area",
+      "popularTags": "Popular:",
+      "popularServices": ["House Cleaning", "Plumbing", "Painting", "Tutoring", "Electrician"]
+    },
+    "categories": {
+      "title": "Browse Services by Category",
+      "subtitle": "Find the perfect service provider for your needs",
+      "viewAllServices": "View All Services"
+    },
+    "cta": {
+      "become_provider": "Become a Provider"
+    },
+    "featured_providers": "Featured Providers",
+    "featured_subtitle": "Meet our top-rated service providers",
+    "how_it_works": {
+      "title": "How Baitak Works",
+      "subtitle": "Get your home services done in 4 simple steps",
+      "steps": {
+        "search": {
+          "title": "Search for a Service",
+          "description": "Browse our categories or search for specific services you need."
+        },
+        "choose": {
+          "title": "Choose a Provider",
+          "description": "Compare providers based on ratings, reviews, and pricing."
+        },
+        "book": {
+          "title": "Book Instantly",
+          "description": "Select your preferred time and book with instant confirmation."
+        },
+        "enjoy": {
+          "title": "Get Service Done",
+          "description": "Enjoy professional service and pay securely after completion."
+        }
+      }
+    },
+    "features": {
+      "verified": {
+        "title": "Verified Providers",
+        "description": "All service providers are thoroughly vetted and verified for your safety."
+      },
+      "quality": {
+        "title": "Quality Guaranteed",
+        "description": "Read reviews and ratings from real customers to make informed decisions."
+      },
+      "local": {
+        "title": "Local Services",
+        "description": "Find trusted professionals in your area for all your home needs."
+      }
+    },
+    "cta_section": {
+      "title": "Ready to Transform Your Home?",
+      "subtitle": "Join thousands of happy customers who trust Baitak for their home service needs.",
+      "find_service": "Find a Service",
+      "become_provider": "Become a Provider"
+    },
+    "search": {
+      "loading_suggestions": "Loading suggestions...",
+      "no_suggestions": "No suggestions found for \"{{query}}\"",
+      "category_label": "Category",
+      "browse_label": "Browse"
+    },
+    "providers": {
+      "experience": "Experience: {{years}} years",
+      "min_booking": "Min: {{hours}}h",
+      "bookings": "Bookings: {{count}}",
+      "status": "Status: {{status}}",
+      "hourly_rate": "{{rate}} JOD/hr",
+      "available_days": "Available: {{days}} days/week",
+      "view_profile": "View Profile",
+      "reviews": "{{rating}} ({{count}} reviews)"
+    },
+    "errors": {
+      "search_required": "Please enter a search query",
+      "load_data_failed": "Failed to load data. Please check if the backend server is running.",
+      "no_categories": "No categories available."
+    },
+    "guest_booking": {
+      "title": "Book as Guest",
+      "subtitle": "No account required - just verify your phone number",
+      "customer_info": "Customer Information",
+      "phone_required": "Phone number is required for booking",
+      "otp_sent": "OTP sent to your phone number",
+      "otp_required": "Please enter the OTP sent to your phone",
+      "otp_invalid": "Invalid OTP. Please try again.",
+      "otp_expired": "OTP has expired. Please request a new one.",
+      "resend_otp": "Resend OTP",
+      "resend_in": "Resend OTP in {{seconds}}s",
+      "otp_countdown": "OTP expires in {{minutes}}:{{seconds}}",
+      "booking_success": "Booking created successfully!",
+      "account_created": "Your account has been created automatically",
+      "sms_sent": "SMS notifications sent to you and the provider"
+    }
+  },
+  "services": {
+    "title": "Services",
+    "all_services": "All Services",
+    "filters": "Filters",
+    "search_placeholder": "Search for services...",
+    "search_results": "Search Results",
+    "filter_by_category": "Filter by Category",
+    "all_categories": "All Categories",
+    "price_range": "Price Range",
+    "any_price": "Any Price",
+    "minimum_rating": "Minimum Rating",
+    "stars": "Stars",
+    "any_rating": "Any Rating",
+    "clear_filters": "Clear Filters",
+    "showing_results": "Showing {{showing}} of {{total}} services",
+    "no_services_found": "No services found",
+    "sort_by": "Sort by",
+    "sort": {
+      "relevance": "Sort by: Relevance",
+      "price_low_high": "Price: Low to High",
+      "price_high_low": "Price: High to Low",
+      "rating_high_low": "Rating: High to Low",
+      "most_booked": "Most Booked"
+    }
+  },
+  "providers": {
+    "title": "Service Providers",
+    "subtitle": "Find trusted professionals in",
+    "filters": "Filters",
+    "minRating": "Minimum Rating",
+    "maxPrice": "Maximum Price",
+    "anyRating": "Any Rating",
+    "anyPrice": "Any Price",
+    "stars": "Stars",
+    "reviews": "reviews",
+    "experience": "Experience",
+    "years": "years",
+    "hourlyRate": "Hourly Rate",
+    "available": "Available",
+    "daysWeek": "days/week",
+    "bookings": "Bookings",
+    "viewProfile": "View Profile",
+    "noProviders": "No Providers Found",
+    "noProvidersDesc": "We couldn't find any providers for this category. Try adjusting your filters or browse all categories.",
+    "browseAll": "Browse All Categories",
+    "location": "Location",
+    "anyLocation": "Any Location",
+    "filterByLocation": "Filter by Location"
+  },
+  "dashboard": {
+    "user": {
+      "welcome": "Welcome back, {{name}}!",
+      "subtitle": "Manage your bookings and track your service history",
+      "browse_services": "Browse Services",
+      "total_bookings": "Total Bookings",
+      "upcoming": "Upcoming",
+      "total_spent": "Total Spent",
+      "reviews_given": "Reviews Given",
+      "recent_bookings": "Recent Bookings",
+      "no_bookings": "No bookings yet",
+      "stats": {
+        "total_bookings": "Total Bookings",
+        "upcoming": "Upcoming",
+        "total_spent": "Total Spent",
+        "reviews_given": "Reviews Given"
+      },
+      "booking": {
+        "provider": "Provider",
+        "date": "Date",
+        "location": "Location",
+        "provider_phone": "Provider Phone",
+        "waiting_provider_accept": "Waiting for provider to accept your booking",
+        "provider_accepted": "Provider has accepted your booking. You can now contact them directly."
+      },
+      "rate_service": "Rate Service",
+      "already_rated": "Already Rated",
+      "load_error": "Failed to load dashboard data"
+    },
+    "rating": {
+      "rate_service": "Rate Service",
+      "your_rating": "Your Rating",
+      "your_review": "Your Review",
+      "booking_number": "Booking Number",
+      "provider": "Provider",
+      "review_placeholder": "Tell us about your experience with this service...",
+      "review_help": "Share your honest feedback to help other customers",
+      "submit_rating": "Submit Rating",
+      "submitted_successfully": "Rating submitted successfully!",
+      "submission_failed": "Failed to submit rating. Please try again.",
+      "please_select_rating": "Please select a rating",
+      "please_write_review": "Please write a review",
+      "very_poor": "Very Poor",
+      "poor": "Poor",
+      "average": "Average",
+      "good": "Good",
+      "excellent": "Excellent"
+    },
+    "reviews": {
+      "title": "Customer Reviews",
+      "total_reviews": "reviews",
+      "average_rating": "Average Rating",
+      "overall_rating": "Overall Rating",
+      "rating_distribution": "Rating Distribution",
+      "reviews": "reviews",
+      "search_placeholder": "Search reviews...",
+      "all_ratings": "All Ratings",
+      "five_stars": "5 Stars",
+      "four_stars": "4 Stars",
+      "three_stars": "3 Stars",
+      "two_stars": "2 Stars",
+      "one_star": "1 Star",
+      "newest_first": "Newest First",
+      "oldest_first": "Oldest First",
+      "highest_rating": "Highest Rating",
+      "lowest_rating": "Lowest Rating",
+      "no_reviews_found": "No reviews found",
+      "no_reviews_yet": "No reviews yet",
+      "try_different_filters": "Try adjusting your filters",
+      "reviews_will_appear_here": "Reviews from customers will appear here",
+      "helpful": "helpful",
+      "verified_purchase": "Verified Purchase",
+      "very_poor": "Very Poor",
+      "poor": "Poor",
+      "average": "Average",
+      "good": "Good",
+      "excellent": "Excellent"
+    },
+    "provider": {
+      "title": "Provider Dashboard",
+      "welcome": "Welcome back, {{name}}!",
+      "subtitle": "Track your performance and manage your services",
+      "total_bookings": "Total Bookings",
+      "upcoming": "Upcoming",
+      "completed": "Completed",
+      "revenue": "Revenue",
+      "recent_bookings": "Recent Bookings",
+      "no_bookings": "No bookings yet",
+      "stats": {
+        "total_bookings": "Total Bookings",
+        "today_bookings": "Today's Bookings",
+        "upcoming": "Upcoming",
+        "completed": "Completed",
+        "total_earnings": "Total Earnings",
+        "this_month": "This Month's Earnings",
+        "rating": "Rating",
+        "success_rate": "Success Rate"
+      },
+      "accept_booking": "Accept",
+      "reject_booking": "Reject",
+      "start_service": "Start Service",
+      "complete": "Complete",
+      "booking_updated": "Booking status updated to {{status}}",
+      "update_error": "Failed to update booking status",
+      "load_error": "Failed to load dashboard data",
+      "reviews": "reviews",
+      "upcoming_bookings": "Upcoming Bookings",
+      "view_all_bookings": "View All Bookings",
+      "no_upcoming_bookings": "No upcoming bookings",
+      "no_upcoming_bookings_desc": "You don't have any confirmed bookings scheduled.",
+      "quick_actions": "Quick Actions",
+      "view_todays_bookings": "View Today's Bookings",
+      "update_availability": "Update Availability",
+      "manage_services": "Manage Services",
+      "view_reviews": "View Reviews",
+      "profile_status": "Profile Status",
+      "profile_completion": "Profile Completion",
+      "profile_completion_desc": "Complete your profile to attract more customers",
+      "performance_tips": "Performance Tips",
+      "tip_respond_quickly": "Respond to bookings within 1 hour",
+      "tip_update_availability": "Keep your availability updated",
+      "tip_ask_reviews": "Ask customers for reviews",
+      "tip_add_photos": "Add more service photos",
+      "customer_details": "Customer Details",
+      "service_address": "Service Address",
+      "customer_notes": "Customer Notes",
+      "approvalWarning": {
+        "title": "Account Pending Approval",
+        "message": "Your provider account is currently pending admin approval. You will be able to access all features once your account has been approved by an administrator."
+      }
+    },
+    "todays_bookings": {
+      "access_denied": "Access Denied",
+      "access_denied_desc": "Only providers can view bookings.",
+      "go_to_dashboard": "Go to Dashboard",
+      "back_to_dashboard": "Back to Dashboard",
+      "title": "Today's Bookings",
+      "booking_count": "{{count}} booking",
+      "booking_count_plural": "{{count}} bookings",
+      "all_status": "All Statuses",
+      "status_pending_provider_accept": "Pending Provider Accept",
+      "status_pending": "Pending",
+      "status_confirmed": "Confirmed",
+      "status_provider_on_way": "Provider On The Way",
+      "status_provider_arrived": "Provider Arrived",
+      "status_in_progress": "In Progress",
+      "status_completed": "Completed",
+      "status_cancelled": "Cancelled",
+      "status_refunded": "Refunded",
+      "no_bookings_today": "No bookings today",
+      "no_bookings_today_desc": "You don't have any bookings scheduled for today.",
+      "no_bookings_with_status": "No {{status}} bookings for today.",
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "start_journey": "Start Journey",
+      "mark_arrived": "Mark Arrived",
+      "start_service": "Start Service",
+      "complete": "Complete",
+      "customer_details": "Customer Details",
+      "service_address": "Service Address",
+      "customer_notes": "Customer Notes",
+      "previous": "Previous",
+      "page_of": "Page {{current}} of {{total}}",
+      "next": "Next",
+      "load_error": "Failed to load today's bookings",
+      "update_success": "Booking {{status}} successfully",
+      "update_error": "Failed to update booking status"
+    },
+    "service_management": {
+      "title": "Service Management",
+      "subtitle": "Manage your services and offerings",
+      "add_new_service": "Add New Service",
+      "total_services": "Total Services",
+      "active_services": "Active Services",
+      "total_bookings": "Total Bookings",
+      "your_services": "Your Services",
+      "no_services_yet": "No services yet",
+      "no_services_desc": "Create your first service to start attracting customers",
+      "create_first_service": "Create Your First Service",
+      "active": "Active",
+      "inactive": "Inactive",
+      "hours": "hours",
+      "bookings": "bookings",
+      "category": "Category",
+      "created": "Created",
+      "edit": "Edit",
+      "delete": "Delete",
+      "previous": "Previous",
+      "page_of": "Page {{current}} of {{total}}",
+      "next": "Next",
+      "delete_service": "Delete Service",
+      "delete_confirm": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone.",
+      "cancel": "Cancel",
+      "edit_service": "Edit Service",
+      "create_new_service": "Create New Service",
+      "category_label": "Category",
+      "select_category": "Select Category",
+      "other": "Other",
+      "custom_category": "Custom Category",
+      "custom_category_placeholder": "Enter custom category name",
+      "service_name": "Service Name",
+      "description": "Description",
+      "base_price": "Base Price",
+      "price_type": "Price Type",
+      "hourly": "Hourly",
+      "fixed": "Fixed",
+      "duration_hours": "Duration (hours)",
+      "requirements": "Requirements",
+      "requirements_placeholder": "Any special requirements or notes for customers",
+      "service_active": "Service is active and visible to customers",
+      "saving": "Saving...",
+      "update_service": "Update Service",
+      "create_service": "Create Service",
+      "loading": "Loading...",
+      "access_denied": "Access Denied",
+      "access_denied_desc": "Only providers can manage services.",
+      "registration_required": "Provider Registration Required",
+      "registration_desc": "You need to complete provider registration to manage services.",
+      "complete_registration": "Complete Provider Registration",
+      "unknown_category": "Unknown Category",
+      "packages": {
+        "title": "Service Packages",
+        "description": "Create different packages with different pricing and features",
+        "add_package": "Add Package",
+        "edit_package": "Edit Package",
+        "no_packages": "No packages added yet. Click 'Add Package' to create one.",
+        "name": "Package Name",
+        "name_placeholder": "e.g., Standard, Premium",
+        "price": "Price",
+        "price_placeholder": "Enter package price",
+        "description": "Description",
+        "description_placeholder": "Describe what's included in this package",
+        "features": "Features",
+        "feature_placeholder": "Enter a feature",
+        "add_feature": "Add",
+        "name_and_price_required": "Package name and price are required"
+      },
+      "errors": {
+        "login_required": "Please log in to access this page.",
+        "access_denied": "Access denied. Only providers can manage services.",
+        "pending_approval": "Your provider account is pending approval. Please wait until an admin approves your account.",
+        "access_denied_generic": "Access denied. Please make sure you are logged in as a provider.",
+        "load_services_failed": "Failed to load services",
+        "delete_success": "Service deleted successfully",
+        "delete_failed": "Failed to delete service",
+        "custom_category_required": "Please enter custom category name",
+        "user_not_found": "User not found. Please log in again.",
+        "update_success": "Service updated successfully",
+        "create_success": "Service created successfully",
+        "pending_approval_services": "Your provider account is pending approval. Please wait until an admin approves your account before adding services.",
+        "access_denied_services": "Access denied. Please make sure you are logged in as a provider.",
+        "auth_required": "Authentication required. Please log in again.",
+        "save_failed": "Failed to save service",
+        "jordanianPhone": "Please enter a valid Jordanian phone number (e.g., 0771234567)"
+      }
+    }
+  },
+  "footer": {
+    "description": "Your trusted home service marketplace connecting you with skilled professionals.",
+    "company": "Company",
+    "services": "Services",
+    "support": "Support",
+    "forProviders": "For Providers",
+    "links": {
+      "aboutUs": "About Us",
+      "contact": "Contact",
+      "careers": "Careers",
+      "press": "Press",
+      "browseServices": "Browse Services",
+      "popularCategories": "Popular Categories",
+      "serviceAreas": "Service Areas",
+      "pricing": "Pricing",
+      "helpCenter": "Help Center",
+      "safety": "Safety",
+      "termsOfService": "Terms of Service",
+      "privacyPolicy": "Privacy Policy",
+      "becomeProvider": "Become a Provider",
+      "providerDashboard": "Provider Dashboard",
+      "providerResources": "Provider Resources",
+      "successStories": "Success Stories"
+    },
+    "newsletter": {
+      "title": "Subscribe to our newsletter",
+      "description": "Get the latest updates and exclusive offers delivered to your inbox.",
+      "emailPlaceholder": "Enter your email",
+      "subscribe": "Subscribe"
+    },
+    "copyright": "© {{year}} Baitak. All rights reserved.",
+    "availableOn": "Available on:",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
+  "booking": {
+    "serviceNotFound": "Service Not Found",
+    "browseServices": "Browse Services",
+    "steps": {
+      "details": "Booking Details",
+      "confirmation": "Confirmation",
+      "verification": "Verification"
+    },
+    "serviceDetails": "Service Details",
+    "provider": "Provider",
+    "duration": "Duration",
+    "hours": "hours",
+    "selectPackage": "Select Package",
+    "additionalServices": "Additional Services (Optional)",
+    "schedule": "Schedule",
+    "date": "Date",
+    "time": "Time",
+    "durationHours": "Duration (hours)",
+    "contactInformation": "Contact Information",
+    "fullName": "Full Name",
+    "phoneNumber": "Phone Number",
+    "emailOptional": "Email (Optional)",
+    "serviceAddress": "Service Address",
+    "address": "Address",
+    "city": "City",
+    "area": "Area",
+    "additionalNotes": "Additional Notes (Optional)",
+    "notesPlaceholder": "Any special instructions or requirements...",
+    "confirmation": "Booking Confirmation",
+    "package": "Package",
+    "back": "Back",
+    "processing": "Processing...",
+    "waitSeconds": "Wait {{seconds}}s",
+    "proceedToVerification": "Proceed to Verification",
+    "verifyPhone": "Verify Your Phone Number",
+    "otpSent": "We've sent a 6-digit verification code to {{phone}}",
+    "enterOtp": "Enter OTP",
+    "creatingBooking": "Creating Booking...",
+    "confirmBooking": "Confirm Booking",
+    "resendOtpIn": "Resend OTP in {{seconds}}s",
+    "resendOtp": "Resend OTP",
+    "priceSummary": "Price Summary",
+    "basePrice": "Base Price",
+    "addOns": "Add-ons",
+    "tax": "Tax (10%)",
+    "total": "Total",
+    "cancellationPolicy": "Cancellation Policy",
+    "cancellationPolicyText": "Free cancellation up to 24 hours before the scheduled service.",
+    "errors": {
+      "selectDateTime": "Please select date and time",
+      "contactDetails": "Please provide your contact details",
+      "serviceAddress": "Please provide service address",
+      "otpCooldown": "Please wait {{seconds}} seconds before requesting another OTP.",
+      "validPhone": "Please enter a valid phone number",
+      "internationalPhone": "Please enter a valid international phone number (e.g., +1234567890)",
+      "jordanianPhone": "Please enter a valid Jordanian phone number (e.g., 0771234567)",
+      "tooManyRequests": "Too many requests. Please wait 2 minutes before trying again.",
+      "invalidPhoneFormat": "Invalid phone number format. Please use international format (e.g., +1234567890)",
+      "otpFailed": "Failed to send OTP. Please try again.",
+      "missingFields": "Missing required fields: {{fields}}",
+      "invalidOtp": "Invalid OTP",
+      "bookingFailed": "Failed to create booking",
+      "pastTime": "Selected time is in the past. Please choose a valid time."
+    },
+    "success": {
+      "otpSent": "OTP sent successfully!",
+      "bookingCreated": "Booking created successfully!"
+    },
+    "cancel": "Cancel Booking",
+    "cancellation": {
+      "title": "Cancel Booking",
+      "description": "Please let us know why you're cancelling this booking. This helps us improve our service.",
+      "confirm": "Confirm Cancellation",
+      "success": "Booking cancelled successfully",
+      "error": "Failed to cancel booking. Please try again.",
+      "reasons": {
+        "rescheduled": "I need to reschedule",
+        "price_issue": "Price is too high",
+        "found_someone_else": "Found another provider",
+        "no_longer_needed": "No longer needed",
+        "provider_unavailable": "Provider is unavailable",
+        "location_issue": "Location issue",
+        "other": "Other reason"
+      },
+      "custom_reason_label": "Please specify:",
+      "custom_reason_placeholder": "Tell us more about why you're cancelling..."
+    },
+    "complete": {
+      "title": "Complete Booking",
+      "description": "Please provide the completion details for this booking.",
+      "status": "Status",
+      "status_completed": "Completed",
+      "amount_paid": "Amount Paid",
+      "amount_required": "Amount paid is required",
+      "amount_invalid": "Please enter a valid amount",
+      "amount_placeholder": "Enter amount paid",
+      "provider_satisfaction": "Provider Satisfaction",
+      "optional": "Optional",
+      "satisfaction_placeholder": "Rate your satisfaction (0-5)",
+      "satisfaction_invalid": "Satisfaction must be between 0 and 5",
+      "satisfaction_help": "Optional: Rate your satisfaction with this booking (0-5 scale)",
+      "booking_total": "Booking Total",
+      "confirm": "Complete Booking",
+      "success": "Booking completed successfully",
+      "error": "Failed to complete booking"
+    },
+    "serviceLocation": "Location"
+  },
+  "bookingSuccess": {
+    "title": "Booking Confirmed!",
+    "subtitle": "Your booking has been successfully created.",
+    "accountCreated": "Account Created Automatically",
+    "accountCreatedDesc": "We've created an account for you using your phone number. You can now login to view your bookings.",
+    "bookingNumber": "Booking Number",
+    "whatHappensNext": "What happens next?",
+    "providerConfirmation": "Provider Confirmation",
+    "providerConfirmationText": "The service provider will confirm your booking shortly",
+    "serviceDay": "Service Day",
+    "serviceDayText": "The provider will arrive at your location on the scheduled date and time",
+    "payment": "Payment",
+    "paymentText": "Pay after the service is completed to your satisfaction",
+    "loginToViewBookings": "Login to View Bookings",
+    "viewMyBookings": "View My Bookings",
+    "backToHome": "Back to Home",
+    "needHelp": "Need help?",
+    "contactSupport": "Contact Support"
+  },
+  "providerProfile": {
+    "providerNotFound": "Provider Not Found",
+    "browseServices": "Browse Services",
+    "yearsExperience": "years experience",
+    "reviews": "reviews",
+    "bookNow": "Book Now",
+    "about": "About",
+    "languages": "Languages",
+    "defaultLanguage": "English",
+    "serviceAreas": "Service Areas",
+    "allAreas": "All Areas",
+    "workingHours": "Working Hours",
+    "availableDays": "Available Days",
+    "badges": "Badges",
+    "instantBooking": "Instant Booking Available",
+    "verifiedProvider": "Verified Provider",
+    "topRated": "Top Rated",
+    "completedJobs": "100+ Completed Jobs",
+    "tabs": {
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "reviews": "Reviews"
+    },
+    "category": "Category",
+    "hours": "hours",
+    "availablePackages": "Available Packages",
+    "availableAddons": "Available Add-ons",
+    "bookThisService": "Book This Service",
+    "noServices": "No services listed yet",
+    "noPortfolio": "No portfolio images available",
+    "customerReviews": "Customer Reviews",
+    "totalBookings": "Total Bookings",
+    "verifiedPurchase": "Verified Purchase",
+    "providerResponse": "Provider Response",
+    "noReviews": "No reviews yet",
+    "firstReview": "Be the first to review this provider!",
+    "errors": {
+      "loadFailed": "Failed to load provider details"
+    }
+  },
+  "serviceCard": {
+    "defaultCategory": "Service",
+    "bookings": "bookings",
+    "hours": "hr",
+    "perHour": "/hr",
+    "availablePackages": "Available packages:",
+    "viewDetails": "View Details",
+    "bookNow": "Book Now"
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Don't have an account?",
+      "sign_up_link": "Sign up here",
+      "login_with_phone": "Login with Phone",
+      "password_login": "Password Login",
+      "phone": "Phone Number",
+      "phone_placeholder": "Enter your phone number",
+      "send_otp": "Send OTP",
+      "verify_otp": "Verify OTP",
+      "otp_sent": "OTP sent to",
+      "resend_otp": "Resend OTP",
+      "email": "Email",
+      "password": "Password",
+      "password_placeholder": "Enter your password",
+      "remember_me": "Remember me",
+      "forgot_password": "Forgot password?",
+      "login_button": "Login",
+      "or": "OR",
+      "enter_phone": "Please enter your phone number",
+      "invalid_otp": "Invalid OTP",
+      "guestPhonePrefilled": "Phone number from your recent booking has been pre-filled",
+      "phone_10_digits_only": "Phone number must be 7–15 digits (you may start with +).",
+      "email_or_phone": "Email or Phone Number",
+      "email_or_phone_placeholder": "Enter your email or phone number",
+      "enter_email_or_phone": "Please enter your email or phone number",
+      "email_or_phone_invalid": "Please enter a valid email or phone number."
+    },
+    "signup": {
+      "title": "Create Account",
+      "have_account": "Already have an account?",
+      "login_link": "Login here",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "phone": "Phone Number",
+      "phone_placeholder": "077 123 4567",
+      "phone_help": "Enter a valid Jordanian mobile number (077, 078, or 179)",
+      "email": "Email",
+      "password": "Password",
+      "confirm_password": "Confirm Password",
+      "role": "Account Type",
+      "customer": "Customer",
+      "provider": "Service Provider",
+      "create_account": "Create Account",
+      "validation": {
+        "passwordsDoNotMatch": "Passwords do not match"
+      }
+    },
+    "messages": {
+      "loginSuccess": "Login successful!",
+      "loginFailed": "Login failed",
+      "signupSuccess": "Account created successfully!",
+      "signupFailed": "Signup failed",
+      "validationError": "Validation error",
+      "otpSent": "OTP sent successfully!",
+      "otpSendFailed": "Failed to send OTP",
+      "otpVerified": "OTP verified successfully!",
+      "invalidOTP": "Invalid OTP",
+      "logoutSuccess": "Logged out successfully",
+      "profileUpdated": "Profile updated successfully!",
+      "profileUpdateFailed": "Failed to update profile",
+      "invalidPhoneFormat": "Please enter a valid Jordanian phone number (077, 078, or 179)",
+      "passwordsDoNotMatch": "Passwords do not match"
+    },
+    "errors": {
+      "jordanianPhone": "Please enter a valid Jordanian phone number (e.g., 0771234567)"
+    },
+    "verificationModal": {
+      "title": "Phone Verification Required",
+      "description": "Your account needs to be verified before you can log in. We'll send an OTP to verify your phone number.",
+      "phoneNumber": "Phone Number",
+      "sendOtp": "Send OTP",
+      "otpSentDescription": "We've sent a 6-digit verification code to {{phone}}. Please enter it below.",
+      "enterOtp": "Enter Verification Code",
+      "verifyButton": "Verify",
+      "resendOtp": "Resend OTP",
+      "resendIn": "Resend in {{seconds}}s",
+      "verificationSuccess": "Phone number verified successfully!",
+      "invalidOtp": "Invalid OTP. Please try again.",
+      "phoneRequired": "Phone number is required",
+      "cooldown": "Please wait {{seconds}} seconds before resending"
+    }
+  },
+  "providerRegister": {
+    "title": "Become a Service Provider",
+    "subtitle": "Join Baitak and grow your business",
+    "steps": {
+      "personalInfo": "Personal Info",
+      "businessInfo": "Business Info",
+      "availability": "Availability"
+    },
+    "sections": {
+      "personalInfo": "Personal Information",
+      "businessInfo": "Business Information",
+      "availability": "Availability & Policies",
+      "verificationDocuments": "Verification Documents"
+    },
+    "fields": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone Number",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "city": "City",
+      "area": "Area",
+      "businessName": "Business Name",
+      "bio": "Bio / Description",
+      "hourlyRate": "Hourly Rate (JOD)",
+      "experienceYears": "Years of Experience",
+      "languages": "Languages (comma separated)",
+      "serviceAreas": "Service Areas (comma separated)",
+      "certifications": "Certifications (comma separated)",
+      "availableDays": "Available Days",
+      "verification": "Verification",
+      "workingHoursStart": "Working Hours - Start",
+      "workingHoursEnd": "Working Hours - End",
+      "instantBooking": "Enable Instant Booking (customers can book without approval)",
+      "cancellationPolicy": "Cancellation Policy",
+      "category": "Service Categories",
+      "idVerifiedImage": "ID Verification Image",
+      "vocationalLicenseImage": "Vocational License Image",
+      "policeClearanceImage": "Police Clearance Image"
+    },
+    "placeholders": {
+      "email": "your.email@example.com (optional)",
+      "phone": "077 123 4567",
+      "businessName": "Your business or professional name",
+      "bio": "Describe your services and experience...",
+      "languages": "English, Spanish, Arabic",
+      "serviceAreas": "Downtown, Westside, Eastside",
+      "certifications": "Licensed Plumber, EPA Certified",
+      "cancellationPolicy": "Describe your cancellation policy...",
+      "idVerifiedImage": "Upload a clear photo of your government-issued ID",
+      "vocationalLicenseImage": "Upload your professional license or certification",
+      "policeClearanceImage": "Upload your police clearance certificate"
+    },
+    "help": {
+      "commaSeparated": "Separate multiple items with commas and spaces (e.g., Item 1, Item 2, Item 3)",
+      "phoneFormat": "Enter a valid Jordanian mobile number (077, 078, or 079)"
+    },
+    "validation": {
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required",
+      "phoneRequired": "Phone number is required",
+      "phoneInvalid": "Please enter a valid Jordanian mobile number (077, 078, or 079)",
+      "emailRequired": "Email is required",
+      "passwordRequired": "Password is required",
+      "passwordsDoNotMatch": "Passwords do not match",
+      "cityRequired": "City is required",
+      "businessNameRequired": "Business name is required",
+      "bioRequired": "Bio is required",
+      "hourlyRateRequired": "Hourly rate is required",
+      "experienceRequired": "Experience is required",
+      "categoryRequired": "Service category is required"
+    },
+    "buttons": {
+      "submitting": "Submitting...",
+      "submitApplication": "Submit Application"
+    },
+    "messages": {
+      "registrationSuccess": "Provider registration submitted successfully!",
+      "registrationFailed": "Registration failed",
+      "validationError": "Validation error"
+    },
+    "info": {
+      "title": "What happens next?",
+      "reviewTime": "Your application will be reviewed within 24-48 hours",
+      "emailNotification": "You'll receive an email notification once approved",
+      "afterApproval": "After approval, you can start adding services and accepting bookings",
+      "competitivePrices": "Set competitive prices to attract more customers",
+      "verificationDocumentsNote": "Upload verification documents to speed up the approval process. All documents are optional but recommended."
+    }
+  },
+  "notFound": {
+    "message": "Page not found",
+    "goHome": "Go Home"
+  },
+  "dropdowns": {
+    "selectCityFirst": "Select a city first",
+    "loadingAreas": "Loading areas...",
+    "enterArea": "Enter your area",
+    "manualInputAreas": "Using manual input (areas API unavailable)",
+    "selectArea": "Select an area",
+    "loadingCities": "Loading cities...",
+    "enterCity": "Enter your city",
+    "manualInputCities": "Using manual input (cities API unavailable)",
+    "selectCity": "Select a city",
+    "loadingCategories": "Loading categories...",
+    "enterCategory": "Enter your category",
+    "manualInputCategories": "Using manual input (categories API unavailable)",
+    "selectCategory": "Select a category"
+  },
+  "providerRegistrationSuccess": {
+    "title": "Application Submitted Successfully!",
+    "message": "Thank you for applying to become a service provider on Baitak. Your application has been received and is under review.",
+    "whatHappensNext": "What happens next?",
+    "reviewProcess": {
+      "title": "Review Process",
+      "description": "Our team will review your application within 24-48 hours"
+    },
+    "emailNotification": {
+      "title": "Email Notification",
+      "description": "You'll receive an email once your application is approved"
+    },
+    "startEarning": {
+      "title": "Start Earning",
+      "description": "Once approved, you can start adding services and accepting bookings"
+    },
+    "backToHome": "Back to Home",
+    "browseServices": "Browse Services",
+    "haveQuestions": "Have questions?",
+    "contactSupport": "Contact Support"
+  },
+  "verifyPhone": {
+    "title": "Verify Your Phone Number",
+    "subtitle": "We've sent a 6-digit verification code to {{phone}}",
+    "enterOtp": "Enter OTP",
+    "verifying": "Verifying...",
+    "verifyButton": "Verify Phone Number",
+    "resendOtp": "Resend OTP",
+    "resendIn": "Resend OTP in {{seconds}}s",
+    "backToSignup": "Back to Signup",
+    "errors": {
+      "invalidOtp": "Please enter a valid 6-digit OTP",
+      "phoneNotFound": "Phone number not found",
+      "invalidOtpTryAgain": "Invalid OTP. Please try again.",
+      "cooldown": "Please wait {{seconds}} seconds before requesting another OTP.",
+      "tooManyRequests": "Too many requests. Please wait 2 minutes before trying again.",
+      "sendFailed": "Failed to send OTP. Please try again."
+    },
+    "messages": {
+      "verificationSuccess": "Phone number verified successfully!",
+      "otpSent": "OTP sent successfully!"
+    }
+  },
+  "serviceDetail": {
+    "serviceNotFound": "Service Not Found",
+    "serviceId": "Service ID",
+    "browseServices": "Browse Services",
+    "loading": "Loading service details...",
+    "noImages": "No images available",
+    "views": "views",
+    "bookings": "bookings",
+    "featured": "Featured",
+    "available": "Available",
+    "pricing": {
+      "hourly": "hourly pricing",
+      "fixed": "fixed pricing"
+    },
+    "hoursDuration": "hours duration",
+    "bookUpTo": "Book up to {{days}} days ahead",
+    "minAdvanceNotice": "Min. {{hours}}h advance notice",
+    "whatsIncluded": "What's Included",
+    "whatsNotIncluded": "What's Not Included",
+    "requirements": "Requirements",
+    "availablePackages": "Available Packages",
+    "noPackage": "No Package",
+    "useBasePrice": "Use base service price",
+    "additionalServices": "Additional Services",
+    "duration": "Duration",
+    "hour": "hour",
+    "hours": "hours",
+    "serviceProvider": "Service Provider",
+    "call": "mobile",
+    "email": "email",
+    "bookThisService": "Book This Service",
+    "basePrice": "Base Price",
+    "addOns": "Add-ons",
+    "tax": "Tax (10%)",
+    "total": "Total",
+    "bookNow": "Book Now",
+    "cancellationPolicy": "Free cancellation up to 24 hours before service",
+    "verifiedProvider": "Verified provider",
+    "securePayment": "Secure payment",
+    "support247": "24/7 support",
+    "linkCopied": "Link copied to clipboard!",
+    "addedToFavorites": "Added to favorites",
+    "removedFromFavorites": "Removed from favorites",
+    "errors": {
+      "loadFailed": "Failed to load service details"
+    }
+  },
+  "bookingDetails": {
+    "title": "Booking Details",
+    "bookingNotFound": "Booking Not Found",
+    "bookingNotFoundDesc": "The booking you're looking for doesn't exist or you don't have permission to view it.",
+    "backToDashboard": "Back to Dashboard",
+    "bookingNumber": "Booking #{{number}}",
+    "bookingInformation": "Booking Information",
+    "serviceDetails": "Service Details",
+    "specialInstructions": "Special Instructions",
+    "customerInformation": "Customer Information",
+    "providerInformation": "Provider Information",
+    "actions": "Actions",
+    "status": "Status",
+    "date": "Date",
+    "time": "Time",
+    "location": "Location",
+    "totalPrice": "Total Price",
+    "duration": "Duration",
+    "created": "Created",
+    "category": "Category",
+    "package": "Package",
+    "phone": "Phone",
+    "email": "Email",
+    "serviceCompleted": "Service has been completed successfully",
+    "bookingCancelled": "This booking has been cancelled",
+    "bookingConfirmed": "Booking confirmed and ready to proceed",
+    "waitingAcceptance": "This booking is waiting for your acceptance",
+    "errors": {
+      "loadFailed": "Failed to load booking details"
+    }
+  },
+  "location": {
+    "selectMethod": "Select Location Method",
+    "chooseDetectionMethod": "Choose how you want to select your location",
+    "autoDetect": "Auto-detect",
+    "manualSelect": "Manual select",
+    "autoDetectionDescription": "Let us detect your location using GPS.",
+    "manualSelectionDescription": "Select your city and area manually.",
+    "detectedLocation": "Detected Location",
+    "selectedLocation": "Selected Location",
+    "coordinates": "Coordinates",
+    "switchedToManual": "Failed to detect location. Switched to manual selection.",
+    "incompleteSelection": "Please complete your city and area selection.",
+    "clearSelection": "Clear selection"
+  }
+  ,
+  "rating": {
+    "rate_service": "Rate Service",
+    "booking_number": "Booking Number",
+    "provider": "Provider",
+    "your_rating": "Your Rating",
+    "your_review": "Your Review",
+    "review_placeholder": "Tell us about your experience with this service...",
+    "review_help": "Share your honest feedback to help other customers",
+    "submit_rating": "Submit Rating",
+    "submitted_successfully": "Rating submitted successfully!",
+    "submission_failed": "Failed to submit rating. Please try again.",
+    "already_rated_error": "You have already rated this booking.",
+    "please_select_rating": "Please select a rating",
+    "please_write_review": "Please write a review",
+    "very_poor": "Very Poor",
+    "poor": "Poor",
+    "average": "Average",
+    "good": "Good",
+    "excellent": "Excellent"
+  }
+  ,
+  "searchPage": {
+    "title": "Search Results",
+    "subtitle": "Searching for: {{query}} in {{location}}",
+    "anyQuery": "anything",
+    "anyLocation": "any location"
+  }
+  ,
+  "admin": {
+    "title": "Admin Dashboard",
+    "subtitle": "Monitor platform performance and manage operations",
+    "manageProviders": "Manage Providers",
+    "manageCustomers": "Manage Customers",
+    "createCategory": "Create Category",
+    "stats": {
+      "totalUsers": "Total Users",
+      "totalProviders": "Total Providers",
+      "approved": "approved",
+      "pending": "pending",
+      "totalBookings": "Total Bookings",
+      "today": "today",
+      "totalRevenue": "Total Revenue",
+      "thisMonth": "this month"
+    },
+    "sections": {
+      "bookingStatus": {
+        "title": "Booking Status",
+        "completed": "Completed",
+        "inProgress": "In Progress",
+        "successRate": "Success Rate"
+      },
+      "growthMetrics": {
+        "title": "Growth Metrics",
+        "newUsers": "New Users (30d)",
+        "newProviders": "New Providers (30d)",
+        "revenueGrowth": "Revenue Growth"
+      },
+      "platformHealth": {
+        "title": "Platform Health",
+        "avgResponseTime": "Avg Response Time",
+        "avgRating": "Avg Rating",
+        "activeProviders": "Active Providers"
+      }
+    },
+    "pendingApprovals": {
+      "title": "Pending Provider Approvals",
+      "badge": "{{count}} pending",
+      "rate": "Rate: {{rate}} JOD/hr",
+      "experience": "Experience: {{years}} years",
+      "applied": "Applied: {{date}}",
+      "approve": "Approve",
+      "reject": "Reject",
+      "none": "No pending provider approvals"
+    },
+    "categories": {
+      "title": "Create Category",
+      "name": "Name",
+      "description": "Description",
+      "icon": "Icon",
+      "minPrice": "Min price",
+      "maxPrice": "Max price",
+      "create": "Create",
+      "back": "Back",
+      "success": "Category created",
+      "error": "Failed to create category"
+    },
+    "customers": {
+      "title": "Customers",
+      "search": "Search customers",
+      "created": "Created",
+      "rating": "Rating",
+      "id": "ID",
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "verified": "Verified",
+      "yes": "Yes",
+      "no": "No",
+      "loading": "Loading...",
+      "noCustomers": "No customers",
+      "page": "Page {{current}} of {{total}}",
+      "prev": "Prev",
+      "next": "Next",
+      "error": "Failed to load customers"
+    },
+    "providers": {
+      "title": "Providers",
+      "search": "Search providers",
+      "allStatus": "All status",
+      "approved": "Approved",
+      "pending": "Pending",
+      "rejected": "Rejected",
+      "created": "Created",
+      "id": "ID",
+      "business": "Business",
+      "status": "Status",
+      "rating": "Rating",
+      "owner": "Owner",
+      "actions": "Actions",
+      "viewDocuments": "View documents",
+      "loading": "Loading...",
+      "noProviders": "No providers",
+      "page": "Page {{current}} of {{total}}",
+      "prev": "Prev",
+      "next": "Next",
+      "error": "Failed to load providers"
+    },
+    "providerDocuments": {
+      "title": "Provider Documents",
+      "owner": "Owner",
+      "documents": "Documents",
+      "idVerifiedImage": "ID Verified Image",
+      "vocationalLicense": "Vocational License",
+      "policeClearance": "Police Clearance",
+      "notUploaded": "Not uploaded",
+      "open": "Open",
+      "verificationStatus": "Verification Status",
+      "idVerified": "ID Verified",
+      "licenseVerified": "License Verified",
+      "policeClearanceVerified": "Police Clearance Verified",
+      "approveId": "Approve ID",
+      "approveLicense": "Approve License",
+      "approvePolice": "Approve Police",
+      "approveAll": "Approve All",
+      "profile": "Profile",
+      "hourlyRate": "Hourly Rate",
+      "experienceYears": "Experience (years)",
+      "appliedAt": "Applied At",
+      "backToProviders": "Back to providers",
+      "loading": "Loading...",
+      "notFound": "Not found",
+      "success": "Verification updated",
+      "error": "Failed to update verification",
+      "loadError": "Failed to load documents"
+    },
+    "messages": {
+      "loadFailed": "Failed to load dashboard data",
+      "statusUpdated": "Provider {{status}} successfully",
+      "updateFailed": "Failed to update provider status"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About Baitak",
+      "tagline": "Trusted help, just a tap away.",
+      "subtitle": "connecting homeowners with trusted service professionals."
+    },
+    "intro": {
+      "title": "About Baitak",
+      "paragraph1": "Around here, finding good help usually starts with a message —",
+      "quote": "\"Do you know someone good?\"",
+      "paragraph2": "Baitak makes it easier - a trusted place to find reliable, trained, and verified professionals for cleaning, maintenance, and repairs.",
+      "paragraph3": "Every provider is vetted through local partners, so you can hire with confidence.",
+      "paragraph4": "Because finding help shouldn't depend on luck.",
+      "paragraph5": "Built locally for everyday life, Baitak brings reliability home."
+    },
+    "story": {
+      "title": "Our Story",
+      "paragraph1": "Baitak was born from a simple idea: making home services accessible, trustworthy, and convenient for everyone. We saw how difficult it was for homeowners to find reliable service providers, and how challenging it was for professionals to grow their businesses.",
+      "paragraph2": "Founded in 2022, we've built a platform that connects thousands of customers with vetted service providers across Jordan. Our mission is to transform how people think about home services.",
+      "paragraph3": "Today, Baitak is the leading home service marketplace in Jordan, helping customers find everything from cleaning to repairs, and supporting local professionals in growing their businesses."
+    },
+    "stats": {
+      "active_users": "Active Users",
+      "service_providers": "Service Providers",
+      "services_completed": "Services Completed",
+      "average_rating": "Average Rating"
+    },
+    "impact": {
+      "title": "Our Impact"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To make quality home services accessible to everyone, while supporting local professionals in building sustainable businesses."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To become the most trusted platform for home services in the Middle East, known for quality, reliability, and community impact."
+    },
+    "values": {
+      "title": "Our Values",
+      "customer_first": {
+        "title": "Customer First",
+        "description": "Every decision we make is driven by what's best for our customers and service providers."
+      },
+      "trust_safety": {
+        "title": "Trust & Safety",
+        "description": "We verify every service provider and ensure transparent reviews and ratings."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "We continuously improve our platform to provide the best experience for everyone."
+      },
+      "growth_together": {
+        "title": "Growth Together",
+        "description": "We believe in growing together with our community of customers and service providers."
+      }
+    },
+    "team": {
+      "title": "Meet Our Team",
+      "subtitle": "The passionate people behind Baitak",
+      "ceo": {
+        "role": "CEO & Co-Founder",
+        "bio": "Visionary leader with 15+ years in tech and marketplace businesses."
+      },
+      "coo": {
+        "role": "COO & Co-Founder",
+        "bio": "Operations expert focused on scaling and community growth."
+      },
+      "cto": {
+        "role": "CTO",
+        "bio": "Tech innovator building the future of service marketplaces."
+      },
+      "customer_success": {
+        "role": "Head of Customer Success",
+        "bio": "Dedicated to ensuring exceptional experiences for all users."
+      }
+    },
+    "cta": {
+      "title": "Join the Baitak Community",
+      "subtitle": "Whether you need services or want to provide them, we're here for you.",
+      "find_services": "Find Services",
+      "become_provider": "Become a Provider"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Get in Touch",
+      "subtitle": "We're here to help! Reach out with questions, feedback, or support needs."
+    },
+    "info": {
+      "phone": {
+        "title": "Phone",
+        "subtext": "Available Monday-Friday, 9am-6pm"
+      },
+      "email": {
+        "title": "Email",
+        "subtext": "We respond within 24 hours"
+      },
+      "office": {
+        "title": "Office Address"
+      },
+      "hours": {
+        "title": "Business Hours",
+        "details": "Monday - Friday"
+      }
+    },
+    "form": {
+      "title": "Send us a Message",
+      "name": "Name",
+      "name_placeholder": "Your full name",
+      "email": "Email",
+      "email_placeholder": "your.email@example.com",
+      "phone": "Phone",
+      "phone_placeholder": "+1 (555) 123-4567",
+      "inquiry_type": "Inquiry Type",
+      "inquiry_types": {
+        "general": "General Inquiry",
+        "support": "Support Request",
+        "provider": "Provider Question",
+        "partnership": "Partnership",
+        "feedback": "Feedback"
+      },
+      "subject": "Subject",
+      "subject_placeholder": "What is this about?",
+      "message": "Message",
+      "message_placeholder": "Tell us how we can help...",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success_message": "Message sent successfully! We'll get back to you soon.",
+      "error_message": "Failed to send message. Please try again."
+    },
+    "office": {
+      "title": "Visit Our Office",
+      "map_placeholder": "Map coming soon",
+      "other_ways": "Other Ways to Reach Us",
+      "live_chat": "Live Chat",
+      "help_center": "Help Center",
+      "email_support": "Email Support"
+    },
+    "faqs": {
+      "title": "Frequently Asked Questions",
+      "book_service": {
+        "question": "How do I book a service?",
+        "answer": "Simply search for the service you need, browse providers, compare prices and ratings, then book directly through the platform. Payment is made after the service is completed."
+      },
+      "verified_providers": {
+        "question": "Are all providers verified?",
+        "answer": "Yes! All service providers on Baitak go through a verification process, including identity verification and background checks where applicable."
+      },
+      "cancel_booking": {
+        "question": "Can I cancel a booking?",
+        "answer": "Yes, you can cancel bookings up to 24 hours before the scheduled service time at no charge. Check our cancellation policy for details."
+      },
+      "become_provider": {
+        "question": "How do I become a service provider?",
+        "answer": "Click on 'Become a Provider' in the navigation menu, fill out the registration form, and our team will review your application within 24-48 hours."
+      },
+      "payment_security": {
+        "question": "Is payment secure?",
+        "answer": "Absolutely! We use secure payment processing and you only pay after the service is completed to your satisfaction."
+      },
+      "pricing": {
+        "question": "How are prices determined?",
+        "answer": "Service providers set their own prices based on market rates and their experience. You can compare prices from multiple providers before booking."
+      }
+    },
+    "cta": {
+      "title": "Still Have Questions?",
+      "subtitle": "We're always happy to help. Reach out to us through any of the methods above.",
+      "call_us": "Call Us",
+      "email_support": "Email Support"
+    }
+  },
+  "serviceManagement": {
+    "imageUpload": {
+      "title": "Service Images",
+      "clickToUpload": "Click to upload",
+      "dragAndDrop": "or drag and drop",
+      "fileFormat": "PNG, JPG, WEBP (MAX. 5MB per image)",
+      "current": "Current",
+      "invalidFileType": "Please select valid image files (JPEG, PNG, or WebP)",
+      "fileTooLarge": "Image files must be less than 5MB"
+    }
+  }
+}
