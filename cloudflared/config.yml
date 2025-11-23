@@ -1,0 +1,27 @@
+# tunnel: c4dda0d0-7e85-4bb6-a09b-90117a1542a6
+# credentials-file: /etc/cloudflared/credentials.json
+
+# ingress:
+#   - hostname: qa.yourdomain.com
+#     service: http://frontend:3025
+
+#   - hostname: qa.yourdomain.com
+#     path: /api/*
+#     service: http://backend:3026
+
+#   - service: http_status:404
+tunnel: c4dda0d0-7e85-4bb6-a09b-90117a1542a6
+credentials-file: /etc/cloudflared/credentials.json
+
+ingress:
+  # Backend API (must be first because it is more specific)
+  - hostname: qa.yourdomain.com
+    path: /api/*
+    service: http://backend:3026
+
+  # Frontend (fallback)
+  - hostname: qa.yourdomain.com
+    service: http://frontend:3025
+
+  # Catch-all
+  - service: http_status:404

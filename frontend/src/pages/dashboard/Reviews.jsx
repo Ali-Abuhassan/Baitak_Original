@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { ratingAPI } from '../../utils/api';
+import { ratingAPI } from '../../services/api';
 import { 
   HiStar, 
   HiUser, 

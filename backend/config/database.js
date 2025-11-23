@@ -51,7 +51,11 @@ const sequelize = new Sequelize(
 const testConnection = async () => {
   try {
     await sequelize.authenticate();
-    console.log('✅ Database connection has been established successfully.'.green);
+    console.log('✅ Dd successfully.'.green);
+    console.log("📌 Connected to DB:", sequelize.config.database);
+console.log("📌 Host:", sequelize.config.host);
+console.log("📌 Username:", sequelize.config.username);
+
   } catch (error) {
     console.error('❌ Unable to connect to the database:'.red, error);
     process.exit(1);
@@ -68,7 +72,7 @@ const syncDatabase = async (options = {}) => {
       // Simplified sync options to avoid configuration issues
       const syncOptions = {
         alter: options.alter || false,
-        force: options.force || false,
+        force: false,
       };
       
       await sequelize.sync(syncOptions);

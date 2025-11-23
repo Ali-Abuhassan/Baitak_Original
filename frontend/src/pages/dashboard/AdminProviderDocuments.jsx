@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { adminAPI } from '../../utils/api';
+import { adminAPI } from '../../services/api';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 

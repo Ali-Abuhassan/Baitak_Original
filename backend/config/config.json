@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root123",
+    "database": "baitak_db",
+    "host": "mysql",
+    "dialect": "mysql"
+  }
+}

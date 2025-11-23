@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { adminAPI } from '../../utils/api';
+import { adminAPI } from '../../services/api';
 import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 

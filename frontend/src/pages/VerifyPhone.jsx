@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import CustomOTPInput from '../components/CustomOTPInput';
+import CustomOTPInput from '../components/sharedInputs/CustomOTPInput';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 

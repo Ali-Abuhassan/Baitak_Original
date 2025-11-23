@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HiLocationMarker, HiRefresh, HiMap, HiChevronDown } from 'react-icons/hi';
 import LocationSelector from './LocationSelector';
-import CityDropdown from './CityDropdown';
-import AreaDropdown from './AreaDropdown';
+import CityDropdown from './sharedInputs/CityDropdown';
+import AreaDropdown from './sharedInputs/AreaDropdown';
 
 const HybridLocationSelector = ({ 
   onLocationChange, 
@@ -199,12 +199,20 @@ const HybridLocationSelector = ({
             </div>
             <div>
               <label className="label">{t('common.area')}</label>
-              <AreaDropdown
+              {/* <AreaDropdown
                 value={manualArea}
                 onChange={handleAreaChange}
                 citySlug={selectedCitySlug}
                 required={required}
-              />
+              /> */}
+              <AreaDropdown
+  value={manualArea}
+                onChange={handleAreaChange}
+                citySlug={selectedCitySlug}
+  className="my-custom-classes"
+  variant="outline" // or "filled"
+  size="md"
+/>
             </div>
           </div>
         </div>

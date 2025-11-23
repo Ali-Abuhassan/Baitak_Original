@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { adminAPI } from '../../utils/api';
+import { adminAPI } from '../../services/api';
 import { 
   HiUsers, 
   HiUserGroup, 
@@ -13,7 +13,7 @@ import {
 } from 'react-icons/hi';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { formatPrice } from '../../utils/currency';
+import { formatPrice } from '../../services/currency';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 

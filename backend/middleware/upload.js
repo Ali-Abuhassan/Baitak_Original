@@ -27,7 +27,10 @@ const storage = multer.diskStorage({
       uploadPath = 'uploads/bookings/';
     } else if (file.fieldname === 'id_verified_image' || file.fieldname === 'vocational_license_image' || file.fieldname === 'police_clearance_image') {
       uploadPath = 'uploads/verifications/';
+   } else if (file.fieldname === 'files' || req.baseUrl.includes('service-requests')) {  // UPDATED THIS LINE
+      uploadPath = 'uploads/requests/';
     }
+
     
     cb(null, uploadPath);
   },
@@ -55,6 +58,7 @@ const upload = multer({
   storage: storage,
   limits: {
     fileSize: env.upload.maxFileSize, // 5MB default
+       files: 5, // max files
   },
   fileFilter: fileFilter,
 });

@@ -4,9 +4,10 @@ const Category = require('./category');
 const Service = require('./service');
 const Booking = require('./booking');
 const Rating = require('./rating');
-const OtpVerification = require('./otpVerification');
+// const OtpVerification = require('./otpVerification');
 const City = require('./city');
 const Area = require('./area');
+const ServiceReq = require('./serviceReq');
 
 // User - Provider (One-to-One)
 User.hasOne(Provider, {
@@ -217,7 +218,46 @@ Area.hasMany(User, {
   onDelete: 'SET NULL',
   onUpdate: 'CASCADE',
 });
+City.hasMany(ServiceReq, {
+  foreignKey: 'city_id',
+  as: 'service_requests',
+  onDelete: 'SET NULL',
+  onUpdate: 'CASCADE',
+});
+ServiceReq.belongsTo(City, {
+  foreignKey: 'city_id',
+  as: 'city',
+  onDelete: 'SET NULL',
+  onUpdate: 'CASCADE',
+});
 
+// Category - ServiceReq
+Category.hasMany(ServiceReq, {
+  foreignKey: 'category_id',
+  as: 'service_requests',
+  onDelete: 'SET NULL',
+  onUpdate: 'CASCADE',
+});
+ServiceReq.belongsTo(Category, {
+  foreignKey: 'category_id',
+  as: 'category',
+  onDelete: 'SET NULL',
+  onUpdate: 'CASCADE',
+});
+
+// Provider - ServiceReq (when a provider accepts/assigned)
+Provider.hasMany(ServiceReq, {
+  foreignKey: 'provider_id',
+  as: 'accepted_requests',
+  onDelete: 'SET NULL',
+  onUpdate: 'CASCADE',
+});
+ServiceReq.belongsTo(Provider, {
+  foreignKey: 'provider_id',
+  as: 'provider',
+  onDelete: 'SET NULL',
+  onUpdate: 'CASCADE',
+});
 module.exports = {
   User,
   Provider,
@@ -225,7 +265,8 @@ module.exports = {
   Service,
   Booking,
   Rating,
-  OtpVerification,
+  // OtpVerification,
+  ServiceReq,
   City,
   Area,
 };

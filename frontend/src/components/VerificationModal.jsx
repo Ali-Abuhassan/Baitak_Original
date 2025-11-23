@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HiX, HiPhone } from 'react-icons/hi';
-import CustomOTPInput from './CustomOTPInput';
+import CustomOTPInput from './sharedInputs/CustomOTPInput';
 import toast from 'react-hot-toast';
 
 const VerificationModal = ({ isOpen, onClose, phone, onOTPSent, onOTPVerified }) => {

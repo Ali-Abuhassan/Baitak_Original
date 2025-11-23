@@ -11,6 +11,7 @@ const bookingRoutes = require('./booking');
 const ratingRoutes = require('./rating');
 const adminRoutes = require('./admin');
 const searchRoutes = require('./search');
+const serviceReqRoutes = require('./serviceReq');
 const locationRoutes = require('./location');
 
 // Welcome route
@@ -30,6 +31,7 @@ router.get('/', (req, res) => {
       admin: '/api/admin',
       search: '/api/search',
       locations: '/api/locations',
+      serviceReq:'api/service-requests',
     },
   });
 });
@@ -45,5 +47,6 @@ router.use('/ratings', ratingRoutes);
 router.use('/admin', adminRoutes);
 router.use('/search', searchRoutes);
 router.use('/locations', locationRoutes);
+router.use('/service-requests', serviceReqRoutes);
 
 module.exports = router;

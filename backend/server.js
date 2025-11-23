@@ -8,6 +8,7 @@ const colors = require('colors');
 const https = require('https');
 const http = require('http');
 const fs = require('fs');
+const { connectRedis } = require("./config/redis");
 
 // Load environment variables
 const env = require('./config/env');
@@ -200,12 +201,12 @@ const startServer = async () => {
       server = https.createServer(credentials, app);
       
       // Start HTTPS server
-      server.listen(PORT, () => {
+      server.listen(PORT,"0.0.0.0", () => {
         console.log('='.repeat(50).green);
         console.log(`🚀 ${env.appName} Backend Server (HTTPS)`.green.bold);
         console.log(`🔒 SSL Enabled: YES`.green);
         console.log(`📍 Running on: https://localhost:${PORT}`.cyan);
-        console.log(`🌍 Environment: ${env.nodeEnv}`.cyan);
+        console.log(`🌍 Environment dsdsds: ${env.nodeEnv}`.cyan);
         console.log(`📅 Started at: ${new Date().toLocaleString()}`.cyan);
         console.log('='.repeat(50).green);
       });
@@ -214,15 +215,15 @@ const startServer = async () => {
       server = http.createServer(app);
       
       // Start HTTP server
-      server.listen(PORT, () => {
-        console.log('='.repeat(50).green);
-        console.log(`🚀 ${env.appName} Backend Server (HTTP)`.green.bold);
-        console.log(`⚠️  SSL Enabled: NO`.yellow);
-        console.log(`📍 Running on: http://localhost:${PORT}`.cyan);
-        console.log(`🌍 Environment: ${env.nodeEnv}`.cyan);
-        console.log(`📅 Started at: ${new Date().toLocaleString()}`.cyan);
-        console.log('='.repeat(50).green);
-      });
+      // server.listen(PORT, () => {
+      //   console.log('='.repeat(50).green);
+      //   console.log(`🚀 ${env.appName} Backend Server (HTTP)`.green.bold);
+      //   console.log(`⚠️  SSL Enabled: NO`.yellow);
+      //   console.log(`📍 Running on: http://localhost:${PORT}`.cyan);
+      //   console.log(`🌍 Environment: ${env.nodeEnv}`.cyan);
+      //   console.log(`📅 Started at: ${new Date().toLocaleString()}`.cyan);
+      //   console.log('='.repeat(50).green);
+      // });
     }
   } catch (error) {
     console.error('❌ Failed to start server:'.red, error);
@@ -230,6 +231,35 @@ const startServer = async () => {
     process.exit(1);
   }
 };
+
+(async () => {
+  try {
+    await testConnection();
+    await syncDatabase();
+
+    await connectRedis(); // 🟩 NEW
+
+    // If HTTPS
+    if (env.ssl.enabled) {
+      https.createServer({
+        key: fs.readFileSync(env.ssl.keyPath),
+        cert: fs.readFileSync(env.ssl.certPath)
+      }, app).listen(PORT, () => {
+        console.log(`🚀 Server is running securely at https://localhost:${PORT}`);
+                console.log(`🌍 Environment: ${env.nodeEnv}`.cyan);
+        console.log(`📅 Started at: ${new Date().toLocaleString()}`.cyan);
+        console.log('='.repeat(50).green);
+      });
+    } else {
+      http.createServer(app).listen(PORT, () => {
+        console.log(`🚀 Server is running at http://localhost:${PORT}`);
+      });
+    }
+  } catch (error) {
+    console.error("❌ Failed to start server:", error);
+    process.exit(1);
+  }
+})();
 
 // Handle uncaught exceptions
 process.on('uncaughtException', (error) => {

@@ -52,15 +52,82 @@
     "browseServices": "تصفح الخدمات"
   },
   "home": {
+    
     "title": "سوق خدمات منزلك",
-    "subtitle": "تواصل مع المحترفين الموثوقين لجميع احتياجات منزلك - من التنظيف إلى الإصلاحات، ومن الدروس الخصوصية إلى دروس الموسيقى.",
+    "subtitle": "متخصصون موثوق بهم وذوي خبرة لا تحتاج لسؤال غيرهم",
     "search_placeholder": "ما هي الخدمة التي تحتاجها؟",
     "location_placeholder": "المدينة أو المنطقة",
     "browse_categories": "تصفح الخدمات حسب الفئة",
     "categories_subtitle": "ابحث عن مقدم الخدمة المثالي لاحتياجاتك",
     "view_all_services": "عرض جميع الخدمات",
+    "customer_testo":"رأي عملاؤنا",
+    "join":"انضم إلى آلاف العملاء الراضين الذين يثقون ببيتك",
+    "read-more":"اقرأ المزيد من الآراء",
+    "serviceReq": {
+    "title": "اطلب خدمة",
+    "subtitle": "املأ النموذج أدناه لإرسال طلب الخدمة.",
+
+    "name": "الاسم",
+    "namePlaceholder": "اكتب اسمك",
+
+    "serviceType": "نوع الخدمة",
+    "serviceTypeSelect": "اختر نوع الخدمة",
+
+    "description": "الوصف / الملاحظات",
+    "descriptionPlaceholder": "صف ما تحتاج المساعدة فيه...",
+
+    "budget": "ميزانيتك (اختياري)",
+    "budgetPlaceholder": "دينار مثال: 50",
+    "budgetHint": "حدد أعلى مبلغ يمكنك دفعه لهذه الخدمة",
+
+    "date": "التاريخ",
+    "today": "اليوم",
+    "tomorrow": "غداً",
+    "dayAfter": "بعد غد",
+    "otherDate": "تاريخ آخر",
+    "selectedDate": "التاريخ المحدد: ",
+"no-date": "لم يتم اختيار تاريخ",
+    "time": "الوقت",
+
+    "address": "العنوان",
+    "addressPlaceholder": "أدخل عنوانك أو موقعك",
+
+    "contact": "معلومات الاتصال (مطلوبة)",
+    "contactPlaceholder": "رقم الهاتف (مثال: ‎+962 7X XXX XXXX)",
+
+    "uploadImage": "رفع صورة",
+    "attachImage": "إرفاق صورة (اختياري)",
+
+    "buttons": {
+      "cancel": "إلغاء",
+      "submit": "إرسال الطلب",
+      "submitting": "جاري الإرسال..."
+    },
+    "errors": {
+  "required": "هذا الحقل مطلوب",
+  "noSpecial": "لا يسمح بالرموز الخاصة",
+  "numberOnly": "يجب أن يحتوي على أرقام فقط",
+  "phoneInvalid": "الرقم يجب أن يكون رقم أردني يبدأ بـ 077 أو 078 أو 079 ويتكون من 10 خانات",
+  "emailInvalid": "البريد الإلكتروني غير صالح"
+},
+
+    "messages": {
+      "success": "تم إرسال الطلب بنجاح.",
+      "serviceTypeRequired": "يرجى اختيار نوع الخدمة.",
+      "descriptionRequired": "يرجى إضافة وصف.",
+      "nameRequired": "يرجى إدخال الاسم.",
+      "phoneRequired": "يرجى إدخال رقم الهاتف.",
+      "failed": "فشل في إرسال الطلب."
+    }
+  },
+
     "hero": {
       "title": "سوق خدمات منزلك",
+            "budgetBold":"ميزانية؟",
+            "haveBudget":"هل لديك ",
+      "submitRequest":"اطلب خدمة",
+
+   
       "subtitle": "تواصل مع المحترفين الموثوقين لجميع احتياجات منزلك - من التنظيف إلى الإصلاحات، ومن الدروس الخصوصية إلى دروس الموسيقى.",
       "searchPlaceholder": "ما هي الخدمة التي تحتاجها؟",
       "locationPlaceholder": "المدينة أو المنطقة",
@@ -100,6 +167,8 @@
       }
     },
     "features": {
+      "choose":"لماذا تختار بيتك ؟",
+      "trusted":"شريكك الموثوق ذو الجودة العالية في تقديم الخدمات",
       "verified": {
         "title": "مقدمو خدمات معتمدون",
         "description": "جميع مقدمي الخدمات يتم فحصهم والتحقق منهم بدقة لضمان سلامتك."
@@ -690,19 +759,34 @@
   },
   "auth": {
     "login": {
-      "title": "مرحباً بعودتك",
+      "title":"تسجيل الدخول",
+      "Welcome-back":"مرحبا بعودتك",
+      "baitak":"بيتك",
       "subtitle": "ليس لديك حساب؟",
+      "head":"تصفح حسابك على المنصة",
       "sign_up_link": "سجل هنا",
-      "login_with_phone": "تسجيل الدخول بالهاتف",
+      "login_with_phone": "تسجيل الدخول بالهاتف أو البريد الإلكتروني",
       "password_login": "تسجيل الدخول بكلمة المرور",
+      "login-disc":"سجل الدخول للوصول إلى خدماتنا",
+      "Dont-have-account":"ليس لديك حساب؟",
       "phone": "رقم الهاتف",
       "phone_placeholder": "أدخل رقم هاتفك",
       "send_otp": "إرسال رمز التحقق",
+      "i_agree": "أوافق على",
+  "terms_and_conditions": "الشروط والأحكام",
+  "terms_required": "يجب الموافقة على الشروط والأحكام.",
+      "enter_email_or_phone": "يرجى إدخال البريد الإلكتروني أو رقم الهاتف.",
+      "invalid_email": "يرجى إدخال بريد إلكتروني صالح.",
+      "invalid_phone": "يرجى إدخال رقم هاتف صالح.",
+      "password_required": "يرجى إدخال كلمة المرور.",
+      "password_min": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.",
+      "incorrect_credentials": "بيانات الدخول غير صحيحة. يرجى المحاولة مرة أخرى.",
+      "account_disabled": "حسابك معطّل. يرجى التواصل مع الدعم.",
       "verify_otp": "تحقق من رمز التحقق",
       "otp_sent": "تم إرسال رمز التحقق إلى",
       "resend_otp": "إعادة إرسال رمز التحقق",
       "email": "البريد الإلكتروني",
-      "password": "كلمة المرور",
+      "password": "أدخل كلمة المرور",
       "password_placeholder": "أدخل كلمة المرور",
       "remember_me": "تذكرني",
       "forgot_password": "نسيت كلمة المرور؟",
@@ -715,22 +799,60 @@
     },
     "signup": {
       "title": "إنشاء حساب",
+      "Signup":"إنشاء حساب",
+      "join_stmt":"أنضم إلى بيتك واستعن بالخدمات التي نقدمها",
       "have_account": "هل لديك حساب بالفعل؟",
       "login_link": "سجل الدخول هنا",
       "first_name": "الاسم الأول",
       "last_name": "الاسم الأخير",
       "phone": "رقم الهاتف",
-      "phone_placeholder": "077 123 4567",
-      "phone_help": "أدخل رقم هاتف أردني صحيح (077، 078، أو 179)",
+      "phone_placeholder": "077, 079, 078",
+      "phone_help": "أدخل رقم هاتف أردني صحيح (077، 078, 079)",
       "email": "البريد الإلكتروني",
       "password": "كلمة المرور",
+      "pass-placeholder":"ادخل كلمة المرور",
       "confirm_password": "تأكيد كلمة المرور",
+      "re-password":"أعد إدخال كلمة المرور",
       "role": "نوع الحساب",
       "customer": "عميل",
       "provider": "مقدم خدمة",
+      "john":"محمد",
+      "select-city":"اختر المدينة",
+      "doe":"هاني",
+      "email-placeholder":"your.email@example.com",
       "create_account": "إنشاء حساب",
       "validation": {
-        "passwordsDoNotMatch": "كلمات المرور غير متطابقة"
+        "passwordsDoNotMatch": "كلمات المرور غير متطابقة",
+        "firstNameRequired": "هذا الحقل مطلوب.",
+      "firstNameMin": "يجب أن يحتوي الاسم الأول على حرفين على الأقل.",
+      "firstNameLettersOnly": "يمكن أن يحتوي الاسم الأول على أحرف فقط.",
+
+      "lastNameRequired": "هذا الحقل مطلوب.",
+      "lastNameMin": "يجب أن يحتوي الاسم الأخير على حرفين على الأقل.",
+      "lastNameLettersOnly": "يمكن أن يحتوي الاسم الأخير على أحرف فقط.",
+
+      "needEmailOrPhone": "يرجى إدخال البريد الإلكتروني أو رقم الهاتف.",
+      "phoneRequiredIfNoEmail": "رقم الهاتف مطلوب في حال لم يتم إدخال البريد الإلكتروني.",
+      "emailRequiredIfNoPhone": "البريد الإلكتروني مطلوب في حال لم يتم إدخال رقم الهاتف.",
+      "emailInvalid": "يرجى إدخال بريد إلكتروني صالح.",
+
+      "phoneInvalid": "يرجى إدخال رقم هاتف صالح.",
+      "phoneLength": "يجب أن يتكون رقم الهاتف من 10 أرقام.",
+      "phonePrefix": "يجب أن يبدأ رقم الهاتف بـ 077 أو 078 أو 079.",
+
+      "passwordRequired": "هذا الحقل مطلوب.",
+      "passwordMin": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.",
+      "passwordNoSpaces": "لا يمكن أن تحتوي كلمة المرور على مسافات.",
+      "passwordNumber": "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل.",
+      "passwordUppercase": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل.",
+
+      "confirmPasswordRequired": "هذا الحقل مطلوب.",
+
+
+      "cityRequired": "يرجى اختيار المدينة.",
+      "areaRequired": "يرجى اختيار المنطقة.",
+
+      "unknown": "حدث خطأ ما. يرجى المحاولة مرة أخرى."
       }
     },
     "messages": {

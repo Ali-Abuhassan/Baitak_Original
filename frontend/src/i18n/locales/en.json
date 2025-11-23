@@ -52,15 +52,81 @@
     "browseServices": "Browse Services"
   },
   "home": {
-    "title": "Your Home Service Marketplace",
-    "subtitle": "Connect with trusted professionals for all your home needs - from cleaning to repairs, tutoring to music lessons.",
+    "title": "Your trusted place for home services",
+    "subtitle": "Reliable, vetted professionals without the hassle of asking around..",
     "search_placeholder": "What service do you need?",
     "location_placeholder": "City or area",
     "browse_categories": "Browse Services by Category",
     "categories_subtitle": "Find the perfect service provider for your needs",
     "view_all_services": "View All Services",
+    "customer_testo":"What Our Customers Say",
+    "join":"Join thousands of satisfied customers who trust Baitak",
+    "read-more":"Read More Reviews",
+"serviceReq": {
+    "title": "Submit a Service Request",
+    "subtitle": "Fill out the form below to submit your service request.",
+
+    "name": "Name",
+    "namePlaceholder": "Your name",
+
+    "serviceType": "Service Type",
+    "serviceTypeSelect": "Select service type",
+
+    "description": "Description/Notes",
+    "descriptionPlaceholder": "Describe what you need help with...",
+
+    "budget": "Your Budget (Optional)",
+    "budgetPlaceholder": "JOD e.g., 50",
+    "budgetHint": "Set the maximum amount you're willing to pay for this service",
+
+    "date": "Date",
+    "today": "Today",
+    "tomorrow": "Tomorrow",
+    "dayAfter": "Day After",
+    "otherDate": "Other Date",
+    "selectedDate": "Selected: ",
+    "no-date": "No date selected",
+
+    "time": "Time",
+
+    "address": "Location/Address",
+    "addressPlaceholder": "Enter your address or location",
+
+    "contact": "Contact Info (Required)",
+    "contactPlaceholder": "Phone number (e.g., +962 7X XXX XXXX)",
+
+    "uploadImage": "Upload Image",
+    "attachImage": "Attach Image (Optional)",
+
+    "buttons": {
+      "cancel": "Cancel",
+      "submit": "Submit Request",
+      "submitting": "Submitting..."
+    },
+    "errors": {
+  "required": "This field is required",
+  "noSpecial": "Special characters are not allowed",
+  "numberOnly": "Numbers only",
+  "phoneInvalid": "Must be a valid Jordanian phone number (077/078/079 + 7 digits)",
+  "emailInvalid": "Invalid email format"
+}
+,
+
+    "messages": {
+      "success": "Request submitted successfully.",
+      "serviceTypeRequired": "Please choose a service type.",
+      "descriptionRequired": "Please add a description.",
+      "nameRequired": "Please enter your name.",
+      "phoneRequired": "Please add phone number.",
+      "failed": "Submission failed."
+    }
+  },
     "hero": {
       "title": "Your Home Service Marketplace",
+      "budgetBold":"a budget?",
+                  "haveBudget":"Have ",
+      "submitRequest":"Submit a request",
+
       "subtitle": "Connect with trusted professionals for all your home needs - from cleaning to repairs, tutoring to music lessons.",
       "searchPlaceholder": "What service do you need?",
       "locationPlaceholder": "City or area",
@@ -100,8 +166,10 @@
       }
     },
     "features": {
+      "choose":"Why choose BAITAK",
+      "trusted":"Your trusted partner for quality home services",
       "verified": {
-        "title": "Verified Providers",
+        "title": "Trust & Security",
         "description": "All service providers are thoroughly vetted and verified for your safety."
       },
       "quality": {
@@ -676,24 +744,39 @@
   },
   "auth": {
     "login": {
-      "title": "Welcome Back",
+      "title": "Log In",
+      "Welcome-back":"Welcome Back",
       "subtitle": "Don't have an account?",
+      "head":"Access your BAITAK account",
       "sign_up_link": "Sign up here",
       "login_with_phone": "Login with Phone",
       "password_login": "Password Login",
       "phone": "Phone Number",
+      "baitak":"Baitak",
       "phone_placeholder": "Enter your phone number",
       "send_otp": "Send OTP",
       "verify_otp": "Verify OTP",
+      "i_agree": "I agree to the",
+  "terms_and_conditions": "Terms & Conditions",
+  "terms_required": "You must agree to the Terms & Conditions.",
       "otp_sent": "OTP sent to",
       "resend_otp": "Resend OTP",
       "email": "Email",
-      "password": "Password",
+      "password": "Enter your Password",
+      "enter_email_or_phone": "Enter your email or phone number.",
+      "invalid_email": "Enter a valid email address.",
+      "invalid_phone": "Enter a valid phone number.",
+      "password_required": "Enter your password.",
+      "password_min": "Password must be at least 6 characters.",
+      "incorrect_credentials": "Incorrect login details. Please try again.",
+      "account_disabled": "Your account is disabled. Contact support.",
       "password_placeholder": "Enter your password",
       "remember_me": "Remember me",
       "forgot_password": "Forgot password?",
       "login_button": "Login",
+      "login-disc":"Log in to access your account and manage your home services",
       "or": "OR",
+      "Dont-have-account":"Don’t have an account?",
       "enter_phone": "Please enter your phone number",
       "invalid_otp": "Invalid OTP",
       "guestPhonePrefilled": "Phone number from your recent booking has been pre-filled",
@@ -704,23 +787,61 @@
       "email_or_phone_invalid": "Please enter a valid email or phone number."
     },
     "signup": {
+      "Signup":"Signup",
       "title": "Create Account",
       "have_account": "Already have an account?",
+      "join_stmt":"Join BAITAK and access quality home services",
       "login_link": "Login here",
       "first_name": "First Name",
       "last_name": "Last Name",
       "phone": "Phone Number",
       "phone_placeholder": "077 123 4567",
-      "phone_help": "Enter a valid Jordanian mobile number (077, 078, or 179)",
+      "phone_help": "Enter a valid Jordanian mobile number (077, 078, or 079)",
       "email": "Email",
       "password": "Password",
+      "pass-placeholder":"Enter Password",
       "confirm_password": "Confirm Password",
+      "re-password":"Re-enter your password",
       "role": "Account Type",
       "customer": "Customer",
       "provider": "Service Provider",
+      "john":"John",
+      "doe":"Doe",
+      "select-city":"Select a city",
+      "email-placeholder":"your.email@example.com",
       "create_account": "Create Account",
       "validation": {
-        "passwordsDoNotMatch": "Passwords do not match"
+        "passwordsDoNotMatch": "Passwords do not match",
+        "firstNameRequired": "First name is required.",
+      "firstNameMin": "First name must be at least 2 characters.",
+      "firstNameLettersOnly": "First name can only contain letters.",
+      
+      "lastNameRequired": "Last name is required.",
+      "lastNameMin": "Last name must be at least 2 characters.",
+      "lastNameLettersOnly": "Last name can only contain letters.",
+
+      "needEmailOrPhone": "Enter at least email or phone number.",
+      "phoneRequiredIfNoEmail": "Phone number is required if email is not provided.",
+      "emailRequiredIfNoPhone": "Email is required if phone number is not provided.",
+      "emailInvalid": "Enter a valid email address.",
+
+      "phoneInvalid": "Enter a valid phone number.",
+      "phoneLength": "Phone number must be exactly 10 digits.",
+      "phonePrefix": "Phone number must start with 077, 078, or 079.",
+
+      "passwordRequired": "Password is required.",
+      "passwordMin": "Password must be at least 6 characters.",
+      "passwordNoSpaces": "Password cannot contain spaces.",
+      "passwordNumber": "Password must include at least one number.",
+      "passwordUppercase": "Password must include at least one uppercase letter.",
+
+      "confirmPasswordRequired": "Confirm password is required.",
+      
+
+      "cityRequired": "Please select a city.",
+      "areaRequired": "Please select an area.",
+
+      "unknown": "Something went wrong. Please try again."
       }
     },
     "messages": {

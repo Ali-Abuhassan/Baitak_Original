@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { userAPI, bookingAPI, ratingAPI } from '../../utils/api';
+import { userAPI, bookingAPI, ratingAPI } from '../../services/api';
 import { HiCalendar, HiClock, HiCurrencyDollar, HiStar, HiShoppingBag, HiPhone, HiX } from 'react-icons/hi';
 import toast from 'react-hot-toast';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useTranslation } from 'react-i18next';
-import { formatPrice } from '../../utils/currency';
-import CancellationModal from '../../components/CancellationModal';
-import RatingModal from '../../components/RatingModal';
+import { formatPrice } from '../../services/currency';
+import CancellationModal from '../../components/users/CancellationModal';
+import RatingModal from '../../components/users/RatingModal';
 
 const UserDashboard = () => {
   const { t, i18n } = useTranslation();

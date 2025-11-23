@@ -1,31 +1,30 @@
-const { User, OtpVerification } = require('../models');
+const { User } = require('../models');
 const { generateToken } = require('../middleware/auth');
 const NotificationFactory = require('../services/notificationService');
 const emailService = require('../services/emailService');
 const { Op } = require('sequelize');
+// const redis = require("../config/redis");   // <-- correct path
+const { redis } = require("../config/redis");
+
 const { sendSuccess, sendError, sendNotFound, sendConflict, sendCreated, sendUnauthorized, sendForbidden, sendValidationError } = require('../utils/responseHelper');
 const { normalizePhoneNumber } = require('../utils/phoneNormalizer');
+const OTPService = require("../services/otpService");
+const otpService = require('../services/otpService');
 
+//with redis worked:
 const sendOTP = async (req, res) => {
   try {
     let { phone, email, purpose } = req.body;
-    
-    // Normalize phone number if provided
-    if (phone) {
-      phone = normalizePhoneNumber(phone);
-    }
-    
-    // Determine notification type and recipient
+
+    if (phone) phone = normalizePhoneNumber(phone);
+
     const notificationType = phone ? 'sms' : 'email';
     const recipient = phone || email;
     const fieldType = phone ? 'phone' : 'email';
-    
-    // For login, check if user exists
+
+    // LOGIN → must exist
     if (purpose === 'login') {
-      const user = await User.findOne({
-        where: { [fieldType]: recipient },
-      });
-      
+      const user = await User.findOne({ where: { [fieldType]: recipient } });
       if (!user) {
         return sendNotFound(res, {
           message: 'user_not_found_signup',
@@ -33,14 +32,11 @@ const sendOTP = async (req, res) => {
         });
       }
     }
-    
-    // For signup, check if user already exists
+
+    // SIGNUP → must NOT exist
     if (purpose === 'signup') {
-      const existingUser = await User.findOne({
-        where: { [fieldType]: recipient },
-      });
-      
-      if (existingUser) {
+      const exists = await User.findOne({ where: { [fieldType]: recipient } });
+      if (exists) {
         return sendConflict(res, {
           message: 'user_already_exists',
           language: req.language,
@@ -48,24 +44,41 @@ const sendOTP = async (req, res) => {
         });
       }
     }
-    
-    // Generate and save OTP
-    const otpRecord = await OtpVerification.createOTP(recipient, purpose, fieldType);
-    
-    // Send OTP via appropriate channel
+
+    // Redis OTP key format
+    const otpKey = `${recipient}:${purpose}`;
+
+    // Generate OTP
+// const otp = await OTPService.generateOTP(recipient, purpose);
+const otp=await OTPService.generateOTP(recipient, purpose);
+
+    // const otp = await OTPService.generateOTP(recipient, purpose);
+
+    console.log("📌 Trying to generate OTP for:", recipient);
+
+
+console.log("📌 OTP generated:", otp);
+
+// const testGet = await redis.get(`OTP:${recipient}`);
+const testGet = await redis.get(`OTP:${recipient}:${purpose}`);
+
+console.log("📌 Redis stored:", testGet);
+
+
+    // Send OTP using your existing service
     const notificationService = NotificationFactory.getService(notificationType);
-    await notificationService.sendOTP(recipient, otpRecord.otp, purpose);
-    
+    await notificationService.sendOTP(recipient, otp, purpose);
+
     return sendSuccess(res, {
       message: 'otp_sent',
       language: req.language,
       data: {
         purpose,
-        expires_in: '10 minutes',
+        expires_in: '5 minutes',
       },
     });
+
   } catch (error) {
-    console.error('Send OTP error:', error);
     sendError(res, {
       message: 'server_error',
       language: req.language,
@@ -74,162 +87,107 @@ const sendOTP = async (req, res) => {
   }
 };
 
+
 const verifyOTP = async (req, res) => {
   try {
-    let { phone, email, otp, purpose, first_name, last_name, password, role } = req.body;
-    
-    // Normalize phone number if provided
-    if (phone) {
-      phone = normalizePhoneNumber(phone);
-    }
-    
+    let { phone, email, otp, purpose } = req.body;
+
+    if (phone) phone = normalizePhoneNumber(phone);
+
     const recipient = phone || email;
     const fieldType = phone ? 'phone' : 'email';
-    
-    // For signup verification, also accept 'verify_phone' or 'verify_email' purposes
-    // If user is trying to verify with 'verify_phone'/'verify_email' but there's an unverified user,
-    // it means they're verifying after signup, so use 'signup' purpose instead
+
+    // Convert verify_phone/verify_email → signup
     let isSignupVerification = false;
+
     if (purpose === 'verify_phone' || purpose === 'verify_email') {
       const unverifiedUser = await User.findOne({
         where: { [fieldType]: recipient, is_verified: false },
       });
+
       if (unverifiedUser) {
         isSignupVerification = true;
-        purpose = 'signup'; // Use signup purpose for verification since OTP was sent with signup purpose
+        purpose = 'signup';
       }
     }
-    
-    // Verify OTP
-    const isValid = await OtpVerification.verifyOTP(recipient, otp, purpose, fieldType);
-    
-    if (!isValid) {
+
+    // Redis OTP key
+    const otpKey = `${recipient}:${purpose}`;
+
+    // Check OTP
+    // const otpCheck = await OTPService.verifyOTP(otpKey, otp);
+    const isValid = await OTPService.verifyOTP(recipient, purpose, otp);
+
+    // const isValid = await OTPService.verifyOTP(recipient, purpose, otp);
+
+
+    if (!isValid.success) {
       return sendError(res, {
         message: 'otp_invalid',
         statusCode: 400,
         language: req.language
       });
     }
-    
+
+    // Continue with your user logic exactly as before…
+
     let user;
     let isNewUser = false;
-    
-    // Handle different purposes
+
     if (purpose === 'signup' || isSignupVerification) {
-      // Find existing unverified user created during signup (include provider profile if exists)
       user = await User.findOne({
         where: { [fieldType]: recipient, is_verified: false },
-        include: [
-          {
-            model: require('../models/provider'),
-            as: 'provider_profile',
-            required: false,
-          },
-        ],
+        include: [{ model: require('../models/provider'), as: 'provider_profile', required: false }],
       });
-      
+
       if (!user) {
         return sendNotFound(res, {
           message: 'user_not_found_or_already_verified',
           language: req.language
         });
       }
-      
-      // Verify the user
+
       user.is_verified = true;
       await user.save();
       isNewUser = true;
-      
-      // Send welcome email if email is provided
-      if (email || user.email) {
-        try {
-          await emailService.sendWelcomeEmail(email || user.email, user.first_name);
-        } catch (emailError) {
-          console.error('Welcome email error:', emailError);
-        }
-      }
-    } else if (purpose === 'login') {
-      // Find existing user (include provider profile)
+    }
+
+    else if (purpose === 'login') {
       user = await User.findOne({
         where: { [fieldType]: recipient },
-        include: [
-          {
-            model: require('../models/provider'),
-            as: 'provider_profile',
-            required: false,
-          },
-        ],
+        include: [{ model: require('../models/provider'), as: 'provider_profile', required: false }],
       });
-      
+
       if (!user) {
         return sendNotFound(res, {
           message: 'user_not_found',
           language: req.language
         });
       }
-      
-      // Ensure user is verified before allowing login
+
       if (!user.is_verified) {
-        // Verify the user during login OTP verification
         user.is_verified = true;
         await user.save();
       }
-      
-      // Update last login
+
       user.last_login = new Date();
       await user.save();
-    } else if (purpose === 'verify_phone' || purpose === 'verify_email') {
-      // Find user and mark as verified (for existing verified users updating their phone/email)
-      user = await User.findOne({
-        where: { [fieldType]: recipient },
-      });
-      
-      if (!user) {
-        return sendNotFound(res, {
-          message: 'user_not_found',
-          language: req.language
-        });
-      }
-      
-      // Only verify if not already verified (to avoid overriding signup verification)
-      if (!user.is_verified) {
-        user.is_verified = true;
-        await user.save();
-      }
     }
-    
-    // Generate JWT token
+
     const token = generateToken(user);
-    
-    // Prepare user data with provider profile if exists
-    const userData = user.toJSON ? user.toJSON() : user;
-    const responseData = {
-      token,
-      user: userData,
-      is_new_user: isNewUser,
-    };
-    
-    // Include provider profile if user is a provider
-    if (user.provider_profile) {
-      responseData.provider_profile = user.provider_profile;
-    } else if (userData.role === 'provider') {
-      // Fetch provider profile if not included in query
-      const { Provider } = require('../models');
-      const providerProfile = await Provider.findOne({
-        where: { user_id: user.id },
-      });
-      if (providerProfile) {
-        responseData.provider_profile = providerProfile.toJSON ? providerProfile.toJSON() : providerProfile;
-      }
-    }
-    
+
     return sendSuccess(res, {
       message: isNewUser ? 'account_created' : 'otp_verified',
       language: req.language,
-      data: responseData,
+      data: {
+        token,
+        user: user.toJSON(),
+        is_new_user: isNewUser,
+        provider_profile: user.provider_profile || null,
+      },
     });
+
   } catch (error) {
-    console.error('Verify OTP error:', error);
     sendError(res, {
       message: 'server_error',
       language: req.language,
@@ -238,17 +196,103 @@ const verifyOTP = async (req, res) => {
   }
 };
 
+
+// const login = async (req, res) => {
+//   try {
+//     let { phone, email, password } = req.body;
+    
+//     // Normalize phone number if provided
+//     if (phone) {
+//       phone = normalizePhoneNumber(phone);
+//     }
+    
+//     const whereClause = phone ? { phone } : { email };
+    
+//     // Find user
+//     const user = await User.findOne({
+//       where: whereClause,
+//       include: [
+//         {
+//           model: require('../models/provider'),
+//           as: 'provider_profile',
+//           required: false,
+//         },
+//       ],
+//     });
+    
+//     if (!user) {
+//       return sendUnauthorized(res, {
+//         message: 'invalid_credentials',
+//         language: req.language
+//       });
+//     }
+    
+//     // Check if user phone is verified
+//     if (!user.is_verified) {
+//       return sendForbidden(res, {
+//         message: 'phone_verification_required',
+//         language: req.language,
+//         data: {
+//           message: 'Please verify your phone number before logging in. Use /send-otp and /verify-otp endpoints.',
+//         },
+//       });
+//     }
+    
+//     // Check password
+//     const isPasswordValid = await user.comparePassword(password);
+    
+//     if (!isPasswordValid) {
+//       return sendUnauthorized(res, {
+//         message: 'invalid_credentials',
+//         language: req.language
+//       });
+//     }
+    
+//     // Check if account is active
+//     if (!user.is_active) {
+//       return sendForbidden(res, {
+//         message: 'account_deactivated',
+//         language: req.language
+//       });
+//     }
+    
+//     // Update last login
+//     user.last_login = new Date();
+//     await user.save();
+    
+//     // Generate token
+//     const token = generateToken(user);
+    
+//     return sendSuccess(res, {
+//       message: 'login_successful',
+//       language: req.language,
+//       data: {
+//         token,
+//         user: user.toJSON(),
+//         provider_profile: user.provider_profile || null,
+      
+//       },
+//     });
+//   } catch (error) {
+//     console.error('Login error:', error);
+//     sendError(res, {
+//       message: 'server_error',
+//       language: req.language,
+//       error: error.message,
+//     });
+//   }
+// };
 const login = async (req, res) => {
   try {
     let { phone, email, password } = req.body;
-    
+
     // Normalize phone number if provided
     if (phone) {
       phone = normalizePhoneNumber(phone);
     }
-    
+
     const whereClause = phone ? { phone } : { email };
-    
+
     // Find user
     const user = await User.findOne({
       where: whereClause,
@@ -260,35 +304,25 @@ const login = async (req, res) => {
         },
       ],
     });
-    
+
     if (!user) {
       return sendUnauthorized(res, {
         message: 'invalid_credentials',
         language: req.language
       });
     }
-    
-    // Check if user phone is verified
-    if (!user.is_verified) {
-      return sendForbidden(res, {
-        message: 'phone_verification_required',
-        language: req.language,
-        data: {
-          message: 'Please verify your phone number before logging in. Use /send-otp and /verify-otp endpoints.',
-        },
-      });
-    }
-    
+
+    // ❌ REMOVED: phone verification check
+
     // Check password
     const isPasswordValid = await user.comparePassword(password);
-    
     if (!isPasswordValid) {
       return sendUnauthorized(res, {
         message: 'invalid_credentials',
         language: req.language
       });
     }
-    
+
     // Check if account is active
     if (!user.is_active) {
       return sendForbidden(res, {
@@ -296,14 +330,14 @@ const login = async (req, res) => {
         language: req.language
       });
     }
-    
+
     // Update last login
     user.last_login = new Date();
     await user.save();
-    
+
     // Generate token
     const token = generateToken(user);
-    
+
     return sendSuccess(res, {
       message: 'login_successful',
       language: req.language,
@@ -323,30 +357,382 @@ const login = async (req, res) => {
   }
 };
 
+
+// const signup = async (req, res) => {
+//   try {
+//     let { first_name, last_name, phone, email, password, role, city_id, area_id } = req.body;
+
+//     if (phone) phone = normalizePhoneNumber(phone);
+
+//     // Required fields
+//     if (!first_name || !phone) {
+//       return sendValidationError(res, {
+//         errors: [
+//           { field: 'first_name', message: 'first_name_required' },
+//           { field: 'phone', message: 'phone_required' }
+//         ],
+//         language: req.language
+//       });
+//     }
+
+//     // Validate city & area
+//     if (city_id || area_id) {
+//       const { City, Area } = require('../models');
+
+//       if (city_id) {
+//         const city = await City.findByPk(city_id);
+//         if (!city) {
+//           return sendError(res, {
+//             message: 'invalid_city_id',
+//             statusCode: 400,
+//             language: req.language
+//           });
+//         }
+//       }
+
+//       if (area_id) {
+//         const area = await Area.findByPk(area_id);
+//         if (!area) {
+//           return sendError(res, {
+//             message: 'invalid_area_id',
+//             statusCode: 400,
+//             language: req.language
+//           });
+//         }
+
+//         if (city_id && area.city_id !== city_id) {
+//           return sendError(res, {
+//             message: 'area_does_not_belong',
+//             statusCode: 400,
+//             language: req.language
+//           });
+//         }
+//       }
+//     }
+
+//     // Check if user already exists
+//     const existingUser = await User.findOne({
+//       where: {
+//         [Op.or]: [
+//           { phone },
+//           ...(email ? [{ email }] : []),
+//         ],
+//       },
+//     });
+
+//     if (existingUser) {
+//       const field = existingUser.phone === phone ? 'phone' : 'email';
+//       return sendConflict(res, {
+//         message: 'user_already_exists',
+//         language: req.language,
+//         variables: { field }
+//       });
+//     }
+
+//     // Create new user
+//     const user = await User.create({
+//       first_name,
+//       last_name,
+//       phone,
+//       email,
+//       password,
+//       role: role || 'customer',
+//       city_id,
+//       area_id,
+//       is_verified: false,
+//     });
+
+//     console.log("✅ User.create() executed!");
+
+//     // Generate OTP with Redis
+//     const otpKey = `${phone}:signup`;
+//     // const otp = await OTPService.generateOTP(otpKey);
+//     // const otp=await OTPService.generateOTP(recipient, purpose);
+//     const otp = await OTPService.generateOTP(phone, "signup");
+
+
+//     // Send SMS
+//     // const notificationService = NotificationFactory.getService('sms');
+//     // await notificationService.sendOTP(phone, otp, 'signup');
+//     const notificationService = NotificationFactory.getService('sms');
+// await notificationService.sendOTP(phone, otp, "signup");
+
+//     // Respond
+//     return sendCreated(res, {
+//       message: 'account_created_verify_otp',
+//       language: req.language,
+//       data: {
+//         message: 'Please verify your phone number with the OTP sent to your phone',
+//         expires_in: '5 minutes',
+//         phone,
+//       },
+//     });
+
+//   } catch (error) {
+//     console.error('Signup error:', error);
+//     return sendError(res, {
+//       message: 'server_error',
+//       language: req.language,
+//       error: error.message,
+//     });
+//   }
+// };
+// const signup = async (req, res) => {
+//   try {
+//     let { first_name, last_name, phone, email, password, role, city_id, area_id } = req.body;
+
+//     // Normalize phone only if provided
+//     if (phone) phone = normalizePhoneNumber(phone);
+
+//     // Required fields
+//     if (!first_name || !last_name || (!phone && !email) || !password) {
+//       return sendValidationError(res, {
+//         errors: [{ message: "missing_required_fields" }],
+//         language: req.language,
+//       });
+//     }
+
+//     // Validate city & area
+//     if (city_id || area_id) {
+//       const { City, Area } = require('../models');
+
+//       if (city_id) {
+//         const city = await City.findByPk(city_id);
+//         if (!city) {
+//           return sendError(res, {
+//             message: 'invalid_city_id',
+//             statusCode: 400,
+//             language: req.language
+//           });
+//         }
+//       }
+
+//       if (area_id) {
+//         const area = await Area.findByPk(area_id);
+//         if (!area) {
+//           return sendError(res, {
+//             message: 'invalid_area_id',
+//             statusCode: 400,
+//             language: req.language
+//           });
+//         }
+
+//         if (city_id && area.city_id !== city_id) {
+//           return sendError(res, {
+//             message: 'area_does_not_belong',
+//             statusCode: 400,
+//             language: req.language
+//           });
+//         }
+//       }
+//     }
+
+//     // Check if user already exists
+//     const existingUser = await User.findOne({
+//       where: {
+//         [Op.or]: [
+//           phone ? { phone } : {},
+//           email ? { email } : {},
+//         ],
+//       },
+//     });
+
+//     if (existingUser) {
+//       return sendConflict(res, {
+//         message: 'user_already_exists',
+//         language: req.language,
+//       });
+//     }
+
+//     // Create user
+//     const user = await User.create({
+//       first_name,
+//       last_name,
+//       phone,
+//       email,
+//       password,
+//       role: role || 'customer', // << save selected role
+//       city_id,
+//       area_id,
+//       is_verified: true, // << auto-verified since we removed OTP
+//     });
+
+//     // Generate a token immediately
+//     const token = generateToken(user);
+
+//     return sendCreated(res, {
+//       message: 'account_created_successfully',
+//       language: req.language,
+//       data: {
+//         token,
+//         user: user.toJSON(),
+//       },
+//     });
+
+//   } catch (error) {
+//     console.error('Signup error:', error);
+//     return sendError(res, {
+//       message: 'server_error',
+//       language: req.language,
+//       error: error.message,
+//     });
+//   }
+// };
+// controllers/auth.js
+// const signup = async (req, res) => {
+//   try {
+//     let { first_name, last_name, phone, email, password, role, city_id, area_id } = req.body;
+
+//     // Trim and normalize values
+//     first_name = first_name?.trim();
+//     last_name = last_name?.trim();
+//     phone = phone?.trim();
+//     email = email?.trim();
+
+//     // Normalize phone only if provided and not empty
+//     if (phone && phone !== '') {
+//       phone = normalizePhoneNumber(phone);
+//     } else {
+//       phone = null; // Set to null if empty string
+//     }
+
+//     // Set email to null if empty string
+//     if (email === '') {
+//       email = null;
+//     }
+
+//     // Required fields - check for actual values (not empty strings)
+//     const hasPhone = phone && phone !== '';
+//     const hasEmail = email && email !== '';
+    
+//     if (!first_name || !last_name || (!hasPhone && !hasEmail) || !password) {
+//       return sendValidationError(res, {
+//         errors: [{ message: "missing_required_fields" }],
+//         language: req.language,
+//       });
+//     }
+
+//     // Validate city & area
+//     if (city_id || area_id) {
+//       const { City, Area } = require('../models');
+
+//       if (city_id) {
+//         const city = await City.findByPk(city_id);
+//         if (!city) {
+//           return sendError(res, {
+//             message: 'invalid_city_id',
+//             statusCode: 400,
+//             language: req.language
+//           });
+//         }
+//       }
+
+//       if (area_id) {
+//         const area = await Area.findByPk(area_id);
+//         if (!area) {
+//           return sendError(res, {
+//             message: 'invalid_area_id',
+//             statusCode: 400,
+//             language: req.language
+//           });
+//         }
+
+//         if (city_id && area.city_id !== city_id) {
+//           return sendError(res, {
+//             message: 'area_does_not_belong',
+//             statusCode: 400,
+//             language: req.language
+//           });
+//         }
+//       }
+//     }
+
+//     // Check if user already exists - only check non-empty values
+//     const whereConditions = [];
+//     if (hasPhone) whereConditions.push({ phone });
+//     if (hasEmail) whereConditions.push({ email });
+
+//     const existingUser = await User.findOne({
+//       where: {
+//         [Op.or]: whereConditions
+//       },
+//     });
+
+//     if (existingUser) {
+//       return sendConflict(res, {
+//         message: 'user_already_exists',
+//         language: req.language,
+//       });
+//     }
+
+//     // Create user
+//     const user = await User.create({
+//       first_name,
+//       last_name,
+//       phone: hasPhone ? phone : null, // Store as null if empty
+//       email: hasEmail ? email : null, // Store as null if empty
+//       password,
+//       role: role || 'customer',
+//       city_id,
+//       area_id,
+//       is_verified: true,
+//     });
+
+//     // Generate a token immediately
+//     const token = generateToken(user);
+
+//     return sendCreated(res, {
+//       message: 'account_created_successfully',
+//       language: req.language,
+//       data: {
+//         token,
+//         user: user.toJSON(),
+//       },
+//     });
+
+//   } catch (error) {
+//     console.error('Signup error:', error);
+//     return sendError(res, {
+//       message: 'server_error',
+//       language: req.language,
+//       error: error.message,
+//     });
+//   }
+// };
 const signup = async (req, res) => {
   try {
     let { first_name, last_name, phone, email, password, role, city_id, area_id } = req.body;
-    
-    // Normalize phone number if provided
+
+    // Trim values
+    first_name = first_name?.trim();
+    last_name = last_name?.trim();
+    phone = phone?.trim();
+    email = email?.trim();
+
+    // Convert empty strings to null
+    if (phone === '') phone = null;
+    if (email === '') email = null;
+
+    // Normalize phone only if provided and not null
     if (phone) {
       phone = normalizePhoneNumber(phone);
     }
+
+    // Required fields validation
+    const hasPhone = phone && phone !== '';
+    const hasEmail = email && email !== '';
     
-    // Validate required fields
-    if (!first_name || !phone) {
+    if (!first_name || !last_name || (!hasPhone && !hasEmail) || !password) {
       return sendValidationError(res, {
-        errors: [
-          { field: 'first_name', message: 'first_name_required' },
-          { field: 'phone', message: 'phone_required' }
-        ],
-        language: req.language
+        errors: [{ message: "missing_required_fields" }],
+        language: req.language,
       });
     }
-    
-    // Validate city and area if provided
+
+    // Validate city & area
     if (city_id || area_id) {
       const { City, Area } = require('../models');
-      
+
       if (city_id) {
         const city = await City.findByPk(city_id);
         if (!city) {
@@ -357,7 +743,7 @@ const signup = async (req, res) => {
           });
         }
       }
-      
+
       if (area_id) {
         const area = await Area.findByPk(area_id);
         if (!area) {
@@ -367,8 +753,7 @@ const signup = async (req, res) => {
             language: req.language
           });
         }
-        
-        // If both city_id and area_id are provided, validate that area belongs to city
+
         if (city_id && area.city_id !== city_id) {
           return sendError(res, {
             message: 'area_does_not_belong',
@@ -378,67 +763,59 @@ const signup = async (req, res) => {
         }
       }
     }
-    
+
     // Check if user already exists
+    const whereConditions = [];
+    if (hasPhone) whereConditions.push({ phone });
+    if (hasEmail) whereConditions.push({ email });
+
     const existingUser = await User.findOne({
       where: {
-        [Op.or]: [
-          { phone },
-          ...(email ? [{ email }] : []),
-        ],
+        [Op.or]: whereConditions
       },
     });
-    
+
     if (existingUser) {
-      const field = existingUser.phone === phone ? 'phone' : 'email';
       return sendConflict(res, {
         message: 'user_already_exists',
         language: req.language,
-        variables: { field }
       });
     }
-    
-    // Create new user
+
+    // Create user
     const user = await User.create({
       first_name,
       last_name,
-      phone,
-      email,
+      phone: hasPhone ? phone : null, // Store as null if not provided
+      email: hasEmail ? email : null, // Store as null if not provided
       password,
       role: role || 'customer',
-      city_id,
-      area_id,
-      is_verified: false, // Will be verified via OTP
+      city_id: city_id || null,
+      area_id: area_id || null,
+      is_verified: true,
     });
-    
-    // Generate OTP for verification
-    const otpRecord = await OtpVerification.createOTP(phone, 'signup', 'phone');
-    
-    // Send OTP
-    const notificationService = NotificationFactory.getService('sms');
-    await notificationService.sendOTP(phone, otpRecord.otp, 'signup');
-    
-    // Don't return token or user data - user must verify OTP first
-    // Don't send welcome email yet - will be sent after OTP verification
+
+    // Generate a token immediately
+    const token = generateToken(user);
+
     return sendCreated(res, {
-      message: 'account_created_verify_otp',
+      message: 'account_created_successfully',
       language: req.language,
       data: {
-        message: 'Please verify your phone number with the OTP sent to your phone',
-        expires_at: otpRecord.expires_at,
-        phone: phone,
+        token,
+        user: user.toJSON(),
       },
     });
+
   } catch (error) {
     console.error('Signup error:', error);
-    sendError(res, {
+    return sendError(res, {
       message: 'server_error',
       language: req.language,
       error: error.message,
     });
   }
 };
-
 const getProfile = async (req, res) => {
   try {
     const userId = req.user.id;

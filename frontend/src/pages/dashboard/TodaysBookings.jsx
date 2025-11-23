@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { bookingAPI } from '../../utils/api';
+import { bookingAPI } from '../../services/api';
 import { 
   HiCalendar, 
   HiClock, 
@@ -18,9 +18,9 @@ import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { formatPrice } from '../../utils/currency';
+import { formatPrice } from '../../services/currency';
 import { useTranslation } from 'react-i18next';
-import CompleteBookingModal from '../../components/CompleteBookingModal';
+import CompleteBookingModal from '../../components/sharedInputs/CompleteBookingModal';
 
 const TodaysBookings = () => {
   const { t, i18n } = useTranslation();

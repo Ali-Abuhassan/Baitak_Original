@@ -275,9 +275,154 @@ const getReviewsByProviderId = async (req, res) => {
     });
   }
 };
+// Get 6 featured/latest public reviews for homepage (no provider filter)
+// const getHomepageReviews = async (req, res) => {
+//   try {
+//     const reviews = await Rating.findAll({
+//       where: {
+//         is_visible: true,
+//         // Optional: only show reviews with text (more meaningful)
+//         review: { [Op.ne]: null },
+//       },
+//       include: [
+//         {
+//           model: User,
+//           as: 'customer',
+//           attributes: ['id', 'first_name', 'last_name', 'profile_image'],
+//           required: true,
+//         },
+//       ],
+//       order: [['created_at', 'DESC']], // Most recent first
+//       limit: 6,
+//     });
 
+//     // Format response exactly like your frontend expects
+//     const formattedReviews = reviews.map((r) => ({
+//       id: r.id,
+//       rating: r.rating,
+//       review: r.review || '',
+//       created_at: r.created_at,
+//       customer: {
+//         id: r.customer.id,
+//         first_name: r.customer.first_name,
+//         last_name: r.customer.last_name,
+//         profile_image: r.customer.profile_image,
+//       },
+//     }));
+
+//     console.log("reviews: ",formattedReviews)
+//     return res.status(200).json({
+//       success: true,
+//       message: 'Homepage reviews retrieved successfully',
+//       data: formattedReviews,
+//       total: formattedReviews.length,
+//     });
+//   } catch (error) {
+//     console.error('Get homepage reviews error:', error);
+//     return res.status(500).json({
+//       success: false,
+//       message: 'Error fetching homepage reviews',
+//       error: error.message,
+//     });
+//   }
+// };
+const getHomepageReviews = async (req, res) => {
+  try {
+//     const reviews = await Rating.findAll({
+//       where: {
+//         is_visible: true,
+//         // review: { [Op.ne]: null },
+//         [Op.or]: [
+//   { review: { [Op.ne]: null } },
+//   { review_ar: { [Op.ne]: null } },
+// ],
+//       },
+//       include: [
+//         {
+//           model: User,
+//           as: 'customer',
+//           attributes: ['id', 'first_name', 'last_name', 'profile_image'],
+//           required: true,
+//         },
+//       ],
+//       order: [['created_at', 'DESC']],
+//       limit: 6,
+//     });
+const reviews = await Rating.findAll({
+  where: {
+    is_visible: true,
+    [Op.or]: [
+      { review: { [Op.ne]: null } },
+      { review_ar: { [Op.ne]: null } },
+    ],
+  },
+  attributes: [
+    'id',
+    'rating',
+    'review',
+    'review_ar',
+    'created_at',
+    'user_id',
+    'provider_id',
+    'service_id'
+  ],
+  include: [
+    {
+      model: User,
+      as: 'customer',
+      attributes: ['id', 'first_name', 'last_name', 'profile_image'],
+      required: true,
+    },
+  ],
+  order: [['created_at', 'DESC']],
+  limit: 6,
+});
+    // Check if reviews exist
+    if (!reviews || reviews.length === 0) {
+      return res.status(200).json({
+        success: true,
+        message: 'No reviews found',
+        data: [],
+        total: 0,
+      });
+    }
+
+    console.log("------------------------------------",reviews[0].toJSON());
+
+    const formattedReviews = reviews.map((r) => ({
+      id: r.id,
+      rating: r.rating,
+      review: r.review,
+      review_ar:r.review_ar,
+      created_at: r.created_at,
+      customer: {
+        id: r.customer.id,
+        first_name: r.customer.first_name,
+        last_name: r.customer.last_name,
+        profile_image: r.customer.profile_image,
+      },
+    }));
+
+    console.log("Formatted reviews count:", formattedReviews.length);
+    
+    return res.status(200).json({
+      success: true,
+      message: 'Homepage reviews retrieved successfully',
+      data: formattedReviews,
+      total: formattedReviews.length,
+    });
+  } catch (error) {
+    console.error('Get homepage reviews error:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Error fetching homepage reviews',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined,
+    });
+  }
+};
 module.exports = {
   createRating,
   getMyReviews,
   getReviewsByProviderId,
+  getHomepageReviews,
 };

@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { User, Provider } = require('../models');
 const env = require('../config/env');
+const { generateToken } = require('../services/jwtHelper');
 
 const authenticateToken = async (req, res, next) => {
   try {
@@ -145,20 +146,20 @@ const optionalAuth = async (req, res, next) => {
   next();
 };
 
-const generateToken = (user) => {
-  return jwt.sign(
-    {
-      id: user.id,
-      email: user.email,
-      phone: user.phone,
-      role: user.role,
-    },
-    env.jwtSecret,
-    {
-      expiresIn: env.jwtExpire,
-    }
-  );
-};
+// const generateToken = (user) => {
+//   return jwt.sign(
+//     {
+//       id: user.id,
+//       email: user.email,
+//       phone: user.phone,
+//       role: user.role,
+//     },
+//     env.jwtSecret,
+//     {
+//       expiresIn: env.jwtExpire,
+//     }
+//   );
+// };
 
 module.exports = {
   authenticateToken,

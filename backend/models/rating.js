@@ -66,13 +66,34 @@ const Rating = sequelize.define(
       type: DataTypes.INTEGER,
       defaultValue: 0,
     },
+    city: {
+  type: DataTypes.STRING(100),
+  allowNull: true,
+},
+review_ar: {
+  type: DataTypes.TEXT,
+  allowNull: true,
+},
+
   },
   {
     tableName: 'ratings',
     timestamps: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at',
+       hooks: {
+      async beforeCreate(rating) {
+        if (rating.booking_id) {
+          const booking = await Booking.findByPk(rating.booking_id);
+          if (booking) {
+            rating.city = booking.service_city;
+          }
+        }
+      },
+    },
+  
   }
+  
 );
 
 module.exports = Rating;

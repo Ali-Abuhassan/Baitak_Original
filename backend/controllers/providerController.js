@@ -4,7 +4,9 @@ const emailService = require('../services/emailService');
 const { sendSuccess, sendError, sendNotFound, sendConflict, sendCreated, sendUnauthorized, sendForbidden, sendValidationError, sendPaginated } = require('../utils/responseHelper');
 const { normalizePhoneNumber } = require('../utils/phoneNormalizer');
 const env = require('../config/env');
-
+// const {generateToken}= require("../middleware/auth");
+// const { generateToken } = require('../middleware/auth');
+const { generateToken } = require('../services/jwtHelper');
 // Helper function to add verification badges to provider data
 const addVerificationBadges = (provider) => {
   if (!provider) return provider;
@@ -230,10 +232,234 @@ const getProviderById = async (req, res) => {
 };
 
 // Register as provider (public route)
+// const registerProvider = async (req, res) => {
+//   try {
+//     let {
+//       // User data
+//       first_name,
+//       last_name,
+//       phone,
+//       email,
+//       password,
+//       city_id,
+//       area_id,
+//       // Provider data
+//       business_name,
+//       bio,
+//       hourly_rate,
+//       experience_years,
+//       languages,
+//       service_areas,
+//       available_days,
+//       working_hours,
+//       categories,
+//       certifications,
+//       category_id, // Add category_id here
+//     } = req.body;
+    
+//     // Normalize phone number if provided
+//     if (phone) {
+//       phone = normalizePhoneNumber(phone);
+//     }
+    
+//     // Validate required fields
+//     if (!first_name || !phone) {
+//       return res.status(400).json({
+//         success: false,
+//         message: 'First name and phone are required',
+//       });
+//     }
+    
+//     // Validate required verification documents
+//     if (!req.files?.id_verified_image || !req.files?.id_verified_image[0]) {
+//       return res.status(400).json({
+//         success: false,
+//         message: 'ID verification image is required',
+//       });
+//     }
+    
+//     if (!req.files?.vocational_license_image || !req.files?.vocational_license_image[0]) {
+//       return res.status(400).json({
+//         success: false,
+//         message: 'Vocational license image is required',
+//       });
+//     }
+    
+//     if (!req.files?.police_clearance_image || !req.files?.police_clearance_image[0]) {
+//       return res.status(400).json({
+//         success: false,
+//         message: 'Police clearance image is required',
+//       });
+//     }
+    
+//     // Validate category_id if provided
+//     if (category_id) {
+//       const category = await Category.findByPk(category_id);
+//       if (!category) {
+//         return res.status(400).json({
+//           success: false,
+//           message: 'Invalid category_id provided',
+//         });
+//       }
+//     }
+    
+//     // Validate city and area if provided
+//     if (city_id || area_id) {
+//       const { City, Area } = require('../models');
+      
+//       if (city_id) {
+//         const city = await City.findByPk(city_id);
+//         if (!city) {
+//           return res.status(400).json({
+//             success: false,
+//             message: 'Invalid city_id provided',
+//           });
+//         }
+//       }
+      
+//       if (area_id) {
+//         const area = await Area.findByPk(area_id);
+//         if (!area) {
+//           return res.status(400).json({
+//             success: false,
+//             message: 'Invalid area_id provided',
+//           });
+//         }
+        
+//         // If both city_id and area_id are provided, validate that area belongs to city
+//         // Parse IDs to ensure they're integers
+//         const parsedCityId = parseInt(city_id);
+//         const parsedAreaCityId = parseInt(area.city_id);
+        
+//         if (city_id && parsedAreaCityId !== parsedCityId) {
+//           return res.status(400).json({
+//             success: false,
+//             message: 'Area does not belong to the specified city',
+//           });
+//         }
+//       }
+//     }
+    
+//     // Check if user already exists
+//     const existingUser = await User.findOne({
+//       where: {
+//         [Op.or]: [
+//           { phone },
+//           ...(email ? [{ email }] : []),
+//         ],
+//       },
+//     });
+    
+//     let userId;
+//     let isNewUser = false;
+    
+//     if (existingUser) {
+//       // Check if already a provider
+//       const existingProvider = await Provider.findOne({
+//         where: { user_id: existingUser.id },
+//       });
+      
+//       if (existingProvider) {
+//         return res.status(409).json({
+//           success: false,
+//           message: 'You are already registered as a provider',
+//         });
+//       }
+      
+//       userId = existingUser.id;
+      
+//       // Update user role to provider
+//       await existingUser.update({ role: 'provider' });
+//     } else {
+//       // Create new user (unverified)
+//       const newUser = await User.create({
+//         first_name,
+//         last_name,
+//         phone,
+//         email,
+//         password,
+//         city_id,
+//         area_id,
+//         role: 'provider',
+//         is_verified: false, // Will be verified via OTP
+//       });
+      
+//       userId = newUser.id;
+//       isNewUser = true;
+//     }
+    
+//     // Create provider profile with verification documents
+//     const provider = await Provider.create({
+//       user_id: userId,
+//       category_id: category_id || null,
+//       business_name,
+//       bio,
+//       hourly_rate,
+//       experience_years,
+//       languages: languages || ['English'],
+//       service_areas: service_areas || [],
+//       available_days: available_days || ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
+//       working_hours: working_hours || { start: '09:00', end: '18:00' },
+//       certifications: certifications || [],
+//       status: 'pending',
+//       // Verification documents (from file uploads)
+//       id_verified_image: req.files?.id_verified_image?.[0]?.filename || null,
+//       vocational_license_image: req.files?.vocational_license_image?.[0]?.filename || null,
+//       police_clearance_image: req.files?.police_clearance_image?.[0]?.filename || null,
+//     });
+    
+//     // Generate OTP for verification (only for new users, not existing ones)
+//     const { OtpVerification } = require('../models');
+//     const NotificationFactory = require('../services/notificationService');
+    
+//     if (isNewUser) {
+//       // Only send OTP for newly created users
+//       const otpRecord = await OtpVerification.createOTP(phone, 'signup', 'phone');
+      
+//       // Send OTP
+//       const notificationService = NotificationFactory.getService('sms');
+//       await notificationService.sendOTP(phone, otpRecord.otp, 'signup');
+      
+//       // Don't return token or user data - user must verify OTP first
+//       return res.status(201).json({
+//         success: true,
+//         message: 'Provider registration submitted successfully. Please verify your phone number with the OTP sent to your phone.',
+//         data: {
+//           message: 'Please verify your phone number with the OTP sent to your phone',
+//           expires_at: otpRecord.expires_at,
+//           phone: phone,
+//           verification_required: true,
+//         },
+//       });
+//     }
+    
+//     // For existing users converting to provider, send notification email to admin
+//     if (email) {
+//       try {
+//         await emailService.sendProviderApproval(email, business_name, 'pending');
+//       } catch (emailError) {
+//         console.error('Email notification error:', emailError);
+//       }
+//     }
+    
+//     res.status(201).json({
+//       success: true,
+//       message: 'Provider registration submitted successfully. Your application is under review.',
+//       data: { provider },
+//     });
+//   } catch (error) {
+//     console.error('Provider registration error:', error);
+//     res.status(500).json({
+//       success: false,
+//       message: 'Error registering as provider',
+//       error: error.message,
+//     });
+//   }
+// };
 const registerProvider = async (req, res) => {
   try {
     let {
-      // User data
+      // User data (same as customer signup)
       first_name,
       last_name,
       phone,
@@ -241,67 +467,35 @@ const registerProvider = async (req, res) => {
       password,
       city_id,
       area_id,
-      // Provider data
-      business_name,
-      bio,
-      hourly_rate,
-      experience_years,
-      languages,
-      service_areas,
-      available_days,
-      working_hours,
-      categories,
-      certifications,
-      category_id, // Add category_id here
     } = req.body;
-    
-    // Normalize phone number if provided
+
+    // Trim and normalize values
+    first_name = first_name?.trim();
+    last_name = last_name?.trim();
+    phone = phone?.trim();
+    email = email?.trim();
+
+    // Convert empty strings to null
+    if (phone === '') phone = null;
+    if (email === '') email = null;
+
+    // Normalize phone only if provided
     if (phone) {
       phone = normalizePhoneNumber(phone);
     }
+
+    // Required fields validation
+    const hasPhone = phone && phone !== '';
+    const hasEmail = email && email !== '';
     
-    // Validate required fields
-    if (!first_name || !phone) {
+    if (!first_name || !last_name || (!hasPhone && !hasEmail) || !password) {
       return res.status(400).json({
         success: false,
-        message: 'First name and phone are required',
+        message: 'First name, last name, and either phone or email are required',
       });
     }
-    
-    // Validate required verification documents
-    if (!req.files?.id_verified_image || !req.files?.id_verified_image[0]) {
-      return res.status(400).json({
-        success: false,
-        message: 'ID verification image is required',
-      });
-    }
-    
-    if (!req.files?.vocational_license_image || !req.files?.vocational_license_image[0]) {
-      return res.status(400).json({
-        success: false,
-        message: 'Vocational license image is required',
-      });
-    }
-    
-    if (!req.files?.police_clearance_image || !req.files?.police_clearance_image[0]) {
-      return res.status(400).json({
-        success: false,
-        message: 'Police clearance image is required',
-      });
-    }
-    
-    // Validate category_id if provided
-    if (category_id) {
-      const category = await Category.findByPk(category_id);
-      if (!category) {
-        return res.status(400).json({
-          success: false,
-          message: 'Invalid category_id provided',
-        });
-      }
-    }
-    
-    // Validate city and area if provided
+
+    // Validate city & area if provided
     if (city_id || area_id) {
       const { City, Area } = require('../models');
       
@@ -324,12 +518,7 @@ const registerProvider = async (req, res) => {
           });
         }
         
-        // If both city_id and area_id are provided, validate that area belongs to city
-        // Parse IDs to ensure they're integers
-        const parsedCityId = parseInt(city_id);
-        const parsedAreaCityId = parseInt(area.city_id);
-        
-        if (city_id && parsedAreaCityId !== parsedCityId) {
+        if (city_id && area.city_id !== parseInt(city_id)) {
           return res.status(400).json({
             success: false,
             message: 'Area does not belong to the specified city',
@@ -337,124 +526,136 @@ const registerProvider = async (req, res) => {
         }
       }
     }
-    
+
     // Check if user already exists
+    const whereConditions = [];
+    if (hasPhone) whereConditions.push({ phone });
+    if (hasEmail) whereConditions.push({ email });
+
     const existingUser = await User.findOne({
       where: {
-        [Op.or]: [
-          { phone },
-          ...(email ? [{ email }] : []),
-        ],
+        [Op.or]: whereConditions
       },
     });
-    
-    let userId;
-    let isNewUser = false;
-    
+
     if (existingUser) {
-      // Check if already a provider
-      const existingProvider = await Provider.findOne({
-        where: { user_id: existingUser.id },
+      return res.status(409).json({
+        success: false,
+        message: 'User already exists',
       });
-      
-      if (existingProvider) {
-        return res.status(409).json({
-          success: false,
-          message: 'You are already registered as a provider',
-        });
-      }
-      
-      userId = existingUser.id;
-      
-      // Update user role to provider
-      await existingUser.update({ role: 'provider' });
-    } else {
-      // Create new user (unverified)
-      const newUser = await User.create({
-        first_name,
-        last_name,
-        phone,
-        email,
-        password,
-        city_id,
-        area_id,
-        role: 'provider',
-        is_verified: false, // Will be verified via OTP
-      });
-      
-      userId = newUser.id;
-      isNewUser = true;
     }
-    
-    // Create provider profile with verification documents
+
+    // Create user with provider role
+    const user = await User.create({
+      first_name,
+      last_name,
+      phone: hasPhone ? phone : null,
+      email: hasEmail ? email : null,
+      password,
+      role: 'provider',
+      city_id: city_id || null,
+      area_id: area_id || null,
+      is_verified: true, // Auto-verify for now, or set to false if you want OTP
+    });
+
+    // Create basic provider profile with default values
     const provider = await Provider.create({
-      user_id: userId,
-      category_id: category_id || null,
-      business_name,
-      bio,
-      hourly_rate,
-      experience_years,
-      languages: languages || ['English'],
-      service_areas: service_areas || [],
-      available_days: available_days || ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
-      working_hours: working_hours || { start: '09:00', end: '18:00' },
-      certifications: certifications || [],
-      status: 'pending',
-      // Verification documents (from file uploads)
-      id_verified_image: req.files?.id_verified_image?.[0]?.filename || null,
-      vocational_license_image: req.files?.vocational_license_image?.[0]?.filename || null,
-      police_clearance_image: req.files?.police_clearance_image?.[0]?.filename || null,
+      user_id: user.id,
+      business_name: `${first_name} ${last_name}`,
+      hourly_rate: 0,
+      experience_years: 0,
+      status: 'pending', // Provider needs to complete profile later
+      // Set default values for required fields
+      min_booking_hours: 1,
+      available_days: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'],
+      working_hours: { start: '09:00', end: '18:00' },
+      languages: ['English'],
+      service_areas: [],
+      portfolio_images: [],
+      certifications: [],
     });
-    
-    // Generate OTP for verification (only for new users, not existing ones)
-    const { OtpVerification } = require('../models');
-    const NotificationFactory = require('../services/notificationService');
-    
-    if (isNewUser) {
-      // Only send OTP for newly created users
-      const otpRecord = await OtpVerification.createOTP(phone, 'signup', 'phone');
-      
-      // Send OTP
-      const notificationService = NotificationFactory.getService('sms');
-      await notificationService.sendOTP(phone, otpRecord.otp, 'signup');
-      
-      // Don't return token or user data - user must verify OTP first
-      return res.status(201).json({
-        success: true,
-        message: 'Provider registration submitted successfully. Please verify your phone number with the OTP sent to your phone.',
-        data: {
-          message: 'Please verify your phone number with the OTP sent to your phone',
-          expires_at: otpRecord.expires_at,
-          phone: phone,
-          verification_required: true,
-        },
-      });
-    }
-    
-    // For existing users converting to provider, send notification email to admin
-    if (email) {
-      try {
-        await emailService.sendProviderApproval(email, business_name, 'pending');
-      } catch (emailError) {
-        console.error('Email notification error:', emailError);
-      }
-    }
-    
-    res.status(201).json({
+
+    // Generate token
+    const token = generateToken(user);
+
+    return res.status(201).json({
       success: true,
-      message: 'Provider registration submitted successfully. Your application is under review.',
-      data: { provider },
+      message: 'Provider account created successfully. Please complete your profile.',
+      data: {
+        token,
+        user: user.toJSON(),
+        requires_profile_completion: true,
+      },
     });
+
   } catch (error) {
     console.error('Provider registration error:', error);
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: 'Error registering as provider',
       error: error.message,
     });
   }
 };
+const completeProviderProfile = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const {
+      business_name,
+      bio,
+      hourly_rate,
+      experience_years,
+      category_id,
+      languages,
+      service_areas,
+      available_days,
+      working_hours,
+      certifications,
+    } = req.body;
 
+    // Find provider by user_id
+    const provider = await Provider.findOne({ where: { user_id: userId } });
+    
+    if (!provider) {
+      return res.status(404).json({
+        success: false,
+        message: 'Provider profile not found',
+      });
+    }
+
+    // Update provider profile
+    await provider.update({
+      business_name: business_name || provider.business_name,
+      bio,
+      hourly_rate: hourly_rate || provider.hourly_rate,
+      experience_years: experience_years || provider.experience_years,
+      category_id,
+      languages: languages || provider.languages,
+      service_areas: service_areas || provider.service_areas,
+      available_days: available_days || provider.available_days,
+      working_hours: working_hours || provider.working_hours,
+      certifications: certifications || provider.certifications,
+      // Handle file uploads if provided
+      id_verified_image: req.files?.id_verified_image?.[0]?.filename || provider.id_verified_image,
+      vocational_license_image: req.files?.vocational_license_image?.[0]?.filename || provider.vocational_license_image,
+      police_clearance_image: req.files?.police_clearance_image?.[0]?.filename || provider.police_clearance_image,
+    });
+
+    return res.json({
+      success: true,
+      message: 'Provider profile updated successfully',
+      data: { provider },
+    });
+
+  } catch (error) {
+    console.error('Complete profile error:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Error updating provider profile',
+      error: error.message,
+    });
+  }
+};
 // Update provider profile
 const updateProviderProfile = async (req, res) => {
   try {
@@ -709,4 +910,5 @@ module.exports = {
   updateProviderProfile,
   getProviderStats,
   getProvidersByCategory,
+  completeProviderProfile,
 };

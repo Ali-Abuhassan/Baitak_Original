@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { providerAPI, categoryAPI } from '../../utils/api';
+import { providerAPI, categoryAPI } from '../../services/api';
 import { HiPlus, HiPencil, HiTrash, HiEye, HiEyeOff, HiX, HiPhotograph } from 'react-icons/hi';
 import { HiCurrencyDollar, HiClock, HiStar } from 'react-icons/hi';
 import toast from 'react-hot-toast';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useTranslation } from 'react-i18next';
-import { formatPrice } from '../../utils/currency';
+import { formatPrice } from '../../services/currency';
 
 const ServiceManagement = () => {
   const { t } = useTranslation();

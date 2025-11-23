@@ -1,3 +1,4 @@
+require('dotenv').config();
 const sequelize = require('../config/database');
 const { User, Provider, Category, Service, Booking, Rating, City, Area } = require('../models');
 const { seedJordanCities } = require('./cityAreaSeeder');
@@ -9,7 +10,7 @@ const seedDatabase = async () => {
     console.log('🌱 Starting database seeding...'.cyan);
 
     // Sync database (create tables)
-    await sequelize.sync({ alter: true });
+    await sequelize.sync({ alter: false });
     console.log('✅ Database synced'.green);
 
     // Seed cities and areas first

@@ -24,7 +24,7 @@ const Provider = sequelize.define(
     },
     business_name: {
       type: DataTypes.STRING(200),
-      allowNull: false,
+      allowNull: true,
     },
     business_name_en: {
       type: DataTypes.STRING(200),
@@ -48,7 +48,7 @@ const Provider = sequelize.define(
     },
     hourly_rate: {
       type: DataTypes.DECIMAL(10, 2),
-      allowNull: false,
+      allowNull: true,
       defaultValue: 0,
     },
     min_booking_hours: {

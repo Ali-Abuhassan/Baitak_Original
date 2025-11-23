@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import api from '../utils/api';
+import api, { authAPI } from '../services/api';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 
@@ -60,7 +60,11 @@ export const AuthProvider = ({ children }) => {
       console.log('Original credentials:', credentials);
       console.log('Formatted credentials:', formattedCredentials);
       console.log('API URL:', api.defaults.baseURL);
-      response = await api.post('/auth/login', formattedCredentials);
+      // response = await api.post('/auth/login', formattedCredentials);
+      response = await api.post('/auth/login', {
+  ...formattedCredentials,
+  role: credentials.role,
+});
       console.log('Login response:', response?.data);
       
       // Safely extract token and user with null checks
@@ -82,94 +86,195 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem('guest_phone');
       
       console.log('Login successful, user set:', user);
-      toast.success(t('auth.messages.loginSuccess'));
+      // toast.success(t('auth.messages.loginSuccess'));
       return { success: true, user };
-    } catch (error) {
-      console.error('Login error:', error);
-      // Safely access error response
-      const errorResponse = error?.response;
-      if (errorResponse) {
-        console.error('Error response:', errorResponse.data);
-      }
-      const message = errorResponse?.data?.message || error?.message || t('auth.messages.loginFailed');
-      const errorMessage = message.toLowerCase();
+    } 
+    // catch (error) {
+    //   console.error('Login error:', error);
+    //   // Safely access error response
+    //   const errorResponse = error?.response;
+    //   if (errorResponse) {
+    //     console.error('Error response:', errorResponse.data);
+    //   }
+    //   const message = errorResponse?.data?.message || error?.message || t('auth.messages.loginFailed');
+    //   const errorMessage = message.toLowerCase();
       
-      // Check if user is not verified
-      const isUnverified = 
-        errorMessage.includes('not verified') ||
-        errorMessage.includes('unverified') ||
-        errorMessage.includes('phone not verified') ||
-        errorMessage.includes('email not verified') ||
-        errorMessage.includes('verification required') ||
-        errorMessage.includes('needs verification') ||
-        errorResponse?.status === 403 ||
-        errorResponse?.data?.code === 'UNVERIFIED';
+    //   // Check if user is not verified
+    //   const isUnverified = 
+    //     errorMessage.includes('not verified') ||
+    //     errorMessage.includes('unverified') ||
+    //     errorMessage.includes('phone not verified') ||
+    //     errorMessage.includes('email not verified') ||
+    //     errorMessage.includes('verification required') ||
+    //     errorMessage.includes('needs verification') ||
+    //     errorResponse?.status === 403 ||
+    //     errorResponse?.data?.code === 'UNVERIFIED';
       
-      // Extract phone or email from credentials
-      const phoneOrEmail = credentials?.phone || credentials?.email || '';
+    //   // Extract phone or email from credentials
+    //   const phoneOrEmail = credentials?.phone || credentials?.email || '';
       
-      if (isUnverified) {
-        // Don't show error toast for unverified users - modal will handle it
-        return { 
-          success: false, 
-          message, 
-          needsVerification: true,
-          phoneOrEmail: phoneOrEmail
-        };
-      }
+    //   if (isUnverified) {
+    //     // Don't show error toast for unverified users - modal will handle it
+    //     return { 
+    //       success: false, 
+    //       message, 
+    //       needsVerification: true,
+    //       phoneOrEmail: phoneOrEmail
+    //     };
+    //   }
       
-      toast.error(message);
-      return { success: false, message };
-    }
+    //   toast.error(message);
+    //   return { success: false, message };
+    // }
+    catch (error) {
+  console.error("Login error:", error);
+
+  const errorResponse = error?.response;
+
+  if (errorResponse) {
+    console.error("Error response:", errorResponse.data);
+  }
+
+  const message =
+    errorResponse?.data?.message ||
+    error?.message ||
+    t("auth.messages.loginFailed");
+
+  // toast.error(message);
+  // return { success: false, message };
+}
   };
 
-  const signup = async (userData) => {
-    try {
-      console.log('Signup data:', userData);
+  // const signup = async (userData) => {
+  //   try {
+  //     console.log('Signup data:', userData);
       
-      // Use different endpoints based on role
-      const endpoint = userData.role === 'provider' 
-        ? '/providers/register' 
-        : '/auth/signup';
+  //     // Use different endpoints based on role
+  //     const endpoint = userData.role === 'provider' 
+  //       ? '/providers/register' 
+  //       : '/auth/signup';
       
-      console.log('Using endpoint:', endpoint);
+  //     console.log('Using endpoint:', endpoint);
       
-      const response = await api.post(endpoint, userData);
-      console.log('Signup response:', response.data);
+  //     const response = await api.post(endpoint, userData);
+  //     console.log('Signup response:', response.data);
       
-      // For customer signup, API returns: { success: true, message: "account_created_verify_otp", data: { expires_at, phone, message } }
-      // For provider signup, it might return different structure
-      if (userData.role === 'provider') {
-        const { user, verification_required } = response.data.data || {};
-        toast.success(t('auth.messages.signupSuccess'));
-        return { success: true, user, verification_required };
-      } else {
-        // Customer signup response structure
-        const { expires_at, phone, message } = response.data.data || {};
-        toast.success(response.data.message || t('auth.messages.signupSuccess'));
-        return { success: true, expires_at, phone, message: response.data.message };
-      }
-    } catch (error) {
-      console.error('Signup error:', error);
-      console.error('Error response:', error.response?.data);
-      console.error('Error status:', error.response?.status);
-      console.error('Request data sent:', userData);
+  //     // For customer signup, API returns: { success: true, message: "account_created_verify_otp", data: { expires_at, phone, message } }
+  //     // For provider signup, it might return different structure
+  //     if (userData.role === 'provider') {
+  //       const { user, verification_required } = response.data.data || {};
+  //       toast.success(t('auth.messages.signupSuccess'));
+  //       return { success: true, user, verification_required };
+  //     } else {
+  //       // Customer signup response structure
+  //       const { expires_at, phone, message } = response.data.data || {};
+  //       toast.success(response.data.message || t('auth.messages.signupSuccess'));
+  //       return { success: true, expires_at, phone, message: response.data.message };
+  //     }
+  //   } catch (error) {
+  //     console.error('Signup error:', error);
+  //     console.error('Error response:', error.response?.data);
+  //     console.error('Error status:', error.response?.status);
+  //     console.error('Request data sent:', userData);
       
-      const message = error.response?.data?.message || t('auth.messages.signupFailed');
-      const validationErrors = error.response?.data?.errors;
+  //     const message = error.response?.data?.message || t('auth.messages.signupFailed');
+  //     const validationErrors = error.response?.data?.errors;
       
-      if (validationErrors && validationErrors.length > 0) {
-        console.error('Validation errors:', validationErrors);
-        toast.error(`${t('auth.messages.validationError')}: ${validationErrors[0].message}`);
-      } else {
-        toast.error(message);
-      }
+  //     if (validationErrors && validationErrors.length > 0) {
+  //       console.error('Validation errors:', validationErrors);
+  //       toast.error(`${t('auth.messages.validationError')}: ${validationErrors[0].message}`);
+  //     } else {
+  //       toast.error(message);
+  //     }
       
-      return { success: false, message };
-    }
-  };
+  //     return { success: false, message };
+  //   }
+  // };
+// const signup = async (userData) => {
+//   try {
+//     const endpoint = userData.role === 'provider'
+//       ? '/providers/register'
+//       : '/auth/signup';
+// console.log("Sending signup request payload:", userData);
 
-  const sendOTP = async (phoneOrEmail, purpose) => {
+//     const response = await api.post(endpoint, userData);
+
+//     toast.success("Account created successfully");
+
+//     // Return immediate token + user
+//     return {
+//       success: true,
+//       token: response.data.data.token,
+//       user: response.data.data.user,
+//     };
+
+//   } catch (error) {
+//     console.log("BACKEND VALIDATION ERRORS:", error.response?.data);
+
+//     const message = error.response?.data?.message || "Signup failed";
+//     toast.error(message);
+//     return { success: false };
+//   }
+// };
+// const signup = async (userData) => {
+//   try {
+//     // For providers, use the provider endpoint but with basic user data only
+//     const endpoint = userData.role === 'provider' 
+//       ? '/providers/register' 
+//       : '/auth/signup';
+    
+//     console.log("Sending signup request payload:", userData);
+
+//     const response = await api.post(endpoint, userData);
+
+//     toast.success("Account created successfully");
+
+//     // Return immediate token + user
+//     return {
+//       success: true,
+//       token: response.data.data.token,
+//       user: response.data.data.user,
+//     };
+
+//   } catch (error) {
+//     console.log("BACKEND VALIDATION ERRORS:", error.response?.data);
+
+//     const message = error.response?.data?.message || "Signup failed";
+//     toast.error(message);
+//     return { success: false };
+//   }
+// };
+  
+const signup = async (userData) => {
+  try {
+    const endpoint = userData.role === 'provider'
+      ? '/providers/register'
+      : '/auth/signup';
+    
+    console.log("Sending signup request payload:", userData);
+
+    const response = await api.post(endpoint, userData);
+    
+    console.log("Backend response:", response.data); // Debug the response
+
+    toast.success("Account created successfully");
+
+    // Return the actual response structure from backend
+    return {
+      success: true,
+      ...response.data // Spread the entire backend response
+    };
+
+  } catch (error) {
+    console.log("BACKEND VALIDATION ERRORS:", error.response?.data);
+
+    const message = error.response?.data?.message || "Signup failed";
+    toast.error(message);
+    return { success: false };
+  }
+};
+
+const sendOTP = async (phoneOrEmail, purpose) => {
     try {
       const data = {};
       if (phoneOrEmail.includes('@')) {
@@ -192,6 +297,8 @@ export const AuthProvider = ({ children }) => {
       data.purpose = purpose;
       
       console.log('Sending OTP with data:', data);
+      const resp=await authAPI.sendOTP(data);
+      console.log("with reusable : ",resp.data);//its work
       const response = await api.post('/auth/send-otp', data);
       console.log('OTP response:', response.data);
       toast.success(t('auth.messages.otpSent'));

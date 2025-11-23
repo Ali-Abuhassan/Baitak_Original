@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { providerAPI, bookingAPI } from '../../utils/api';
-import api from '../../utils/api';
+import { providerAPI, bookingAPI } from '../../services/api';
+import api from '../../services/api';
 import { HiCalendar, HiClock, HiCurrencyDollar, HiStar, HiTrendingUp, HiUsers, HiCog, HiUser, HiLocationMarker, HiPhone, HiMail, HiCheckCircle, HiXCircle, HiExclamationCircle, HiExclamation } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useTranslation } from 'react-i18next';
-import { formatPrice } from '../../utils/currency';
-import CompleteBookingModal from '../../components/CompleteBookingModal';
+import { formatPrice } from '../../services/currency';
+import CompleteBookingModal from '../../components/sharedInputs/CompleteBookingModal';
 
 const ProviderDashboard = () => {
   const { t, i18n } = useTranslation();

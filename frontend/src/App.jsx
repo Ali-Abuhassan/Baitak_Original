@@ -4,22 +4,22 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { Toaster } from 'react-hot-toast';
 
 // Layout Components
-import Layout from './components/layout/Layout';
-import PrivateRoute from './components/auth/PrivateRoute';
-import ScrollToTop from './components/ScrollToTop';
+import Layout from './layout/Layout';
+import PrivateRoute from './auth/PrivateRoute';
+import ScrollToTop from './components/sharedComp/ScrollToTop';
 
 // Pages
-import Home from './pages/Home';
-import Services from './pages/Services';
-import ServiceDetail from './pages/ServiceDetail';
-import Providers from './pages/Providers';
-import ProviderProfile from './pages/ProviderProfile';
-import Booking from './pages/Booking';
-import BookingSuccess from './pages/BookingSuccess';
-import BookingDetails from './pages/BookingDetails';
+import Home from './pages/public/Home';
+import Services from './pages/public/Services';
+import ServiceDetail from './pages/public/ServiceDetail';
+import Providers from './pages/users/Providers';
+import ProviderProfile from './pages/provider/ProviderProfile';
+import Booking from './pages/public/Booking';
+import BookingSuccess from './pages/public/BookingSuccess';
+import BookingDetails from './pages/public/BookingDetails';
 import Search from './pages/Search';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
+import Login from './pages/public/Login';
+import Signup from './pages/public/Signup';
 import VerifyPhone from './pages/VerifyPhone';
 import UserDashboard from './pages/dashboard/UserDashboard';
 import ProviderDashboard from './pages/dashboard/ProviderDashboard';
@@ -31,15 +31,16 @@ import AdminProviders from './pages/dashboard/AdminProviders';
 import AdminCustomers from './pages/dashboard/AdminCustomers';
 import AdminProviderDocuments from './pages/dashboard/AdminProviderDocuments';
 import AdminCategories from './pages/dashboard/AdminCategories';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import NotFound from './pages/NotFound';
-import ProviderRegister from './pages/ProviderRegister';
-import ProviderRegistrationSuccess from './pages/ProviderRegistrationSuccess';
+import About from './pages/public/About';
+import Contact from './pages/public/Contact';
+import NotFound from './pages/public/NotFound';
+import ProviderRegister from './pages/provider/ProviderRegister';
+import ProviderRegistrationSuccess from './pages/provider/ProviderRegistrationSuccess';
 
 // Contexts
 import { AuthProvider } from './contexts/AuthContext';
 import './i18n';
+import GuestServiceRequest from './components/sharedInputs/GuestServiceRequest';
 
 // Create a client
 const queryClient = new QueryClient({
@@ -62,6 +63,7 @@ function App() {
             <Routes>
               {/* Public Routes */}
               <Route path="/" element={<Home />} />
+              <Route path="/servicereq" element={<GuestServiceRequest />} />
               <Route path="/services" element={<Services />} />
               <Route path="/services/:id" element={<ServiceDetail />} />
               <Route path="/providers" element={<Providers />} />
